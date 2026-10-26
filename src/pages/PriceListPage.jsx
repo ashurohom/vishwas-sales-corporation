@@ -69,7 +69,7 @@ export default function PriceListPage({ onOpenInquiry }) {
             <FileText className="w-3.5 h-3.5" />
             <span>Authorized Wholesale & Institutional Rates</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase">
+          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-white uppercase">
             Official Price List Desk
           </h1>
           <p className="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
@@ -88,7 +88,7 @@ export default function PriceListPage({ onOpenInquiry }) {
               <span className="text-xs font-bold uppercase tracking-wider text-red-600">
                 Direct Authorized Margins
               </span>
-              <h2 className="text-2xl font-black text-slate-900 mt-1">
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-1">
                 Product Categories Available for Wholesale Rate Card
               </h2>
               <p className="text-xs text-slate-500 mt-1">

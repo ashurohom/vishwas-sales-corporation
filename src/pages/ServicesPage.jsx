@@ -14,7 +14,7 @@ export default function ServicesPage({ onOpenInquiry }) {
             <Wrench className="w-3.5 h-3.5" />
             <span>Turnkey Engineering & Rapid Maintenance</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase">
+          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-white uppercase">
             Specialized Water & Pump Services
           </h1>
           <p className="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 
 export default function DistributorBrandsSection({ onOpenInquiry }) {
   const distributorBrands = [
@@ -64,7 +64,7 @@ export default function DistributorBrandsSection({ onOpenInquiry }) {
         {/* Section Heading with Exact Left & Right Red Accent Lines */}
         <div className="flex items-center justify-center gap-3 sm:gap-6 mb-8 sm:mb-10">
           <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight text-center">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight text-center">
             Authorized distributor for{' '}
             <span className="text-red-600">leading brands</span>
           </h2>
@@ -101,35 +101,21 @@ export default function DistributorBrandsSection({ onOpenInquiry }) {
         </div>
       </div>
 
-      {/* Trust Highlights & Link */}
+      {/* Trust Highlights */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-100">
-          
-          {/* Trust Pills */}
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6 text-xs text-slate-600 font-medium">
-            <span className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>100% Genuine Factory Direct Supply</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-red-600 shrink-0" />
-              <span>Certified ISI Grade Inventory</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
-              <span>Wholesale Institutional Rates</span>
-            </span>
-          </div>
-
-          {/* Action Link to Full Product Catalog */}
-          <Link
-            to="/products"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-red-600 hover:text-red-700 transition-colors group"
-          >
-            <span>Explore All 50+ Authorized Brands</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 pt-6 border-t border-slate-100 text-xs text-slate-600 font-medium">
+          <span className="inline-flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span>100% Genuine Factory Direct Supply</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 text-red-600 shrink-0" />
+            <span>Certified ISI Grade Inventory</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
+            <span>Wholesale Institutional Rates</span>
+          </span>
         </div>
       </div>
     </section>

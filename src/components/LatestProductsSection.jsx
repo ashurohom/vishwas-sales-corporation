@@ -29,7 +29,7 @@ export default function LatestProductsSection({ onOpenInquiry }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Sleek, Low-Profile Section Heading - No tags or taglines */}
         <div className="text-center mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Our Latest <span className="text-red-600">Products</span>
           </h2>
           <div className="w-10 h-0.5 bg-red-600 rounded-full mx-auto mt-2" />

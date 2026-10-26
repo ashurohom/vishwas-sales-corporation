@@ -34,7 +34,7 @@ export default function AboutSection({ onOpenInquiry }) {
               <span>Since 1985 • Over 40 Years of Trust</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
               Welcome to <br />
               <span className="text-red-600">VISHWAS SALES CORPORATION</span>
             </h2>
