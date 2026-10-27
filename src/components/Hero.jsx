@@ -35,7 +35,7 @@ export default function Hero({ onOpenInquiry }) {
               <span className="block text-xs sm:text-sm md:text-base lg:text-lg font-black uppercase tracking-widest text-red-500 mb-1 sm:mb-1.5">
                 VISHWAS SALES CORPORATION
               </span>
-              Pune's Leading Name in{' '}
+              Pune's Leading Brand in{' '}
               <span className="block sm:inline text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-red-400">
                 Plumbing & Pumping
               </span>{' '}

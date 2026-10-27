@@ -15,6 +15,7 @@ import CataloguesPage from './pages/CataloguesPage';
 import PriceListPage from './pages/PriceListPage';
 import FAQsPage from './pages/FAQsPage';
 import ContactPage from './pages/ContactPage';
+import SubTypeDetailsPage from './pages/SubTypeDetailsPage';
 
 export default function App() {
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
@@ -42,15 +43,18 @@ export default function App() {
         {/* Separate Routed Pages */}
         <main className="flex-1">
           <Routes>
-            <Route path="/" element={<HomePage onOpenInquiry={handleOpenInquiry} />} />
+            <Route path="/" element={<HomePage onOpenInquiry={handleOpenInquiry} />}/>
             <Route path="/about" element={<AboutPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/products" element={<ProductsPage onOpenInquiry={handleOpenInquiry} />} />
+            {/* Registered Route for Product Sub-Types Details */}
+            <Route path="/products/subtypes" element={<SubTypeDetailsPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/services" element={<ServicesPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/clients" element={<ClientsPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/catalogues" element={<CataloguesPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/pricelist" element={<PriceListPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/faqs" element={<FAQsPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/contact" element={<ContactPage />} />
+            
             {/* Fallback */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
