@@ -29,7 +29,7 @@ export default function AboutPage({ onOpenInquiry }) {
       <AboutSection onOpenInquiry={onOpenInquiry} />
 
       {/* Promises */}
-      <OurPromises onOpenInquiry={onOpenInquiry} />
+      {/* <OurPromises onOpenInquiry={onOpenInquiry} /> */}
 
       {/* Credential Associations Banner */}
       <section className="py-16 bg-white border-b border-slate-200">

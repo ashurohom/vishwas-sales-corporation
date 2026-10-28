@@ -27,7 +27,7 @@ export default function LatestProductsSection({ onOpenInquiry }) {
   return (
     <section className="relative py-8 sm:py-10 lg:py-12 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Sleek, Low-Profile Section Heading - No tags or taglines */}
+        {/* Sleek, Low-Profile Section Heading */}
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Our Latest <span className="text-red-600">Products</span>
@@ -40,12 +40,12 @@ export default function LatestProductsSection({ onOpenInquiry }) {
           {latestProducts.map((product) => (
             <div
               key={product.id}
-              className="group relative bg-white rounded-2xl border border-slate-200/90 hover:border-red-400/80 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 p-3.5 sm:p-4 flex flex-col justify-between"
+              className="group relative bg-gradient-to-r from-red-50/50 via-white to-white rounded-3xl border border-red-100 shadow-sm hover:shadow-xl hover:border-red-300 transition-all duration-300 hover:-translate-y-1 p-4 sm:p-5 flex flex-col justify-between"
             >
-              {/* Increased Image Display Frame */}
+              {/* Image Display Frame */}
               <Link
                 to={product.link}
-                className="relative w-full h-48 sm:h-52 lg:h-56 rounded-xl bg-slate-50/60 border border-slate-100 flex items-center justify-center p-2 overflow-hidden"
+                className="relative w-full h-48 sm:h-52 lg:h-56 rounded-2xl bg-slate-50/80 border border-slate-100 flex items-center justify-center p-3 overflow-hidden"
               >
                 {/* Subtle Radial Hover Accent */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.06),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
@@ -59,16 +59,16 @@ export default function LatestProductsSection({ onOpenInquiry }) {
                 />
 
                 {/* Corner Inspect Affordance */}
-                <div className="absolute top-2.5 right-2.5 w-6 h-6 rounded-md bg-white/90 backdrop-blur-xs border border-slate-200/70 flex items-center justify-center text-slate-400 group-hover:text-red-600 group-hover:border-red-200 transition-colors">
+                <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-lg bg-white/90 backdrop-blur-xs border border-slate-200/70 flex items-center justify-center text-slate-400 group-hover:text-red-600 group-hover:border-red-200 transition-colors shadow-xs">
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </div>
               </Link>
 
               {/* Slim Action Bar */}
-              <div className="mt-3.5">
+              <div className="mt-4">
                 <Link
                   to={product.link}
-                  className="relative flex items-center justify-between w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-red-600 to-red-700 text-white shadow-xs group-hover:shadow-sm group-hover:from-red-600 group-hover:to-rose-600 transition-all duration-300 overflow-hidden"
+                  className="relative flex items-center justify-between w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-red-600 to-red-700 text-white shadow-xs group-hover:shadow-md group-hover:from-red-600 group-hover:to-rose-600 transition-all duration-300 overflow-hidden"
                 >
                   <span className="text-sm sm:text-base font-bold tracking-wide">
                     {product.title}

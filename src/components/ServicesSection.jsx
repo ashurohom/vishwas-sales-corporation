@@ -203,34 +203,7 @@ export default function ServicesSection({ onOpenInquiry }) {
         </div>
 
         {/* Standby Pump / Society Guarantee Box */}
-        <div className="mt-12 rounded-3xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-widest text-red-100">
-              Zero Water Interruption Guarantee
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-black mt-1">
-              Housing Society Facing a Pump Breakdown?
-            </h3>
-            <p className="mt-2 text-sm text-red-100 leading-relaxed">
-              Don't call expensive emergency water tankers. Vishwas Sales provides immediate standby backup pumps while our workshop rewinds or overhauls your existing pump.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full md:w-auto">
-            <a
-              href={`tel:${companyInfo.phone1.replace(/\s+/g, '')}`}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white text-red-600 hover:bg-slate-50 font-bold text-xs uppercase tracking-wider shadow-lg transition-transform active:scale-95"
-            >
-              <PhoneCall className="w-4 h-4" />
-              <span>Call Service Desk: {companyInfo.phone1}</span>
-            </a>
-            <button
-              onClick={() => onOpenInquiry && onOpenInquiry('Housing Society Energy Audit & Standby Pump')}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-950/80 hover:bg-slate-950 text-white font-bold text-xs uppercase tracking-wider transition-all"
-            >
-              <span>Book Energy Audit</span>
-            </button>
-          </div>
-        </div>
+        
 
       </div>
     </section>

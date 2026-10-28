@@ -35,7 +35,7 @@ export default function Hero({ onOpenInquiry }) {
               <span className="block text-xs sm:text-sm md:text-base lg:text-lg font-black uppercase tracking-widest text-red-500 mb-1 sm:mb-1.5">
                 VISHWAS SALES CORPORATION
               </span>
-              Pune's Leading Name in{' '}
+              Pune's Leading Brand in{' '}
               <span className="block sm:inline text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-red-400">
                 Plumbing & Pumping
               </span>{' '}
@@ -48,15 +48,7 @@ export default function Hero({ onOpenInquiry }) {
             </p>
 
             {/* Action Buttons */}
-            <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start">
-              <button
-                onClick={() => onOpenInquiry && onOpenInquiry('Hero Quotation Request')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 hover:from-red-700 hover:to-rose-800 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-red-600/30 hover:shadow-red-600/50 transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-              >
-                <span>Request Project Quote</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+            
 
           </div>
 
