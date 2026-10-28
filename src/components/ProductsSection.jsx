@@ -1,750 +1,800 @@
-import React, { useState } from 'react';
+
+import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  Check, 
-  Search, 
-  ArrowRight, 
-  Layers, 
-  Droplet, 
-  Cpu, 
-  Sun, 
-  ShieldCheck,
-  PackageCheck
+import {
+  Search,
+  Package,
+  ArrowRight,
+  MessageSquare,
+  Filter,
+  X,
 } from 'lucide-react';
 
-export default function ProductsSection({ onOpenInquiry }) {
+
+const products = [
+  {
+    brand: 'Raksha Pipes',
+    category: 'Pipes & Fittings',
+    tagline: 'Plumbing, sanitary, agriculture and water tank solutions',
+    details: [
+      'Piping solutions for plumbing and water supply',
+      'Products for agricultural applications',
+      'Options for residential and commercial projects',
+    ],
+    subTypes: [
+      {
+        id: 'RAK-01',
+        name: 'PVC Pipes',
+        categoryType: 'PVC Pipe',
+        imgUrl: '',
+        applications: ['Plumbing', 'Water supply'],
+      },
+      {
+        id: 'RAK-02',
+        name: 'Pipe Fittings',
+        categoryType: 'Pipe Fittings',
+        imgUrl: '',
+        applications: ['Plumbing installations'],
+      },
+    ],
+  },
+  {
+    brand: 'Ashirvad by aliaxis',
+    category: 'Pipes & Fittings',
+    tagline: 'Plumbing, sanitary and water supply solutions',
+    details: [
+      'Piping systems for building plumbing',
+      'Pipes and compatible fittings',
+      'Products for suitable water supply applications',
+    ],
+    subTypes: [
+      {
+        id: 'ASH-01',
+        name: 'CPVC Pipes',
+        categoryType: 'CPVC Pipe',
+        imgUrl: '',
+        applications: ['Building plumbing'],
+      },
+      {
+        id: 'ASH-02',
+        name: 'Pipe Fittings',
+        categoryType: 'Pipe Fittings',
+        imgUrl: '',
+        applications: ['Plumbing installations'],
+      },
+    ],
+  },
+  {
+    brand: 'C.R.I. Pumps',
+    category: 'Pumps',
+    tagline: 'Agriculture, residential, industrial and sewage pumps',
+    details: [
+      'Pumping solutions for different applications',
+      'Options for agricultural and residential water supply',
+      'Product selection based on required specifications',
+    ],
+    subTypes: [
+      {
+        id: 'CRI-01',
+        name: 'Submersible Pump',
+        categoryType: 'Submersible Pump',
+        imgUrl: '',
+        applications: ['Water supply', 'Agriculture'],
+      },
+      {
+        id: 'CRI-02',
+        name: 'Monoblock Pump',
+        categoryType: 'Monoblock Pump',
+        imgUrl: '',
+        applications: ['Water transfer', 'Water supply'],
+      },
+      {
+        id: 'CRI-03',
+        name: 'Sewage Pump',
+        categoryType: 'Sewage Pump',
+        imgUrl: '',
+        applications: ['Sewage handling'],
+      },
+    ],
+  },
+  {
+    brand: 'Hydro-Pneumatic Water Supply System',
+    category: 'Water Supply Systems',
+    tagline: 'Complete water supply solutions and turnkey projects',
+    details: [
+      'Integrated water supply system solutions',
+      'Pressure boosting and distribution requirements',
+      'Project-based system selection',
+    ],
+    subTypes: [
+      {
+        id: 'HPS-01',
+        name: 'Hydro-Pneumatic Booster System',
+        categoryType: 'Booster System',
+        imgUrl: '',
+        applications: ['Buildings', 'Water supply projects'],
+      },
+      {
+        id: 'HPS-02',
+        name: 'Turnkey Water Supply Solution',
+        categoryType: 'Turnkey Project',
+        imgUrl: '',
+        applications: ['Residential and commercial projects'],
+      },
+    ],
+  },
+  {
+    brand: 'Huliot India',
+    category: 'Pipes & Fittings',
+    tagline: 'Plumbing water supply, wastewater and drainage',
+    details: [
+      'Piping and drainage solutions',
+      'Wastewater management applications',
+      'Product selection based on system requirements',
+    ],
+    subTypes: [
+      {
+        id: 'HUL-01',
+        name: 'Drainage Pipes',
+        categoryType: 'Drainage Pipe',
+        imgUrl: '',
+        applications: ['Building drainage'],
+      },
+      {
+        id: 'HUL-02',
+        name: 'Drainage Fittings',
+        categoryType: 'Drainage Fittings',
+        imgUrl: '',
+        applications: ['Drainage installations'],
+      },
+    ],
+  },
+  {
+    brand: 'Leader Valves Limited',
+    category: 'Valves',
+    tagline: 'Valves for a range of applications',
+    details: [
+      'Flow control and isolation products',
+      'Valve selection based on application',
+      'Confirm available materials and sizes',
+    ],
+    subTypes: [
+      {
+        id: 'LEA-01',
+        name: 'Ball Valve',
+        categoryType: 'Ball Valve',
+        imgUrl: '',
+        applications: ['Flow control'],
+      },
+      {
+        id: 'LEA-02',
+        name: 'Gate Valve',
+        categoryType: 'Gate Valve',
+        imgUrl: '',
+        applications: ['Water distribution'],
+      },
+      {
+        id: 'LEA-03',
+        name: 'Check Valve',
+        categoryType: 'Check Valve',
+        imgUrl: '',
+        applications: ['Flow control systems'],
+      },
+    ],
+  },
+  {
+    brand: 'Autocon',
+    category: 'Electrical Control Panels',
+    tagline: 'Electronic control panels',
+    details: [
+      'Control panel solutions',
+      'Electrical control requirements',
+      'Panel selection based on application',
+    ],
+    subTypes: [
+      {
+        id: 'AUT-01',
+        name: 'Electrical Control Panel',
+        categoryType: 'Control Panel',
+        imgUrl: '',
+        applications: ['Equipment control'],
+      },
+    ],
+  },
+  {
+    brand: 'Sintex',
+    category: 'Water Tanks',
+    tagline: 'Water storage solutions',
+    details: [
+      'Water storage products',
+      'Options for residential and commercial applications',
+      'Capacity selection based on requirements',
+    ],
+    subTypes: [
+      {
+        id: 'SIN-01',
+        name: 'Water Storage Tank',
+        categoryType: 'Water Tank',
+        imgUrl: '',
+        applications: ['Water storage'],
+      },
+    ],
+  },
+  {
+    brand: 'Johnson Bathware',
+    category: 'Bathware',
+    tagline: 'CP fittings and sanitaryware',
+    details: [
+      'Bathroom fittings',
+      'Sanitaryware products',
+      'Options for bathroom projects',
+    ],
+    subTypes: [
+      {
+        id: 'JB-01',
+        name: 'CP Fittings',
+        categoryType: 'CP Fittings',
+        imgUrl: '',
+        applications: ['Bathroom installations'],
+      },
+      {
+        id: 'JB-02',
+        name: 'Sanitaryware',
+        categoryType: 'Sanitaryware',
+        imgUrl: '',
+        applications: ['Bathrooms'],
+      },
+    ],
+  },
+  {
+    brand: 'Kohler',
+    category: 'Bathware',
+    tagline: 'CP fittings and sanitaryware',
+    details: [
+      'Bathroom fittings and fixtures',
+      'Sanitaryware options',
+      'Selection based on project design',
+    ],
+    subTypes: [
+      {
+        id: 'KOH-01',
+        name: 'CP Fittings',
+        categoryType: 'CP Fittings',
+        imgUrl: '',
+        applications: ['Bathroom installations'],
+      },
+      {
+        id: 'KOH-02',
+        name: 'Sanitaryware',
+        categoryType: 'Sanitaryware',
+        imgUrl: '',
+        applications: ['Bathrooms'],
+      },
+    ],
+  },
+  {
+    brand: 'WAASOL',
+    category: 'Solar Water Heaters',
+    tagline: 'Solar water heaters and PV solar water heaters',
+    details: [
+      'Solar water heating solutions',
+      'Options based on hot water demand',
+      'System selection based on installation requirements',
+    ],
+    subTypes: [
+      {
+        id: 'WAA-01',
+        name: 'Solar Water Heater',
+        categoryType: 'Solar Water Heater',
+        imgUrl: '',
+        applications: ['Hot water supply'],
+      },
+      {
+        id: 'WAA-02',
+        name: 'PV Solar Water Heating System',
+        categoryType: 'PV Solar System',
+        imgUrl: '',
+        applications: ['Solar energy applications'],
+      },
+    ],
+  },
+  {
+    brand: 'LAXSO',
+    category: 'Solar Water Heaters',
+    tagline: 'Solar water heaters and PV solar water heaters',
+    details: [
+      'Solar water heating products',
+      'Solutions based on hot water requirements',
+      'Confirm available system types',
+    ],
+    subTypes: [
+      {
+        id: 'LAX-01',
+        name: 'Solar Water Heater',
+        categoryType: 'Solar Water Heater',
+        imgUrl: '',
+        applications: ['Hot water supply'],
+      },
+      {
+        id: 'LAX-02',
+        name: 'PV Solar Water Heating System',
+        categoryType: 'PV Solar System',
+        imgUrl: '',
+        applications: ['Solar energy applications'],
+      },
+    ],
+  },
+  {
+    brand: 'R Drain',
+    category: 'Drainage Products',
+    tagline: 'HDPE subsoil drainage pipe',
+    details: [
+      'Subsoil drainage pipe solutions',
+      'Drainage products for suitable projects',
+      'Confirm pipe dimensions and specifications',
+    ],
+    subTypes: [
+      {
+        id: 'RD-01',
+        name: 'HDPE Subsoil Drainage Pipe',
+        categoryType: 'HDPE Drainage Pipe',
+        imgUrl: '',
+        applications: ['Subsoil drainage'],
+      },
+    ],
+  },
+  {
+    brand: 'Kisan',
+    category: 'Pipes & Hoses',
+    tagline: 'HDPE, PVC, hose suction and garden pipes',
+    details: [
+      'HDPE and PVC pipe options',
+      'Hose suction pipe products',
+      'Garden pipe solutions',
+    ],
+    subTypes: [
+      {
+        id: 'KIS-01',
+        name: 'HDPE Pipes',
+        categoryType: 'HDPE Pipe',
+        imgUrl: '',
+        applications: ['Water distribution'],
+      },
+      {
+        id: 'KIS-02',
+        name: 'PVC Pipes',
+        categoryType: 'PVC Pipe',
+        imgUrl: '',
+        applications: ['Piping installations'],
+      },
+      {
+        id: 'KIS-03',
+        name: 'Hose Suction Pipes',
+        categoryType: 'Hose Suction',
+        imgUrl: '',
+        applications: ['Water transfer'],
+      },
+      {
+        id: 'KIS-04',
+        name: 'Garden Pipes',
+        categoryType: 'Garden Pipe',
+        imgUrl: '',
+        applications: ['Gardening', 'Watering'],
+      },
+    ],
+  },
+  {
+    brand: 'Maru Ropes',
+    category: 'Ropes',
+    tagline: 'PP and nylon ropes, ISI and non-ISI',
+    details: [
+      'Polypropylene rope options',
+      'Nylon rope options',
+      'Confirm certification and specifications for each product',
+    ],
+    subTypes: [
+      {
+        id: 'MAR-01',
+        name: 'PP Rope',
+        categoryType: 'Polypropylene Rope',
+        imgUrl: '',
+        applications: ['General rope applications'],
+      },
+      {
+        id: 'MAR-02',
+        name: 'Nylon Rope',
+        categoryType: 'Nylon Rope',
+        imgUrl: '',
+        applications: ['General rope applications'],
+      },
+    ],
+  },
+  {
+    brand: 'Thermodrain',
+    category: 'Drainage Products',
+    tagline: 'Drainage products',
+    details: [
+      'Drainage product solutions',
+      'Product selection based on installation requirements',
+      'Confirm available product types and sizes',
+    ],
+    subTypes: [
+      {
+        id: 'THD-01',
+        name: 'Drainage Product',
+        categoryType: 'Drainage',
+        imgUrl: '',
+        applications: ['Drainage installations'],
+      },
+    ],
+  },
+  {
+    brand: 'Vikrant',
+    category: 'Chamber Covers',
+    tagline: 'Chamber covers and infrastructure products',
+    details: [
+      'Chamber cover solutions',
+      'Infrastructure access products',
+      'Confirm load rating and dimensions',
+    ],
+    subTypes: [
+      {
+        id: 'VIK-01',
+        name: 'Chamber Cover',
+        categoryType: 'Chamber Cover',
+        imgUrl: '',
+        applications: ['Infrastructure projects'],
+      },
+    ],
+  },
+  {
+    brand: 'Jasper',
+    category: 'Chamber Covers',
+    tagline: 'Chamber covers and infrastructure products',
+    details: [
+      'Chamber cover products',
+      'Infrastructure access solutions',
+      'Confirm product dimensions and load requirements',
+    ],
+    subTypes: [
+      {
+        id: 'JAS-01',
+        name: 'Chamber Cover',
+        categoryType: 'Chamber Cover',
+        imgUrl: '',
+        applications: ['Infrastructure projects'],
+      },
+    ],
+  },
+  {
+    brand: 'R.P. Composites',
+    category: 'Composite Products',
+    tagline: 'Chamber covers and composite products',
+    details: [
+      'Composite product solutions',
+      'Chamber cover applications',
+      'Confirm material and load specifications',
+    ],
+    subTypes: [
+      {
+        id: 'RPC-01',
+        name: 'Composite Chamber Cover',
+        categoryType: 'Composite Chamber Cover',
+        imgUrl: '',
+        applications: ['Infrastructure projects'],
+      },
+    ],
+  },
+  {
+    brand: 'Topaz',
+    category: 'Chamber Covers',
+    tagline: 'Chamber covers and infrastructure products',
+    details: [
+      'Chamber cover solutions',
+      'Infrastructure access products',
+      'Confirm dimensions and specifications',
+    ],
+    subTypes: [
+      {
+        id: 'TOP-01',
+        name: 'Chamber Cover',
+        categoryType: 'Chamber Cover',
+        imgUrl: '',
+        applications: ['Infrastructure projects'],
+      },
+    ],
+  },
+  {
+    brand: 'Birla Opus Paints',
+    category: 'Paints',
+    tagline: 'Decorative paints',
+    details: [
+      'Decorative paint solutions',
+      'Paint selection based on surface and finish',
+      'Confirm available product range and shades',
+    ],
+    subTypes: [
+      {
+        id: 'BOP-01',
+        name: 'Decorative Paint',
+        categoryType: 'Paint',
+        imgUrl: '',
+        applications: ['Interior and exterior painting'],
+      },
+    ],
+  },
+  {
+    brand: 'Birla White',
+    category: 'Cement & Building Products',
+    tagline: 'White cement and building products',
+    details: [
+      'White cement products',
+      'Building and finishing applications',
+      'Confirm available grades and packaging',
+    ],
+    subTypes: [
+      {
+        id: 'BW-01',
+        name: 'White Cement',
+        categoryType: 'White Cement',
+        imgUrl: '',
+        applications: ['Building and finishing work'],
+      },
+    ],
+  },
+];
+
+
+
+
+const categories = [
+  'All',
+  ...new Set(products.map((product) => product.category)),
+];
+
+export default function ProductsSection({
+  onOpenInquiry,
+  initialSearch = '',
+}) {
   const navigate = useNavigate();
-  const [filter, setFilter] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(initialSearch);
+  const [activeCategory, setActiveCategory] = useState('All');
 
-  const products = [
-    {
-      id: "PROD-RAKSHA",
-      brand: "Raksha Pipes",
-      category: "pipes",
-      categoryLabel: "Pipes & Fittings",
-      tagline: "Plumbing | Sanitary | Agriculture | Water Tanks",
-      badge: "Authorized Distributor",
-      popular: true,
-      description: "Complete CPVC, UPVC, SWR drainage, and water storage tank solutions engineered for residential and commercial plumbing networks.",
-      imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-      details: ["CPVC & UPVC Plumbing Pipes", "SWR Drainage Systems", "Agricultural PVC Systems", "Water Storage Tanks"],
-      subTypes: [
-        {
-          id: "SUB-RAK-01",
-          name: "CPVC & UPVC Plumbing Pipes",
-          sku: "RAK-PLUMB-01",
-          categoryType: "Plumbing Pipe",
-          rating: "Sch 40 / Sch 80",
-          headRange: "Standard Pressure",
-          discharge: "1/2 inch - 3 inch",
-          inStock: true,
-          stockQty: 900,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹210 - ₹1,800",
-          imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-          features: ["High corrosion & chemical resistance", "Solvent weld leak-proof jointing", "Ideal for hot/cold potable water"],
-          applications: ["Underground Water Layouts", "Domestic Plumbing"]
-        },
-        {
-          id: "SUB-RAK-02",
-          name: "SWR Drainage Systems",
-          sku: "RAK-SWR-02",
-          categoryType: "SWR Pipe",
-          rating: "Type A & B",
-          headRange: "75mm - 110mm",
-          discharge: "Gravity Flow",
-          inStock: true,
-          stockQty: 750,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹310 - ₹1,400",
-          imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-          features: ["Rubber ring jointing system", "UV resistant for external risers"],
-          applications: ["Soil, Waste & Rainwater Lines"]
-        },
-        {
-          id: "SUB-RAK-03",
-          name: "Agricultural PVC Systems",
-          sku: "RAK-AGRI-03",
-          categoryType: "Agri Pipe",
-          rating: "4 - 10 kg/cm²",
-          headRange: "Class 2 to Class 5",
-          discharge: "20mm - 200mm",
-          inStock: true,
-          stockQty: 1200,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹180 - ₹2,400",
-          imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-          features: ["High tensile impact resistance", "Smooth bore low pressure drop"],
-          applications: ["Farm Irrigation Mains", "Drip Lines"]
-        },
-        {
-          id: "SUB-RAK-04",
-          name: "Water Storage Tanks",
-          sku: "RAK-TANK-04",
-          categoryType: "Storage Tank",
-          rating: "Multi-layer UV Shield",
-          headRange: "Overhead",
-          discharge: "500L - 5000L",
-          inStock: true,
-          stockQty: 28,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹6,000 - ₹55,000",
-          imgUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-          features: ["Virgin food-grade material", "Algae protection inner coating"],
-          applications: ["Apartment Complex Roofs", "Site Water Storage"]
-        }
-      ]
-    },
-    {
-      id: "PROD-ASHIRVAD",
-      brand: "Ashirvad by aliaxis",
-      category: "pipes",
-      categoryLabel: "Pipes & Fittings",
-      tagline: "Plumbing | Sanitary | Agriculture | Water Tanks",
-      badge: "Industry Standard",
-      popular: true,
-      description: "NSF-certified lead-free CPVC systems, acoustic SWR lines, and foamcore underground drainage built with global Aliaxis engineering quality.",
-      imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-      details: ["Lead-Free CPVC Systems", "Foamcore Underground Drainage", "Low-Noise SWR Pipes", "High-Pressure Fittings"],
-      subTypes: [
-        {
-          id: "SUB-ASH-01",
-          name: "Lead-Free CPVC Systems (FlowGuard Plus)",
-          sku: "ASH-CPVC-01",
-          categoryType: "Plumbing Pipe",
-          rating: "SDR 11 / SDR 13.5",
-          headRange: "Up to 93°C",
-          discharge: "1/2 inch - 2 inch",
-          inStock: true,
-          stockQty: 1500,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹280 - ₹1,450 / length",
-          imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-          features: ["NSF lead-free certified", "High heat endurance for solar lines"],
-          applications: ["Domestic Hot & Cold Plumbing"]
-        },
-        {
-          id: "SUB-ASH-02",
-          name: "Foamcore Underground Drainage",
-          sku: "ASH-FOAM-02",
-          categoryType: "Underground Drainage",
-          rating: "SN 4 / SN 8",
-          headRange: "Subsoil Placement",
-          discharge: "110mm - 315mm",
-          inStock: true,
-          stockQty: 420,
-          estDelivery: "1-2 Business Days",
-          priceEst: "₹650 - ₹4,200",
-          imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-          features: ["Multi-layer structural stiffness", "Crush-resistant earth load design"],
-          applications: ["Township Drainage Networks", "Commercial Sewer Mains"]
-        },
-        {
-          id: "SUB-ASH-03",
-          name: "Low-Noise SWR Pipes",
-          sku: "ASH-SWR-03",
-          categoryType: "Acoustic SWR",
-          rating: "Triple Layer",
-          headRange: "Gravity Flow",
-          discharge: "75mm - 160mm",
-          inStock: true,
-          stockQty: 850,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹420 - ₹2,100",
-          imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-          features: ["Noise dampening mineral structure", "Leak-proof ring seal"],
-          applications: ["High-Rise Residential Waste Lines"]
-        },
-        {
-          id: "SUB-ASH-04",
-          name: "High-Pressure Fittings",
-          sku: "ASH-FIT-04",
-          categoryType: "Pipes & Fittings",
-          rating: "PN 16 / PN 25",
-          headRange: "High Bar Load",
-          discharge: "All Standard Sizes",
-          inStock: true,
-          stockQty: 2500,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹45 - ₹480 / pc",
-          imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-          features: ["Precision molded brass insert elbows & tees", "Heavy wall thickness"],
-          applications: ["Commercial Riser Connections"]
-        }
-      ]
-    },
-    {
-      id: "PROD-CRI",
-      brand: "C.R.I. Pumps",
-      category: "pumps",
-      categoryLabel: "Pumps & Motors",
-      tagline: "Pumping trust. Worldwide.",
-      badge: "Leading Pump Brand",
-      popular: true,
-      description: "Submersible borewell, monoblock, chemical process, and sewage cutter pumps engineered for agriculture, domestic, and industrial fluid transfer.",
-      imgUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-      details: [
-        "Agriculture Pumps (Submersible & Monoblock)",
-        "Residential Pumps (Domestic pressure)",
-        "Industrial Pumps (Chemical & Process)",
-        "Sewage Pumps (Submersible cutter & vortex)"
-      ],
-      subTypes: [
-        {
-          id: "SUB-CRI-01",
-          name: "Agriculture Submersible & Monoblock Pumps",
-          sku: "CRI-AGRI-100",
-          categoryType: "Borewell Pump",
-          rating: "3.0 HP - 15.0 HP",
-          headRange: "30m - 180m",
-          discharge: "100 - 450 LPM",
-          inStock: true,
-          stockQty: 42,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹28,500 - ₹45,000",
-          imgUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-          features: ["IE2/IE3 energy efficient motor", "High head pressure for deep wells"],
-          applications: ["Irrigation Schemes", "Farm Borewells"]
-        },
-        {
-          id: "SUB-CRI-02",
-          name: "Residential Domestic Pressure Pumps",
-          sku: "CRI-RES-200",
-          categoryType: "Monoblock Pump",
-          rating: "0.5 HP - 2.0 HP",
-          headRange: "6m - 40m",
-          discharge: "20 - 120 LPM",
-          inStock: true,
-          stockQty: 35,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹6,500 - ₹14,200",
-          imgUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-          features: ["Self-priming suction up to 8m", "Ultra-quiet motor operation"],
-          applications: ["Bungalows", "Apartment Overhead Transfer"]
-        },
-        {
-          id: "SUB-CRI-03",
-          name: "Industrial Chemical & Process Pumps",
-          sku: "CRI-IND-300",
-          categoryType: "Centrifugal Pump",
-          rating: "5.0 HP - 30.0 HP",
-          headRange: "15m - 120m",
-          discharge: "200 - 1500 LPM",
-          inStock: true,
-          stockQty: 18,
-          estDelivery: "1-2 Business Days",
-          priceEst: "₹34,000 - ₹85,000",
-          imgUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-          features: ["SS-316 dynamically balanced impellers", "Chemical corrosion proof"],
-          applications: ["Chakan & Bhosari Industrial Hubs", "Process Plants"]
-        },
-        {
-          id: "SUB-CRI-04",
-          name: "Submersible Sewage Cutter & Vortex Pumps",
-          sku: "CRI-SEW-400",
-          categoryType: "Sewage Pump",
-          rating: "1.5 HP - 7.5 HP",
-          headRange: "8m - 35m",
-          discharge: "150 - 900 LPM",
-          inStock: true,
-          stockQty: 12,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹26,000 - ₹48,000",
-          imgUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-          features: ["Non-clogging tungsten cutter edge", "Passes solids up to 50mm"],
-          applications: ["STP Wastewater Plants", "Basement Sumps"]
-        }
-      ]
-    },
-    {
-      id: "PROD-BOOSTER",
-      brand: "Hydro-Pneumatic Booster Systems",
-      category: "pumps",
-      categoryLabel: "Pumps & Motors",
-      tagline: "High-Rise & Turnkey Water Solutions",
-      badge: "Commercial Grade",
-      popular: true,
-      description: "Automated constant pressure hydro-pneumatic pumping skids integrated with Variable Frequency Drives (VFD) for commercial towers.",
-      imgUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-      details: [
-        "Complete water supply solutions",
-        "Turnkey engineering projects",
-        "Multi-pump pressure boosting systems",
-        "VFD variable frequency drive integration"
-      ],
-      subTypes: [
-        {
-          id: "SUB-HYPN-01",
-          name: "Multi-Pump Pressure Boosting Skids",
-          sku: "HYPN-SKID-01",
-          categoryType: "Booster System",
-          rating: "3.0 HP - 25.0 HP Cascade",
-          headRange: "20m - 120m",
-          discharge: "100 - 1200 LPM",
-          inStock: true,
-          stockQty: 6,
-          estDelivery: "2-3 Business Days",
-          priceEst: "₹85,000 - ₹2,10,000",
-          imgUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-          features: ["VFD frequency modulation", "Constant pressure across all floors", "Automatic pump alternation"],
-          applications: ["Luxury High-Rise Apartments", "Commercial Malls"]
-        },
-        {
-          id: "SUB-HYPN-02",
-          name: "Turnkey Water Supply Engineering Setup",
-          sku: "HYPN-TK-02",
-          categoryType: "Turnkey Setup",
-          rating: "Custom Capacity",
-          headRange: "Project Specific",
-          discharge: "Up to 3000 LPM",
-          inStock: true,
-          stockQty: 4,
-          estDelivery: "Project Specific Schedule",
-          priceEst: "Quote On Requirement",
-          imgUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-          features: ["Complete hydraulic skid blueprinting", "PLC telemetry panel integration"],
-          applications: ["Municipal Water Schemes", "MIDC Industrial Sites"]
-        }
-      ]
-    },
-    {
-      id: "PROD-HULIOT",
-      brand: "Huliot India",
-      category: "pipes",
-      categoryLabel: "Acoustic & Drainage",
-      tagline: "Plumbing Water Supply | Waste Water | Infrastructure",
-      badge: "Global Technology",
-      description: "Ultra-silent mineral-filled soundproof SWR drainage and flexible PEX/PERT water supply networks for luxury multi-story construction.",
-      imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-      details: [
-        "Plumbing Water Supply System",
-        "Waste Water & Drainage System",
-        "Infrastructure System",
-        "Acoustic Ultra-Silent Drainage"
-      ],
-      subTypes: [
-        {
-          id: "SUB-HUL-01",
-          name: "Acoustic Ultra-Silent Drainage (Ultra Silent)",
-          sku: "HUL-SILENT-01",
-          categoryType: "Acoustic SWR",
-          rating: "Triple Layer Mineral-Filled",
-          headRange: "Noise level < 15dB",
-          discharge: "50mm - 160mm",
-          inStock: true,
-          stockQty: 320,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹850 - ₹3,800 / length",
-          imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-          features: ["Eliminates flush water flow noise", "High temperature chemical resistance"],
-          applications: ["5-Star Hotels", "Luxury Towers"]
-        },
-        {
-          id: "SUB-HUL-02",
-          name: "PEX & PERT Plumbing Water Supply System",
-          sku: "HUL-PEX-02",
-          categoryType: "PEX Supply",
-          rating: "PN 12.5 - PN 20",
-          headRange: "Up to 95°C",
-          discharge: "16mm - 63mm",
-          inStock: true,
-          stockQty: 600,
-          estDelivery: "1-2 Business Days",
-          priceEst: "₹140 - ₹850 / meter",
-          imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-          features: ["Flexible multi-layer coil piping", "Corrosion & scale proof"],
-          applications: ["Concealed Bathroom Water Distribution"]
-        }
-      ]
-    },
-    {
-      id: "PROD-LEADER",
-      brand: "Leader Valves Limited",
-      category: "valves",
-      categoryLabel: "Valves & Flow Control",
-      tagline: "Valves for all applications",
-      badge: "Heavy Duty",
-      description: "Forged steel, gunmetal, and cast iron sluice, globe, butterfly, check, and fire-fighting valves for industrial steam and water mains.",
-      imgUrl: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80",
-      details: [
-        "Gate, Globe & Check Valves",
-        "Forged Steel & Cast Iron Valves",
-        "Ball, Butterfly & Air Release Valves",
-        "Fire-fighting & Industrial Water Valves"
-      ],
-      subTypes: [
-        {
-          id: "SUB-LDR-01",
-          name: "Industrial Sluice, Gate, Globe & Butterfly Valves",
-          sku: "LDR-VALVE-01",
-          categoryType: "Flow Valve",
-          rating: "PN10 / PN16 / ANSI 150",
-          headRange: "-10°C to 220°C",
-          discharge: "15mm - 600mm Flanged",
-          inStock: true,
-          stockQty: 140,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹2,800 - ₹48,000",
-          imgUrl: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80",
-          features: ["Bubble tight shutoff seal", "Heavy cast iron & forged steel bodies"],
-          applications: ["Boiler Steam Lines", "Fire-fighting Hydrant Mains"]
-        }
-      ]
-    },
-    {
-      id: "PROD-AUTOCON",
-      brand: "Autocon",
-      category: "valves",
-      categoryLabel: "Electronics & Automation",
-      tagline: "Electronic Control Panels",
-      badge: "Smart Automation",
-      description: "Automatic water level controllers, microprocessor starters, and dual pump cyclic control panels with dry-run protection.",
-      imgUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
-      details: [
-        "Automatic Water Level Controllers",
-        "Microprocessor Pump Control Panels",
-        "Dry Run & Overload Protection",
-        "Dual Pump Cyclic Starters"
-      ],
-      subTypes: [
-        {
-          id: "SUB-ATC-01",
-          name: "Microprocessor Pump Control & Level Switch Panels",
-          sku: "ATC-PANEL-01",
-          categoryType: "Control Panel",
-          rating: "1.0 HP - 50.0 HP DOL / Star-Delta",
-          headRange: "415V 3-Phase / 230V Single-Phase",
-          discharge: "Digital Display Load Control",
-          inStock: true,
-          stockQty: 55,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹4,800 - ₹32,000",
-          imgUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
-          features: ["Built-in dry run & current overload trip", "Auto sensor tank level logic"],
-          applications: ["Society Overhead Tank Automation"]
-        }
-      ]
-    },
-    {
-      id: "PROD-SINTEX",
-      brand: "Sintex",
-      category: "tanks",
-      categoryLabel: "Water Tanks",
-      tagline: "India's Most Trusted Water Tanks",
-      badge: "100% Food Grade",
-      description: "Multi-layer antimicrobial FDA-approved virgin polymer overhead, loft, and underground water storage tanks.",
-      imgUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-      details: [
-        "Multi-Layer Antimicrobial Tanks",
-        "Loft & Underground Tanks",
-        "Commercial Water Storage",
-        "UV Stabilized Materials"
-      ],
-      subTypes: [
-        {
-          id: "SUB-SNT-01",
-          name: "Multi-Layer Antimicrobial Overhead & Loft Tanks",
-          sku: "SNT-FDA-01",
-          categoryType: "Polymer Tank",
-          rating: "3 Layer / 4 Layer Sunblock",
-          headRange: "500L - 10,000L",
-          discharge: "Threaded Outlets 1-3 in",
-          inStock: true,
-          stockQty: 65,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹4,200 - ₹72,000",
-          imgUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-          features: ["100% FDA virgin polymer", "UV stabilized against solar cracking"],
-          applications: ["Residential Roofs", "Industrial Site Water Reserve"]
-        }
-      ]
-    },
-    {
-      id: "PROD-JOHNSON-KOHLER",
-      brand: "Johnson Bathware & Kohler",
-      category: "sanitary",
-      categoryLabel: "CP & Sanitary",
-      tagline: "CP & Sanitary Solutions",
-      badge: "Luxury & Commercial",
-      description: "Premium architectural CP chrome faucets, sensor taps, wall-hung sanitary closets, and concealed flush valves for elite real estate.",
-      imgUrl: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80",
-      details: [
-        "Premium Commercial CP Fittings",
-        "Wall-Hung & Floor Mounted Sanitaryware",
-        "Commercial Sensor Faucets",
-        "Concealed Flush Tanks & Valves"
-      ],
-      subTypes: [
-        {
-          id: "SUB-JK-01",
-          name: "Commercial Sensor Faucets & CP Bathware",
-          sku: "JK-BATH-01",
-          categoryType: "CP Fitting",
-          rating: "Multi-layer Chrome Finish",
-          headRange: "0.5 - 5.0 bar Pressure",
-          discharge: "Water-Saving Aerator",
-          inStock: true,
-          stockQty: 210,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹1,850 - ₹18,500",
-          imgUrl: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80",
-          features: ["Drip-free ceramic disc cartridges", "Hands-free hygiene sensor logic"],
-          applications: ["Corporate Executive Restrooms", "Residential Bathrooms"]
-        }
-      ]
-    },
-    {
-      id: "PROD-SOLAR",
-      brand: "WAASOL & LAXSO",
-      category: "solar",
-      categoryLabel: "Solar Heating",
-      tagline: "Solar & PV Water Heaters",
-      badge: "Energy Saving",
-      description: "Evacuated Tube Collector (ETC) and Flat Plate Collector (FPC) solar water heating arrays for commercial hospitals and residential setups.",
-      imgUrl: "https://images.unsplash.com/photo-1509391365390-d4695502c359?auto=format&fit=crop&w=600&q=80",
-      details: [
-        "Solar Water Heater Systems",
-        "PV Solar Water Heater Systems",
-        "Centralized Residential Solar arrays",
-        "Commercial & Hospital installations"
-      ],
-      subTypes: [
-        {
-          id: "SUB-SOL-01",
-          name: "Centralized Solar & PV Water Heater Systems",
-          sku: "SOL-SYS-01",
-          categoryType: "Solar Heating",
-          rating: "ETC / FPC High Yield",
-          headRange: "100 LPD - 5000 LPD",
-          discharge: "High Temperature Solar Lines",
-          inStock: true,
-          stockQty: 15,
-          estDelivery: "1-2 Business Days",
-          priceEst: "₹24,000 - ₹1,80,000",
-          imgUrl: "https://images.unsplash.com/photo-1509391365390-d4695502c359?auto=format&fit=crop&w=600&q=80",
-          features: ["Heavy glass tube solar absorption", "Electrical backup heater heating element"],
-          applications: ["Hospitals", "Hostel Blocks", "Bungalow Heating"]
-        }
-      ]
-    },
-    {
-      id: "PROD-RDRAIN",
-      brand: "R Drain",
-      category: "pipes",
-      categoryLabel: "Drainage Systems",
-      tagline: "HDPE Subsoil Drainage Pipe",
-      badge: "Specialized HDPE",
-      description: "Perforated corrugated double-wall subsoil HDPE drainage pipes designed for groundwater level control, sports turf, and foundation protection.",
-      imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-      details: [
-        "Perforated HDPE Drainage Pipes",
-        "Groundwater Table De-watering",
-        "Basement Retaining Wall Protection",
-        "Sports Stadium & Road Sub-drainage"
-      ],
-      subTypes: [
-        {
-          id: "SUB-RDR-01",
-          name: "Perforated HDPE Subsoil Drainage Pipe",
-          sku: "RDR-HDPE-01",
-          categoryType: "Subsoil Pipe",
-          rating: "SN4 / SN8 Stiffness",
-          headRange: "Perforated Water Intake",
-          discharge: "63mm - 200mm",
-          inStock: true,
-          stockQty: 400,
-          estDelivery: "Same-day dispatch to Pune/PCMC",
-          priceEst: "₹110 - ₹650 / meter",
-          imgUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
-          features: ["Prevents waterlogging in foundations", "Perforated slot design for quick water evacuation"],
-          applications: ["Sports Stadiums", "Retaining Wall Dewatering"]
-        }
-      ]
+  useEffect(() => {
+    setSearchQuery(initialSearch);
+    setActiveCategory('All');
+  }, [initialSearch]);
+
+  const filteredProducts = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+
+    return products.filter((item) => {
+      const matchesCategory =
+        activeCategory === 'All' ||
+        item.category === activeCategory;
+
+      const matchesSearch =
+        !query ||
+        item.brand.toLowerCase().includes(query) ||
+        item.category.toLowerCase().includes(query) ||
+        item.tagline.toLowerCase().includes(query) ||
+        item.details.some((detail) =>
+          detail.toLowerCase().includes(query)
+        );
+
+      return matchesCategory && matchesSearch;
+    });
+  }, [searchQuery, activeCategory]);
+
+  const clearFilters = () => {
+    setSearchQuery('');
+    setActiveCategory('All');
+    navigate('/products');
+  };
+
+  const handleExplore = (item) => {
+    navigate('/products/subtypes', {
+      state: {
+        productTitle: `${item.brand} Solutions`,
+        subTypes: item.subTypes,
+        brandTag: item.brand,
+      },
+    });
+  };
+
+  const handleInquiry = (brand) => {
+    if (onOpenInquiry) {
+      onOpenInquiry(brand);
     }
-  ];
-
-  const filterButtons = [
-    { id: 'all', label: 'All Products' },
-    { id: 'pumps', label: 'Pumps & Pressure Boosting' },
-    { id: 'pipes', label: 'Pipes & Drainage' },
-    { id: 'valves', label: 'Valves & Control Panels' },
-    { id: 'tanks', label: 'Tanks & Solar' },
-    { id: 'sanitary', label: 'CP & Sanitary' },
-    { id: 'infrastructure', label: 'Chambers & Paints' }
-  ];
-
-  const filteredProducts = products.filter(item => {
-    const matchesFilter = filter === 'all' || item.category === filter || (filter === 'tanks' && (item.category === 'tanks' || item.category === 'solar'));
-    const matchesSearch = item.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.tagline.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.details.some(d => d.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesFilter && matchesSearch;
-  });
+  };
 
   return (
-    <section id="products" className="py-20 bg-slate-50 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-slate-50 py-12 sm:py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-red-50 px-4 py-2 text-xs font-bold uppercase tracking-wider text-red-700">
+            <Package className="h-4 w-4" />
+            Our Product Range
+          </span>
 
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wider mb-3">
-            <span>Official Authorized Brands</span>
-          </div>
-          {/* Matched Section Title with Reference Design System */}
-          <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            OUR PRODUCTS & AUTHORIZED BRANDS
-          </h3>
-          <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Direct wholesale distributor and retailer for India's leading pumping, piping,
-            sanitary, solar, and municipal water infrastructure brands.
+          <h2 className="mt-4 text-2xl font-black uppercase text-slate-900 sm:text-4xl">
+            Explore Our Products
+          </h2>
+
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
+            Discover brands and product categories for plumbing,
+            water management and infrastructure requirements.
           </p>
         </div>
 
-        {/* Filter and Search Bar */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-4 mb-10">
-          {/* Filter Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto w-full pb-2 lg:pb-0 scrollbar-none">
-            {filterButtons.map((btn) => (
+        <div className="mb-7 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="relative flex-1">
+              <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+              <input
+                type="search"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Search brands or products..."
+                aria-label="Search brands or products"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-12 pr-4 text-sm outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100"
+              />
+            </div>
+
+            <button
+              type="button"
+              onClick={clearFilters}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 px-4 py-3 text-sm font-bold text-slate-700 hover:bg-red-50 hover:text-red-700"
+            >
+              <X className="h-4 w-4" />
+              Show All Brands
+            </button>
+          </div>
+
+          <div className="mt-5 flex flex-wrap items-center gap-2">
+            <span className="mr-1 inline-flex items-center gap-2 text-xs font-bold uppercase text-slate-500">
+              <Filter className="h-4 w-4" />
+              Categories
+            </span>
+
+            {categories.map((category) => (
               <button
-                key={btn.id}
-                onClick={() => setFilter(btn.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
-                  filter === btn.id
-                    ? 'bg-red-600 text-white shadow-md shadow-red-600/30'
-                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                key={category}
+                type="button"
+                onClick={() => setActiveCategory(category)}
+                className={`rounded-full border px-4 py-2 text-xs font-bold transition ${
+                  activeCategory === category
+                    ? 'border-red-600 bg-red-600 text-white'
+                    : 'border-slate-200 bg-white text-slate-600 hover:border-red-300 hover:text-red-700'
                 }`}
               >
-                {btn.label}
+                {category}
               </button>
             ))}
           </div>
+        </div>
 
-          {/* Search Box */}
-          <div className="relative w-full lg:w-72 shrink-0">
-            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-            <input
-              type="text"
-              placeholder="Search brand or product..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
-            />
+        <div className="mb-5 flex items-center justify-between gap-3">
+          <div>
+            <h3 className="text-lg font-extrabold text-slate-900">
+              {searchQuery.trim()
+                ? `Results for "${searchQuery.trim()}"`
+                : 'Our Authorized Brands'}
+            </h3>
+            <p className="mt-1 text-sm text-slate-500">
+              {filteredProducts.length} brands found
+            </p>
           </div>
         </div>
 
-        {/* Product Cards Grid with Matched Typography & Card Headers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((item, index) => (
-            <div 
-              key={item.id || index}
-              className="group relative bg-white rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-2xl hover:border-red-400/50 transition-all duration-300 flex flex-col justify-between overflow-hidden"
-            >
-              <div>
-                {/* Top Image / Banner Section */}
-                <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
-                  {item.imgUrl ? (
-                    <img 
-                      src={item.imgUrl} 
-                      alt={item.brand} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-tr from-slate-900 via-slate-800 to-slate-700 flex items-center justify-center p-4">
-                      <span className="text-white/20 font-black text-3xl tracking-widest uppercase select-none">
-                        {item.brand}
-                      </span>
+        {filteredProducts.length > 0 ? (
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredProducts.map((item) => (
+              <article
+                key={item.brand}
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-red-200 hover:shadow-xl"
+              >
+                <div className="h-1.5 bg-red-600" />
+
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  <div className="mb-4 flex items-start justify-between gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-red-700 group-hover:bg-red-600 group-hover:text-white">
+                      <Package className="h-6 w-6" />
                     </div>
-                  )}
-
-                  {/* Overlay Gradient for readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-
-                  {/* Top Floating Badges */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 z-10">
-                    
-                    
+                    <span className="rounded-full bg-slate-100 px-3 py-1 text-[10px] font-bold uppercase text-slate-600">
+                      {item.category}
+                    </span>
                   </div>
 
-                  {/* Floating Brand Name over Image */}
-                  <div className="absolute bottom-3 left-4 right-4 z-10">
-                    {/* Matched Card Heading with Reference Design System */}
-                    <h4 className="text-xl font-black text-white tracking-tight group-hover:text-red-400 transition-colors drop-shadow-sm">
-                      {item.brand}
-                    </h4>
-                  </div>
-                </div>
+                  <h3 className="text-xl font-extrabold text-slate-900">
+                    {item.brand}
+                  </h3>
 
-                {/* Card Body Details */}
-                <div className="p-6">
-                  {/* Subtitle / Tagline */}
-                  <p className="text-xs font-semibold text-slate-500 italic mb-4 line-clamp-1 border-b border-slate-100 pb-3">
+                  <p className="mt-2 text-sm font-semibold text-red-600">
                     {item.tagline}
                   </p>
 
-                  {/* Details Bullet List */}
-                  <div className="space-y-2 mb-2">
-                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                      Key Offerings
-                    </p>
-                    {item.details.map((point, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-xs font-medium text-slate-700">
-                        <span className="w-2 h-2 rounded-full bg-red-500 shrink-0 mt-1 shadow-sm shadow-red-500/50 group-hover:scale-110 transition-transform" />
-                        <span className="line-clamp-1">{point}</span>
-                      </div>
+                  <ul className="mt-5 flex-1 space-y-3">
+                    {item.details.map((detail) => (
+                      <li
+                        key={detail}
+                        className="flex items-start gap-3 text-sm leading-5 text-slate-600"
+                      >
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-600" />
+                        <span>{detail}</span>
+                      </li>
                     ))}
+                  </ul>
+
+                  <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <button
+                      type="button"
+                      onClick={() => handleExplore(item)}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-bold text-white transition hover:bg-red-600"
+                    >
+                      Explore Products
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => handleInquiry(item.brand)}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-bold text-red-700 transition hover:bg-red-600 hover:text-white"
+                    >
+                      <MessageSquare className="h-4 w-4" />
+                      Enquire Now
+                    </button>
                   </div>
                 </div>
-              </div>
-
-              {/* Card Action Footer */}
-              <div className="p-6 pt-0 mt-auto">
-                <button
-                  onClick={() =>
-                    navigate(`/products/subtypes`, {
-                      state: {
-                        productTitle: `${item.brand} Solutions`,
-                        subTypes: item.subTypes,
-                        brandTag: item.brand,
-                      },
-                    })
-                  }
-                  className="w-full inline-flex items-center justify-between px-5 py-3 rounded-2xl bg-slate-900 group-hover:bg-red-600 text-white text-xs font-extrabold uppercase tracking-wider shadow-lg group-hover:shadow-red-600/30 transition-all duration-300 cursor-pointer active:scale-[0.98]"
-                >
-                  <span>Explore Products</span>
-                  <div className="w-6 h-6 rounded-full bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Bulk Wholesale Banner */}
-        <div className="mt-14 p-8 rounded-3xl bg-slate-900 text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-bold text-red-400 uppercase tracking-wider mb-1">
-              <PackageCheck className="w-4 h-4" />
-              <span>Direct Commercial & Bulk Supplies</span>
-            </div>
-            {/* Matched Banner Title */}
-            <h4 className="text-xl sm:text-2xl font-black text-white">
-              Need Project Supply for an Ongoing Construction Site?
-            </h4>
-            <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl">
-              Get tiered bulk discounts on C.R.I. pumps, CPVC/UPVC pipelines, Leader valves, and PMC/PCMC approved chamber covers. Prompt on-site delivery across Pune.
-            </p>
+              </article>
+            ))}
           </div>
+        ) : (
+          <div className="rounded-2xl border border-dashed border-slate-300 bg-white px-5 py-14 text-center">
+            <Package className="mx-auto h-12 w-12 text-slate-300" />
+            <h3 className="mt-4 text-lg font-extrabold text-slate-900">
+              No matching brands found
+            </h3>
+            <p className="mt-2 text-sm text-slate-500">
+              Try another search or view all available brands.
+            </p>
+            <button
+              type="button"
+              onClick={clearFilters}
+              className="mt-5 rounded-xl bg-red-600 px-5 py-3 text-sm font-bold text-white hover:bg-red-700"
+            >
+              View All Brands
+            </button>
+          </div>
+        )}
 
-          <button
-            onClick={() => onOpenInquiry && onOpenInquiry('Turnkey Project / Construction Site Supply')}
-            className="shrink-0 px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-red-600/30 transition-all active:scale-95 cursor-pointer"
-          >
-            Submit BOQ / Tender Request
-          </button>
+        <div className="mt-10 rounded-2xl bg-slate-950 p-6 text-white sm:p-8">
+          <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-red-400">
+                Wholesale & Bulk Orders
+              </span>
+              <h3 className="mt-3 text-2xl font-black sm:text-3xl">
+                Looking for a reliable supply partner?
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-300">
+                Contact our team for product availability, bulk
+                requirements and project enquiries.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() =>
+                handleInquiry(searchQuery.trim() || 'General Product Enquiry')
+              }
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-red-600 px-6 py-3.5 text-sm font-bold text-white hover:bg-red-700"
+            >
+              Contact Our Team
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
         </div>
-
       </div>
     </section>
   );

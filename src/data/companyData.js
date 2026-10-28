@@ -319,7 +319,8 @@ export const brand = [
   {
     name: "C.R.I. Pumps",
     tag: "Agriculture | Residential | Industrial | Sewage Pumps",
-    img: "/Brand/CRI_Pumps.png"
+    img: "/Brand/CRI_PUMPS.webp"
+    
   },
   {
     name: "Hydro-Pneumatic Water Supply System",

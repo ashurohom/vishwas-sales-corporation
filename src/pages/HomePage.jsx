@@ -68,10 +68,10 @@ export default function HomePage({ onOpenInquiry }) {
       {/* Floating Breakdown Technical Hotline Bar (Bridging Hero & Next Section) */}
       <BreakdownHotlineBar onOpenInquiry={onOpenInquiry} />
 
-      {/* 2. Core Capabilities & 4 Key Metrics (41+ Years Experience, 500+ Happy Customers, 1000+ Products, 50+ Brands) */}
+      {/* 2. Core Capabilities & 4 Key Metrics */}
       <AuthorizedBrandsSection onOpenInquiry={onOpenInquiry} />
 
-      {/* 3. Official Brand Distribution Marquee (Placed directly after 41+ Stats) */}
+      {/* 3. Official Brand Distribution Marquee */}
       <DistributorBrandsSection onOpenInquiry={onOpenInquiry} />
 
       {/* 4. Our Latest Products Showcase */}
@@ -83,7 +83,7 @@ export default function HomePage({ onOpenInquiry }) {
       {/* Our Promises (Page 1 of brochure) */}
       <OurPromises onOpenInquiry={onOpenInquiry} />
 
-      {/* 3. Featured Services Overview with Link to Separate Services Page */}
+      {/* 3. Featured Services Overview */}
       <section className="py-20 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
@@ -95,7 +95,7 @@ export default function HomePage({ onOpenInquiry }) {
                 Our Comprehensive Services
               </h2>
               <p className="text-sm text-slate-600 mt-1">
-                40 years of precision motor repairing, on-call mechanics, and society energy audits[cite: 7].
+                40 years of precision motor repairing, on-call mechanics, and society energy audits.
               </p>
             </div>
 
@@ -114,13 +114,13 @@ export default function HomePage({ onOpenInquiry }) {
               return (
                 <div
                   key={service.id}
-                  className="bg-white p-7 rounded-3xl border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
+                  className="group relative p-7 rounded-3xl bg-gradient-to-r from-red-50/50 via-white to-white border border-red-100 shadow-sm hover:shadow-xl hover:border-red-300 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <span className="inline-block px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider mb-2">
+                    <span className="inline-block px-2.5 py-0.5 rounded-md bg-red-50 text-red-700 text-[10px] font-bold uppercase tracking-wider mb-2 border border-red-100">
                       {service.badge}
                     </span>
                     <h3 className="text-lg font-bold text-slate-900 mb-2">
@@ -135,7 +135,7 @@ export default function HomePage({ onOpenInquiry }) {
                     className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700"
                   >
                     <span>Read details</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               );
@@ -176,7 +176,6 @@ export default function HomePage({ onOpenInquiry }) {
                 to={`/products?q=${encodeURIComponent(b.name)}`}
                 className="group relative flex min-h-[260px] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-red-400 hover:shadow-xl"
               >
-                {/* Full Logo Area */}
                 <div className="flex h-40 w-full shrink-0 items-center justify-center overflow-hidden bg-white p-4">
                   {b.img ? (
                     <img
@@ -191,8 +190,6 @@ export default function HomePage({ onOpenInquiry }) {
                       }}
                     />
                   ) : null}
-
-                  {/* Fallback */}
                   <div
                     className="h-full w-full items-center justify-center rounded-lg bg-slate-50 px-3 text-center"
                     style={{ display: b.img ? "none" : "flex" }}
@@ -203,21 +200,16 @@ export default function HomePage({ onOpenInquiry }) {
                   </div>
                 </div>
 
-                {/* Brand Information */}
                 <div className="flex flex-1 flex-col border-t border-slate-100 bg-slate-50 p-4 text-center transition-colors group-hover:bg-white">
                   <h3 className="text-sm font-bold leading-snug text-slate-900 group-hover:text-red-600">
                     {b.name}
                   </h3>
-
                   <p className="mt-2 text-xs leading-relaxed text-slate-500">
                     {b.tag}
                   </p>
-
                   <span className="mt-auto pt-4 inline-flex items-center justify-center gap-1 text-xs font-semibold text-red-600">
                     Explore Products
-                    <span className="transition-transform group-hover:translate-x-1">
-                      →
-                    </span>
+                    <span className="transition-transform group-hover:translate-x-1">→</span>
                   </span>
                 </div>
               </Link>
@@ -231,16 +223,16 @@ export default function HomePage({ onOpenInquiry }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-bold uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>800+ Active Dealers & 100+ Leading Real Estate Developers[cite: 7, 8]</span>
+            <span>800+ Active Dealers & 100+ Leading Real Estate Developers</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-            Trusted by Builders, Hospitals & Industries Across Maharashtra[cite: 8]
+            Trusted by Builders, Hospitals & Industries Across Maharashtra
           </h2>
 
           <p className="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Associated with Magarpatta City, Godrej Properties, Shapoorji Pallonji,
-            Vascon, and thousands of co-operative housing societies[cite: 8].
+            Vascon, and thousands of co-operative housing societies.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -249,13 +241,6 @@ export default function HomePage({ onOpenInquiry }) {
               className="px-6 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-red-600/30 transition-all"
             >
               View Full Client Roster & Network
-            </Link>
-
-            <Link
-              to="/contact"
-              className="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold uppercase tracking-wider border border-slate-700 transition-all"
-            >
-              Contact Our Head Office
             </Link>
           </div>
         </div>

@@ -22,7 +22,6 @@ export default function Footer() {
     { name: 'Services & Repairs', path: '/services' },
     { name: 'Clients & 800+ Dealers', path: '/clients' },
     { name: 'Catalogues & Specs', path: '/catalogues' },
-    { name: 'Wholesale PriceList', path: '/pricelist' },
     { name: "FAQ's", path: '/faqs' },
     { name: 'Contact Us', path: '/contact' },
   ];

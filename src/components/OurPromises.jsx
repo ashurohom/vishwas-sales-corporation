@@ -81,7 +81,7 @@ export default function OurPromises({ onOpenInquiry }) {
             OUR PROMISES
           </h2>
           <p className="mt-4 text-base text-slate-600 leading-relaxed">
-            For more than 40 years, Vishwas Sales Corporation has been built on three immovable pillars 
+            For more than 40 years, Vishwas Sales Corporation has been built on three immovable pillars[cite: 6] 
             that safeguard your investment and guarantee seamless water infrastructure.
           </p>
         </div>

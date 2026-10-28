@@ -5,9 +5,9 @@ import { companyInfo } from '../data/companyData';
 export default function BreakdownHotlineBar({ onOpenInquiry }) {
   return (
     <div className="relative z-30 -mt-8 sm:-mt-10 md:-mt-12 lg:-mt-14 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl shadow-slate-950/15 border border-slate-200/90 p-4 sm:p-5 lg:p-6 transition-all flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="bg-gradient-to-r from-red-50/40 via-white to-white rounded-2xl sm:rounded-3xl shadow-2xl shadow-slate-950/15 border border-red-100/80 hover:border-red-300 p-4 sm:p-5 lg:p-6 transition-all flex flex-col sm:flex-row items-center justify-between gap-4">
         
-        {/* Left Side: Original Icon & Phone Number */}
+        {/* Left Side: Icon & Phone Number */}
         <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
           <div className="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-red-600/30">
             <PhoneCall className="w-5 h-5 animate-bounce" />
@@ -25,7 +25,7 @@ export default function BreakdownHotlineBar({ onOpenInquiry }) {
           </div>
         </div>
 
-        {/* Right Side: Original Action Buttons */}
+        {/* Right Side: Action Buttons */}
         <div className="flex items-center gap-3 w-full sm:w-auto">
           <button
             onClick={() => onOpenInquiry && onOpenInquiry('Breakdown Emergency Service')}

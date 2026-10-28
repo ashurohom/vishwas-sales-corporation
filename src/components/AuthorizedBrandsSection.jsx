@@ -18,8 +18,8 @@ export default function AuthorizedBrandsSection({ onOpenInquiry }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           
           {/* Card 1: Authorized Brand Distribution */}
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-red-300 transition-all flex items-start gap-4 group">
-            <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+          <div className="p-6 rounded-3xl bg-gradient-to-r from-red-50/50 via-white to-white border border-red-100 shadow-sm hover:shadow-xl hover:border-red-300 transition-all flex items-start gap-4 group">
+            <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
               <Droplets className="w-6 h-6 text-red-600" />
             </div>
             <div>
@@ -33,8 +33,8 @@ export default function AuthorizedBrandsSection({ onOpenInquiry }) {
           </div>
 
           {/* Card 2: In-House Pump Repair Workshop */}
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-red-300 transition-all flex items-start gap-4 group">
-            <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+          <div className="p-6 rounded-3xl bg-gradient-to-r from-red-50/50 via-white to-white border border-red-100 shadow-sm hover:shadow-xl hover:border-red-300 transition-all flex items-start gap-4 group">
+            <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
               <Wrench className="w-6 h-6 text-red-600" />
             </div>
             <div>
@@ -48,8 +48,8 @@ export default function AuthorizedBrandsSection({ onOpenInquiry }) {
           </div>
 
           {/* Card 3: Zero Water Downtime Guarantee */}
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-red-300 transition-all flex items-start gap-4 group">
-            <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+          <div className="p-6 rounded-3xl bg-gradient-to-r from-red-50/50 via-white to-white border border-red-100 shadow-sm hover:shadow-xl hover:border-red-300 transition-all flex items-start gap-4 group">
+            <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
               <ShieldCheck className="w-6 h-6 text-red-600" />
             </div>
             <div>
