@@ -5,8 +5,10 @@ import BreakdownHotlineBar from '../components/BreakdownHotlineBar';
 import AuthorizedBrandsSection from '../components/AuthorizedBrandsSection';
 import DistributorBrandsSection from '../components/DistributorBrandsSection';
 import LatestProductsSection from '../components/LatestProductsSection';
+import WhyChooseUsSection from '../components/WhyChooseUsSection';
 import LegacySection from '../components/LegacySection';
 import OurPromises from '../components/OurPromises';
+<<<<<<< HEAD
 import { brand } from '../data/companyData';
 import {
   Wrench,
@@ -20,6 +22,19 @@ import {
   PhoneCall,
   ShieldCheck,
   FileText
+=======
+import { 
+  Wrench, 
+  Settings, 
+  RefreshCw, 
+  Zap, 
+  ArrowRight, 
+  CheckCircle2, 
+  Building2, 
+  PhoneCall, 
+  ShieldCheck, 
+  FileText 
+>>>>>>> main
 } from 'lucide-react';
 import { companyInfo } from '../data/companyData';
 
@@ -74,11 +89,14 @@ export default function HomePage({ onOpenInquiry }) {
       {/* 3. Official Brand Distribution Marquee */}
       <DistributorBrandsSection onOpenInquiry={onOpenInquiry} />
 
-      {/* 4. Our Latest Products Showcase */}
+      {/* 4. 41 Years of Legacy & Corporate Introduction */}
+      <LegacySection onOpenInquiry={onOpenInquiry} />
+
+      {/* 5. Our Latest Products Showcase */}
       <LatestProductsSection onOpenInquiry={onOpenInquiry} />
 
-      {/* 5. 41 Years of Legacy & Corporate Introduction */}
-      <LegacySection onOpenInquiry={onOpenInquiry} />
+      {/* 6. Why Customers Trust Vishwas Sales Corporation */}
+      <WhyChooseUsSection onOpenInquiry={onOpenInquiry} />
 
       {/* Our Promises (Page 1 of brochure) */}
       <OurPromises onOpenInquiry={onOpenInquiry} />
@@ -91,7 +109,7 @@ export default function HomePage({ onOpenInquiry }) {
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wider mb-2">
                 <span>Expert Technical Solutions</span>
               </div>
-              <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
                 Our Comprehensive Services
               </h2>
               <p className="text-sm text-slate-600 mt-1">

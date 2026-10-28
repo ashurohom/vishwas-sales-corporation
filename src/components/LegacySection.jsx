@@ -15,12 +15,12 @@ export default function LegacySection() {
             <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-xl pointer-events-none" />
             <div className="absolute -bottom-8 -left-8 w-36 h-36 rounded-full bg-black/15 blur-xl pointer-events-none" />
             
-            {/* Golden Emblem Badge in White Box */}
-            <div className="relative z-10 mb-3.5 px-6 py-2 rounded-xl bg-white shadow-md shadow-black/15 flex items-center justify-center">
+            {/* Golden Emblem Badge - Transparent PNG (No white background, increased size) */}
+            <div className="relative z-10 mb-3 flex items-center justify-center">
               <img
                 src="/images/legacy-41-badge.png"
                 alt="41 Years of Legacy Golden Symbol Emblem"
-                className="h-12 sm:h-14 w-auto object-contain select-none"
+                className="h-20 sm:h-24 lg:h-28 w-auto object-contain select-none drop-shadow-md"
                 loading="lazy"
               />
             </div>
@@ -49,7 +49,7 @@ export default function LegacySection() {
           <div className="lg:w-[65%] xl:w-[68%] p-6 sm:p-8 lg:p-9 xl:p-10 flex flex-col justify-center bg-white">
             
             {/* Heading */}
-            <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-red-600 mb-3.5 leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-red-600 mb-3.5 leading-tight">
               Vishwas Sales Corporation
             </h2>
 
