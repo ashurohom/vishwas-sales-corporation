@@ -28,7 +28,7 @@ export default function ServicesPage({ onOpenInquiry }) {
       <ServicesSection onOpenInquiry={onOpenInquiry} />
 
       {/* Society Emergency Assistance Banner */}
-      <section className="py-16 bg-white border-b border-slate-200">
+      {/* <section className="py-16 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="p-8 sm:p-10 rounded-3xl bg-slate-900 text-white flex flex-col lg:flex-row items-center justify-between gap-8 border border-slate-800">
             <div className="max-w-2xl">
@@ -61,7 +61,7 @@ export default function ServicesPage({ onOpenInquiry }) {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

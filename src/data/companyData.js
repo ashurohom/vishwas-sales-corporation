@@ -605,3 +605,558 @@ export const brandsList = [
     badge: 'Renewable Energy'
   }
 ];
+
+export const products = [
+  {
+    brand: 'Raksha Pipes',
+    imgUrl: '/Brand/Raksha_Pipes.png',
+    category: 'Pipes & Fittings',
+    tagline: 'Plumbing, sanitary, agriculture and water tank solutions',
+    details: [
+      'Piping solutions for plumbing and water supply',
+      'Products for agricultural applications',
+      'Options for residential and commercial projects',
+    ],
+    subTypes: [
+      {
+        id: 'RAK-01',
+        name: 'PVC Pipes',
+        categoryType: 'PVC Pipe',
+        imgUrl: '',
+        applications: ['Plumbing', 'Water supply'],
+      },
+      {
+        id: 'RAK-02',
+        name: 'Pipe Fittings',
+        categoryType: 'Pipe Fittings',
+        imgUrl: '',
+        applications: ['Plumbing installations'],
+      },
+    ],
+  },
+  {
+    brand: 'Ashirvad by aliaxis',
+    imgUrl: '/Brand/Ashirvad_by_Aliaxis.png',
+    category: 'Pipes & Fittings',
+    tagline: 'Plumbing, sanitary and water supply solutions',
+    details: [
+      'Piping systems for building plumbing',
+      'Pipes and compatible fittings',
+      'Products for suitable water supply applications',
+    ],
+    subTypes: [
+      {
+        id: 'ASH-01',
+        name: 'CPVC Pipes',
+        categoryType: 'CPVC Pipe',
+        imgUrl: '',
+        applications: ['Building plumbing'],
+      },
+      {
+        id: 'ASH-02',
+        name: 'Pipe Fittings',
+        categoryType: 'Pipe Fittings',
+        imgUrl: '',
+        applications: ['Plumbing installations'],
+      },
+    ],
+  },
+  {
+    brand: 'C.R.I. Pumps',
+    imgUrl: '/Brand/CRI_PUMPS.webp',
+    category: 'Pumps',
+    tagline: 'Agriculture, residential, industrial and sewage pumps',
+    details: [
+      'Pumping solutions for different applications',
+      'Options for agricultural and residential water supply',
+      'Product selection based on required specifications',
+    ],
+    subTypes: [
+      {
+        id: 'CRI-01',
+        name: 'Submersible Pump',
+        categoryType: 'Submersible Pump',
+        imgUrl: '',
+        applications: ['Water supply', 'Agriculture'],
+      },
+      {
+        id: 'CRI-02',
+        name: 'Monoblock Pump',
+        categoryType: 'Monoblock Pump',
+        imgUrl: '',
+        applications: ['Water transfer', 'Water supply'],
+      },
+      {
+        id: 'CRI-03',
+        name: 'Sewage Pump',
+        categoryType: 'Sewage Pump',
+        imgUrl: '',
+        applications: ['Sewage handling'],
+      },
+    ],
+  },
+  {
+    brand: 'Hydro-Pneumatic Water Supply System',
+    imgUrl: '/Brand/hydro_pneumatic_water_supply.png',
+    category: 'Water Supply Systems',
+    tagline: 'Complete water supply solutions and turnkey projects',
+    details: [
+      'Integrated water supply system solutions',
+      'Pressure boosting and distribution requirements',
+      'Project-based system selection',
+    ],
+    subTypes: [
+      {
+        id: 'HPS-01',
+        name: 'Hydro-Pneumatic Booster System',
+        categoryType: 'Booster System',
+        imgUrl: '',
+        applications: ['Buildings', 'Water supply projects'],
+      },
+      {
+        id: 'HPS-02',
+        name: 'Turnkey Water Supply Solution',
+        categoryType: 'Turnkey Project',
+        imgUrl: '',
+        applications: ['Residential and commercial projects'],
+      },
+    ],
+  },
+  {
+    brand: 'Huliot India',
+    imgUrl: '/Brand/Huliot_India.png',
+    category: 'Pipes & Fittings',
+    tagline: 'Plumbing water supply, wastewater and drainage',
+    details: [
+      'Piping and drainage solutions',
+      'Wastewater management applications',
+      'Product selection based on system requirements',
+    ],
+    subTypes: [
+      {
+        id: 'HUL-01',
+        name: 'Drainage Pipes',
+        categoryType: 'Drainage Pipe',
+        imgUrl: '',
+        applications: ['Building drainage'],
+      },
+      {
+        id: 'HUL-02',
+        name: 'Drainage Fittings',
+        categoryType: 'Drainage Fittings',
+        imgUrl: '',
+        applications: ['Drainage installations'],
+      },
+    ],
+  },
+  {
+    brand: 'Leader Valves Limited',
+    imgUrl: '/Brand/Leader_Valves.png',
+    category: 'Valves',
+    tagline: 'Valves for a range of applications',
+    details: [
+      'Flow control and isolation products',
+      'Valve selection based on application',
+      'Confirm available materials and sizes',
+    ],
+    subTypes: [
+      {
+        id: 'LEA-01',
+        name: 'Ball Valve',
+        categoryType: 'Ball Valve',
+        imgUrl: '',
+        applications: ['Flow control'],
+      },
+      {
+        id: 'LEA-02',
+        name: 'Gate Valve',
+        categoryType: 'Gate Valve',
+        imgUrl: '',
+        applications: ['Water distribution'],
+      },
+      {
+        id: 'LEA-03',
+        name: 'Check Valve',
+        categoryType: 'Check Valve',
+        imgUrl: '',
+        applications: ['Flow control systems'],
+      },
+    ],
+  },
+  {
+    brand: 'Autocon',
+    imgUrl: '/Brand/Autocon.png',
+    category: 'Electrical Control Panels',
+    tagline: 'Electronic control panels',
+    details: [
+      'Control panel solutions',
+      'Electrical control requirements',
+      'Panel selection based on application',
+    ],
+    subTypes: [
+      {
+        id: 'AUT-01',
+        name: 'Electrical Control Panel',
+        categoryType: 'Control Panel',
+        imgUrl: '',
+        applications: ['Equipment control'],
+      },
+    ],
+  },
+  {
+    brand: 'Sintex',
+    imgUrl: '/Brand/Sintex.png',
+    category: 'Water Tanks',
+    tagline: 'Water storage solutions',
+    details: [
+      'Water storage products',
+      'Options for residential and commercial applications',
+      'Capacity selection based on requirements',
+    ],
+    subTypes: [
+      {
+        id: 'SIN-01',
+        name: 'Water Storage Tank',
+        categoryType: 'Water Tank',
+        imgUrl: '',
+        applications: ['Water storage'],
+      },
+    ],
+  },
+  {
+    brand: 'Johnson Bathware',
+    imgUrl: '/Brand/Johnson_Bathware.png',
+    category: 'Bathware',
+    tagline: 'CP fittings and sanitaryware',
+    details: [
+      'Bathroom fittings',
+      'Sanitaryware products',
+      'Options for bathroom projects',
+    ],
+    subTypes: [
+      {
+        id: 'JB-01',
+        name: 'CP Fittings',
+        categoryType: 'CP Fittings',
+        imgUrl: '',
+        applications: ['Bathroom installations'],
+      },
+      {
+        id: 'JB-02',
+        name: 'Sanitaryware',
+        categoryType: 'Sanitaryware',
+        imgUrl: '',
+        applications: ['Bathrooms'],
+      },
+    ],
+  },
+  {
+    brand: 'Kohler',
+    imgUrl: '/distributor/KOHLER.webp',
+    category: 'Bathware',
+    tagline: 'CP fittings and sanitaryware',
+    details: [
+      'Bathroom fittings and fixtures',
+      'Sanitaryware options',
+      'Selection based on project design',
+    ],
+    subTypes: [
+      {
+        id: 'KOH-01',
+        name: 'CP Fittings',
+        categoryType: 'CP Fittings',
+        imgUrl: '',
+        applications: ['Bathroom installations'],
+      },
+      {
+        id: 'KOH-02',
+        name: 'Sanitaryware',
+        categoryType: 'Sanitaryware',
+        imgUrl: '',
+        applications: ['Bathrooms'],
+      },
+    ],
+  },
+  {
+    brand: 'WAASOL',
+    imgUrl: '/Brand/Waasol.png',
+    category: 'Solar Water Heaters',
+    tagline: 'Solar water heaters and PV solar water heaters',
+    details: [
+      'Solar water heating solutions',
+      'Options based on hot water demand',
+      'System selection based on installation requirements',
+    ],
+    subTypes: [
+      {
+        id: 'WAA-01',
+        name: 'Solar Water Heater',
+        categoryType: 'Solar Water Heater',
+        imgUrl: '',
+        applications: ['Hot water supply'],
+      },
+      {
+        id: 'WAA-02',
+        name: 'PV Solar Water Heating System',
+        categoryType: 'PV Solar System',
+        imgUrl: '',
+        applications: ['Solar energy applications'],
+      },
+    ],
+  },
+  {
+    brand: 'LAXSO',
+    imgUrl: '/Brand/Laxso.png',
+    category: 'Solar Water Heaters',
+    tagline: 'Solar water heaters and PV solar water heaters',
+    details: [
+      'Solar water heating products',
+      'Solutions based on hot water requirements',
+      'Confirm available system types',
+    ],
+    subTypes: [
+      {
+        id: 'LAX-01',
+        name: 'Solar Water Heater',
+        categoryType: 'Solar Water Heater',
+        imgUrl: '',
+        applications: ['Hot water supply'],
+      },
+      {
+        id: 'LAX-02',
+        name: 'PV Solar Water Heating System',
+        categoryType: 'PV Solar System',
+        imgUrl: '',
+        applications: ['Solar energy applications'],
+      },
+    ],
+  },
+  {
+    brand: 'R Drain',
+    imgUrl: '/Brand/R_Drain.png',
+    category: 'Drainage Products',
+    tagline: 'HDPE subsoil drainage pipe',
+    details: [
+      'Subsoil drainage pipe solutions',
+      'Drainage products for suitable projects',
+      'Confirm pipe dimensions and specifications',
+    ],
+    subTypes: [
+      {
+        id: 'RD-01',
+        name: 'HDPE Subsoil Drainage Pipe',
+        categoryType: 'HDPE Drainage Pipe',
+        imgUrl: '',
+        applications: ['Subsoil drainage'],
+      },
+    ],
+  },
+  {
+    brand: 'Kisan',
+    imgUrl: '/Brand/Kisan.png',
+    category: 'Pipes & Hoses',
+    tagline: 'HDPE, PVC, hose suction and garden pipes',
+    details: [
+      'HDPE and PVC pipe options',
+      'Hose suction pipe products',
+      'Garden pipe solutions',
+    ],
+    subTypes: [
+      {
+        id: 'KIS-01',
+        name: 'HDPE Pipes',
+        categoryType: 'HDPE Pipe',
+        imgUrl: '',
+        applications: ['Water distribution'],
+      },
+      {
+        id: 'KIS-02',
+        name: 'PVC Pipes',
+        categoryType: 'PVC Pipe',
+        imgUrl: '',
+        applications: ['Piping installations'],
+      },
+      {
+        id: 'KIS-03',
+        name: 'Hose Suction Pipes',
+        categoryType: 'Hose Suction',
+        imgUrl: '',
+        applications: ['Water transfer'],
+      },
+      {
+        id: 'KIS-04',
+        name: 'Garden Pipes',
+        categoryType: 'Garden Pipe',
+        imgUrl: '',
+        applications: ['Gardening', 'Watering'],
+      },
+    ],
+  },
+  {
+    brand: 'Maru Ropes',
+    imgUrl: '/Brand/Maru_Ropes.png',
+    category: 'Ropes',
+    tagline: 'PP and nylon ropes, ISI and non-ISI',
+    details: [
+      'Polypropylene rope options',
+      'Nylon rope options',
+      'Confirm certification and specifications for each product',
+    ],
+    subTypes: [
+      {
+        id: 'MAR-01',
+        name: 'PP Rope',
+        categoryType: 'Polypropylene Rope',
+        imgUrl: '',
+        applications: ['General rope applications'],
+      },
+      {
+        id: 'MAR-02',
+        name: 'Nylon Rope',
+        categoryType: 'Nylon Rope',
+        imgUrl: '',
+        applications: ['General rope applications'],
+      },
+    ],
+  },
+  {
+    brand: 'Thermodrain',
+    imgUrl: '/Brand/Thermodrain.png',
+    category: 'Drainage Products',
+    tagline: 'Drainage products',
+    details: [
+      'Drainage product solutions',
+      'Product selection based on installation requirements',
+      'Confirm available product types and sizes',
+    ],
+    subTypes: [
+      {
+        id: 'THD-01',
+        name: 'Drainage Product',
+        categoryType: 'Drainage',
+        imgUrl: '',
+        applications: ['Drainage installations'],
+      },
+    ],
+  },
+  {
+    brand: 'Vikrant',
+    imgUrl: '/Brand/Vikrant.png',
+    category: 'Chamber Covers',
+    tagline: 'Chamber covers and infrastructure products',
+    details: [
+      'Chamber cover solutions',
+      'Infrastructure access products',
+      'Confirm load rating and dimensions',
+    ],
+    subTypes: [
+      {
+        id: 'VIK-01',
+        name: 'Chamber Cover',
+        categoryType: 'Chamber Cover',
+        imgUrl: '',
+        applications: ['Infrastructure projects'],
+      },
+    ],
+  },
+  {
+    brand: 'Jasper',
+    imgUrl: '/Brand/Jasper.png',
+    category: 'Chamber Covers',
+    tagline: 'Chamber covers and infrastructure products',
+    details: [
+      'Chamber cover products',
+      'Infrastructure access solutions',
+      'Confirm product dimensions and load requirements',
+    ],
+    subTypes: [
+      {
+        id: 'JAS-01',
+        name: 'Chamber Cover',
+        categoryType: 'Chamber Cover',
+        imgUrl: '',
+        applications: ['Infrastructure projects'],
+      },
+    ],
+  },
+  {
+    brand: 'R.P. Composites',
+    imgUrl: '/Brand/RP_Composites.png',
+    category: 'Composite Products',
+    tagline: 'Chamber covers and composite products',
+    details: [
+      'Composite product solutions',
+      'Chamber cover applications',
+      'Confirm material and load specifications',
+    ],
+    subTypes: [
+      {
+        id: 'RPC-01',
+        name: 'Composite Chamber Cover',
+        categoryType: 'Composite Chamber Cover',
+        imgUrl: '',
+        applications: ['Infrastructure projects'],
+      },
+    ],
+  },
+  {
+    brand: 'Topaz',
+    imgUrl: '/Brand/Topaz.png',
+    category: 'Chamber Covers',
+    tagline: 'Chamber covers and infrastructure products',
+    details: [
+      'Chamber cover solutions',
+      'Infrastructure access products',
+      'Confirm dimensions and specifications',
+    ],
+    subTypes: [
+      {
+        id: 'TOP-01',
+        name: 'Chamber Cover',
+        categoryType: 'Chamber Cover',
+        imgUrl: '',
+        applications: ['Infrastructure projects'],
+      },
+    ],
+  },
+  {
+    brand: 'Birla Opus Paints',
+    imgUrl: '/Brand/Birla_Opus.png',
+    category: 'Paints',
+    tagline: 'Decorative paints',
+    details: [
+      'Decorative paint solutions',
+      'Paint selection based on surface and finish',
+      'Confirm available product range and shades',
+    ],
+    subTypes: [
+      {
+        id: 'BOP-01',
+        name: 'Decorative Paint',
+        categoryType: 'Paint',
+        imgUrl: '',
+        applications: ['Interior and exterior painting'],
+      },
+    ],
+  },
+  {
+    brand: 'Birla White',
+    imgUrl: '/Brand/Birla_White.png',
+    category: 'Cement & Building Products',
+    tagline: 'White cement and building products',
+    details: [
+      'White cement products',
+      'Building and finishing applications',
+      'Confirm available grades and packaging',
+    ],
+    subTypes: [
+      {
+        id: 'BW-01',
+        name: 'White Cement',
+        categoryType: 'White Cement',
+        imgUrl: '',
+        applications: ['Building and finishing work'],
+      },
+    ],
+  },
+];
