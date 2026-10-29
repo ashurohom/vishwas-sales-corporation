@@ -12,7 +12,7 @@ export const companyInfo = {
   googleMapsUrl: "https://maps.google.com/?q=Vishwas+Complex+Hadapsar+Pune+411028",
   hours: "Mon - Sat: 9:00 AM - 8:30 PM",
   dealerCount: "800+",
-  
+
   memberships: [
     { name: "CREDAI Pune Metro", label: "CREDAI PUNE METRO" },
     { name: "Builders Association of India", label: "BAI MEMBER" },
@@ -260,50 +260,113 @@ export const companyInfo = {
     }
   ],
 
-  prominentClients: [
-    "Magarpatta City",
-    "Serum Institute of India",
-    "Godrej Properties",
-    "Kirloskar Pneumatic",
-    "Shapoorji Pallonji",
-    "L&T Construction",
-    "Amanora Park Town",
-    "Thermax",
-    "Bharat Forge",
-    "Vilas Javdekar",
-    "VTP Realty",
-    "Rohan Group",
-    "Nyati Group",
-    "Kumar Properties",
-    "Belvalkar Housing",
-    "Paranjape Schemes",
-    "Kalpataru",
-    "Gera Developments",
-    "Goel Ganga",
-    "Vascon Engineers",
-    "Sahyadri Hospitals",
-    "DY Patil University",
-    "DPU Medical",
-    "Solitaire Homes",
-    "BramhaCorp",
-    "Kohinoor Group",
-    "Ravinanda Group",
-    "Tulip Group",
-    "Avior Realty",
-    "Krisala Developers",
-    "Shirke Infrastructure",
-    "Yashada Realty",
-    "Sobha Limited",
-    "Nanded City",
-    "Kundan Spaces",
-    "B.U. Bhandari",
-    "BVG India",
-    "Raymond",
-    "Riverview City",
-    "Teerth Realties",
-    "Raviraj Realty"
-  ]
+
 };
+
+
+export const prominentClients = [
+  { name: "Magarpatta City", img: "/Client_img/Magarpattacity.png" },
+  { name: "Ranjekar", img: "/Client_img/Ranjekar.png" },
+  { name: "Marathalam Realty Group", img: "/Client_img/Marathalam_Realty_Group.png" },
+  { name: "Saraswati Institute of India", img: "/Client_img/Saraswati_Institute_of_India.png" },
+  { name: "Ravinanda", img: "/Client_img/Ravinanda.png" },
+
+  { name: "Kirloskar Pneumatic", img: "/Client_img/Kirloskar_Pneumatic.png" },
+  { name: "A Turn India", img: "/Client_img/A_Turn_India.png" },
+  { name: "Gauri Properties", img: "/Client_img/Gauri_Properties.png" },
+  { name: "Raj Luxmi Jewel Legacy", img: "/Client_img/Raj_Luxmi_Jewel_Legacy.png" },
+  { name: "AP Group", img: "/Client_img/AP_Group.png" },
+
+  { name: "V H Group", img: "/Client_img/V_H_Group.png" },
+  { name: "Choice Group", img: "/Client_img/Choice_Group.png" },
+  { name: "Belvalkar", img: "/Client_img/Belvalkar.png" },
+  { name: "Nyati Group", img: "/Client_img/Nyati.png" },
+  { name: "BVC", img: "/Client_img/BVC.png" },
+
+  { name: "Rohan Builders", img: "/Client_img/Rohan_Builders.png" },
+  { name: "Tulip Group", img: "/Client_img/Tulip_Group.png" },
+  { name: "Now Realty", img: "/Client_img/Now_Realty.png" },
+  { name: "DPU", img: "/Client_img/DPU.png" },
+  { name: "Raymond", img: "/Client_img/Raymond.png" },
+
+  { name: "Paranjape Schemes", img: "/Client_img/Paranjape_Schemes.png" },
+  { name: "Kalpataru", img: "/Client_img/Kalpataru.png" },
+  { name: "Avior Realty", img: "/Client_img/Avior.png" },
+  { name: "Krisala Developers", img: "/Client_img/Krisala.png" },
+  { name: "Sai Miracle", img: "/Client_img/Sai_Miracle.png" },
+
+  { name: "Tejraj", img: "/Client_img/Tejraj.png" },
+  { name: "SPTL", img: "/Client_img/SPTL.png" },
+  { name: "Krishna Group", img: "/Client_img/Krishna_Group.png" },
+  { name: "Shirke Infrastructure", img: "/Client_img/Shirke.png" },
+  { name: "Ashtekar", img: "/Client_img/Ashtekar.png" },
+
+  { name: "Rama Group", img: "/Client_img/Rama_Group.png" },
+  { name: "Legacy", img: "/Client_img/Legacy.png" },
+  { name: "Skyi", img: "/Client_img/Skyi.png" },
+  { name: "Yashada Realty", img: "/Client_img/Yashada.png" },
+  { name: "Biotech", img: "/Client_img/Biotech.png" },
+
+  { name: "Austin Powers", img: "/Client_img/Austin.png" },
+  { name: "Vivanta", img: "/Client_img/Vivanta.png" },
+  { name: "Badhekar Group", img: "/Client_img/Badhekar_Group.png" },
+  { name: "S J Contractors", img: "/Client_img/S_J_Contractors.png" },
+  { name: "Manav Group", img: "/Client_img/Manav_Group.png" },
+
+  { name: "Mittal Builders", img: "/Client_img/Mittal_Builders.png" },
+  { name: "Blue Venture", img: "/Client_img/Blue_Venture.png" },
+  { name: "M H", img: "/Client_img/M_H.png" },
+  { name: "Shaligram Group", img: "/Client_img/Shaligram_Group.png" },
+  { name: "Shree Venkatesh", img: "/Client_img/Shree_Venkatesh.png" },
+
+  { name: "Teerth Realties", img: "/Client_img/Teerth_Realties.png" },
+  { name: "Shapoorji Pallonji", img: "/Client_img/Shapoorji_Pallonji.png" },
+  { name: "Geria Lets Own", img: "/Client_img/Geria_Lets_Own.png" },
+  { name: "Goel Ganga", img: "/Client_img/Goel_Ganga.png" },
+  { name: "Thermax", img: "/Client_img/Thermax.png" },
+
+  { name: "Goel Ganga Group", img: "/Client_img/Goel_Ganga_Group.png" },
+  { name: "Karma Realty", img: "/Client_img/Karma_Realty.png" },
+  { name: "Kumar Properties", img: "/Client_img/Kumar_Properties.png" },
+  { name: "Amanora Park Town", img: "/Client_img/Amanora.png" },
+  { name: "Roshan", img: "/Client_img/Roshan.png" },
+
+  { name: "Solitaire Homes", img: "/Client_img/Solitaire_Homes.png" },
+  { name: "Sobha Limited", img: "/Client_img/Sobha.png" },
+  { name: "Landed City", img: "/Client_img/Landed_City.png" },
+  { name: "VJ Javdekar", img: "/Client_img/VJ_Javdekar.png" },
+  { name: "Vascon Engineers", img: "/Client_img/Vascon.png" },
+
+  { name: "Principal", img: "/Client_img/Principal.png" },
+  { name: "Bharat Forge Kalyani", img: "/Client_img/Bharat_Forge_Kalyani.png" },
+  { name: "Raviraj Realty", img: "/Client_img/Raviraj_Realty.png" },
+  { name: "Ashtavinayak", img: "/Client_img/Ashtavinayak.png" },
+  { name: "Riverview City", img: "/Client_img/Riverview_City.png" },
+
+  { name: "Sahyadri Hospitals", img: "/Client_img/Sahyadri_Hospitals.png" },
+  { name: "VTP Realty", img: "/Client_img/VTP_Realty.png" },
+  { name: "Unknown Logo 1", img: "/Client_img/Unknown_Logo_1.png" },
+  { name: "Shriram Group", img: "/Client_img/Shriram_Group.png" },
+  { name: "Royal Infrastructure", img: "/Client_img/Royal_Infr.png" },
+
+  { name: "Vedant", img: "/Client_img/Vedant.png" },
+  { name: "Gaatabhal", img: "/Client_img/Gaatabhal.png" },
+  { name: "Brahma Corp", img: "/Client_img/Brahma_Corp.png" },
+  { name: "D Y Patil University", img: "/Client_img/D_Y_Patil_University.png" },
+  { name: "Venkatesh", img: "/Client_img/Venkatesh.png" },
+
+  { name: "Kundan Spaces", img: "/Client_img/Kundan_Spaces.png" },
+  { name: "L W", img: "/Client_img/L_W.png" },
+  { name: "Pegasus Residential", img: "/Client_img/Pegasus_Residential.png" },
+  { name: "Nichil Group", img: "/Client_img/Nichil_Group.png" },
+  { name: "Kohinoor Group", img: "/Client_img/Kohinoor.png" },
+
+  { name: "Prospecta Buildz", img: "/Client_img/Prospecta_Buildz.png" },
+  { name: "Ranaavat Group", img: "/Client_img/Ranaavat_Group.png" },
+  { name: "L&T Construction", img: "/Client_img/L&T_Construction.png" },
+  { name: "Raichandani", img: "/Client_img/Raichandani.png" },
+];
+
 
 export const brand = [
   {
@@ -320,7 +383,7 @@ export const brand = [
     name: "C.R.I. Pumps",
     tag: "Agriculture | Residential | Industrial | Sewage Pumps",
     img: "/Brand/CRI_PUMPS.webp"
-    
+
   },
   {
     name: "Hydro-Pneumatic Water Supply System",
@@ -1160,3 +1223,325 @@ export const products = [
     ],
   },
 ];
+
+
+export const catalogues = [
+  {
+    title: "C.R.I. Pumps Product Range",
+    brand: "C.R.I. Pumps",
+    category: "Pumps & Boosting",
+    image: "/catalogues/cri-pumps.webp",
+    desc: "Pumping solutions for agricultural, residential, industrial, and sewage applications.",
+    size: "PDF availability to be confirmed",
+    types: [
+      "Agriculture Pumps",
+      "Residential Pumps",
+      "Industrial Pumps",
+      "Sewage Pumps",
+    ],
+  },
+  {
+    title: "Raksha Pipes Product Range",
+    brand: "Raksha Pipes",
+    category: "Pipes & Drainage",
+    image: "/catalogues/raksha-pipes.webp",
+    desc: "Plumbing, sanitary, agricultural piping, and water storage solutions.",
+    size: "PDF availability to be confirmed",
+    types: [
+      "Plumbing & Sanitary",
+      "Agriculture Pipes",
+      "Water Tanks",
+      "Pipe Fittings",
+    ],
+  },
+  {
+    title: "Ashirvad Plumbing & Piping Solutions",
+    brand: "Ashirvad by aliaxis",
+    category: "Pipes & Fittings",
+    image: "/catalogues/ashirvad-plumbing.webp",
+    desc: "Piping and plumbing solutions for water supply and drainage applications.",
+    size: "PDF availability to be confirmed",
+    types: [
+      "Plumbing Systems",
+      "Sanitary Applications",
+      "Water Supply Systems",
+      "Drainage Solutions",
+    ],
+  },
+  {
+    title: "Hydro-Pneumatic Water Supply System",
+    brand: "Vishwas Sales Corporation",
+    category: "Water Supply Systems",
+    image: "/catalogues/hydro-pneumatic.webp",
+    desc: "Complete water supply solutions, pressure boosting systems, and turnkey projects.",
+    size: "PDF availability to be confirmed",
+    types: [
+      "Hydro-Pneumatic Systems",
+      "Pressure Boosting Systems",
+      "Complete Water Supply Solutions",
+      "Turnkey Projects",
+    ],
+  },
+  {
+    title: "Leader Valves Product Range",
+    brand: "Leader Valves",
+    category: "Valves & Flow Control",
+    image: "/catalogues/leader-valves.webp",
+    desc: "Valves for a range of water supply, plumbing, and flow control applications.",
+    size: "PDF availability to be confirmed",
+    types: [
+      "Valves for Various Applications",
+      "Water Supply Valves",
+      "Flow Control Solutions",
+    ],
+  },
+  {
+    title: "Sintex Water Storage Solutions",
+    brand: "Sintex",
+    category: "Storage Tanks",
+    image: "/catalogues/sintex-tanks.webp",
+    desc: "Water storage tank solutions for residential, commercial, and other water storage requirements.",
+    size: "PDF availability to be confirmed",
+    types: [
+      "Water Storage Tanks",
+      "Residential Storage",
+      "Commercial Storage",
+    ],
+  },
+  {
+    title: "Solar Water Heating Systems",
+    brand: "WAASOL & LAXSO",
+    category: "Solar Energy",
+    image: "/catalogues/solar-water-heating.webp",
+    desc: "Solar water heating solutions for residential and other hot water requirements.",
+    size: "PDF availability to be confirmed",
+    types: [
+      "Solar Water Heaters",
+      "PV Solar Water Heaters",
+    ],
+  },
+  {
+    title: "Electronic Control Panels",
+    brand: "Autocon",
+    category: "Automation & Control",
+    image: "/catalogues/autocon-panels.webp",
+    desc: "Electronic control panels for water pumping and control applications.",
+    size: "PDF availability to be confirmed",
+    types: [
+      "Electronic Control Panels",
+      "Pump Control Applications",
+    ],
+  },
+  {
+    title: "Drainage & Infrastructure Products",
+    brand: "Vishwas Sales Corporation",
+    category: "Drainage & Infrastructure",
+    image: "/catalogues/drainage-infrastructure.webp",
+    desc: "Drainage and infrastructure products for plumbing and civil infrastructure requirements.",
+    size: "PDF availability to be confirmed",
+    types: [
+      "HDPE Subsoil Drainage Pipes",
+      "HDPE Pipes",
+      "PVC Pipes",
+      "Suction & Garden Hoses",
+      "CI / RCC / FRP Chambers",
+      "Covers & RCC Pipes",
+    ],
+  },
+  {
+    title: "PP Nylon Ropes Product Range",
+    brand: "Vishwas Sales Corporation",
+    category: "Ropes & Accessories",
+    image: "/catalogues/pp-nylon-ropes.webp",
+    desc: "PP nylon ropes available in ISI and non-ISI product ranges.",
+    size: "PDF availability to be confirmed",
+    types: [
+      "PP Nylon Ropes",
+      "ISI Ropes",
+      "Non-ISI Ropes",
+    ],
+  },
+  {
+    title: "CP & Sanitary Products",
+    brand: "Vishwas Sales Corporation",
+    category: "Plumbing & Sanitary",
+    image: "/catalogues/cp-sanitary.webp",
+    desc: "CP and sanitary products for plumbing and bathroom installations.",
+    size: "PDF availability to be confirmed",
+    types: [
+      "CP Products",
+      "Sanitary Products",
+    ],
+  },
+  {
+    title: "Building & Construction Products",
+    brand: "Birla Opus & Birla White",
+    category: "Building Materials",
+    image: "/catalogues/building-construction.webp",
+    desc: "Paints and building products included in the Vishwas Sales Corporation product range.",
+    size: "PDF availability to be confirmed",
+    types: [
+      "Birla Opus Paints",
+      "Birla White Products",
+    ],
+  },
+];
+
+export const dealerBenefits = [
+    'Authorized product distribution',
+    'Regional dispatch support',
+    'Genuine products and warranty support',
+    'Marketing and in-store branding assistance',
+  ];
+
+export const sectors = [
+  {
+    title: 'Dealer Network',
+    description: 'A growing network of dealers across Pune and Maharashtra.',
+    icon: 'Share2',
+    image: '/sectors/dealer-network.jpg',
+  },
+  {
+    title: 'Builders & Developers',
+    description:
+      'Water pumping and piping solutions for residential and commercial projects.',
+    icon: 'Building2',
+    image: '/sectors/builders.jpg',
+  },
+  {
+    title: 'Hospitals & Institutions',
+    description:
+      'Reliable water supply solutions for hospitals and educational campuses.',
+    icon: 'Hospital',
+    image: '/sectors/hospitals.jpg',
+  },
+  {
+    title: 'Housing Societies',
+    description:
+      'Pump servicing, plumbing solutions, and maintenance support.',
+    icon: 'Home',
+    image: '/sectors/housing-societies.jpg',
+  },
+  {
+    title: 'Industries',
+    description:
+      'Water management products for industrial and manufacturing needs.',
+    icon: 'Factory',
+    image: '/sectors/industries.jpg',
+  },
+];
+
+
+import {
+  Wrench,
+  Settings,
+  RefreshCw,
+  PhoneCall,
+  ShieldCheck,
+  Zap,
+} from 'lucide-react';
+
+// Keep your existing companyInfo and other exports here.
+
+export const servicesList = [
+  {
+    id: "repair",
+    title: "Water Pump & Motor Repair",
+    category: "Maintenance",
+    icon: Wrench,
+    tag: "Expert Repair Service",
+    desc: "Repair and maintenance of water pumps and motors, including rewinding, bearing replacement, and fault detection.",
+    image: '/services/Water Pump & Motor Repair.jpg',
+    deliverables: [
+      "Submersible and centrifugal pumps",
+      "Motor rewinding and bearing replacement",
+      "Starters and control panels",
+      "Water level controllers",
+    ],
+    cta: "Schedule Pump Repair",
+  },
+  {
+    id: "installation",
+    title: "Water Pump Installation",
+    category: "Installation",
+    icon: Settings,
+    tag: "Professional Installation",
+    desc: "Installation of water pumps and motors for residential societies, commercial buildings, and industries.",
+    image: '/services/Water Pump Installation.jpg',
+    deliverables: [
+      "Booster pump systems",
+      "Borewell pumps",
+      "Sewage and drainage pumps",
+      "Safe electrical connections",
+    ],
+    cta: "Request Installation Quote",
+  },
+  {
+    id: "rental",
+    title: "Dewatering Pump Rental",
+    category: "Rental",
+    icon: RefreshCw,
+    tag: "Flexible Pump Rental",
+    desc: "Rent dewatering pumps for construction sites, flooded basements, and water removal on flexible rental plans.",
+    image: '/services/Dewatering Pump Rental.jpg',
+    deliverables: [
+      "Heavy-duty dewatering pumps",
+      "Basement water removal",
+      "Construction site drainage",
+      "Flexible rental plans",
+    ],
+    cta: "Rent Dewatering Pump",
+  },
+  {
+    id: "on-call",
+    title: "On-Call Pump Mechanics",
+    category: "Emergency",
+    icon: PhoneCall,
+    tag: "Quick On-Site Support",
+    desc: "Get experienced mechanics for pump breakdowns, motor faults, and emergency repairs across Pune.",
+    image: '/services/On-Call Pump Mechanics.jpg',
+    deliverables: [
+      "On-site breakdown support",
+      "Motor inspection",
+      "Starter troubleshooting",
+      "Water level controller checks",
+    ],
+    cta: "Contact Service Desk",
+  },
+  {
+    id: "standby",
+    title: "Standby Pump Services",
+    category: "Backup Support",
+    icon: ShieldCheck,
+    tag: "Reliable Backup Support",
+    desc: "Keep your water supply running with a temporary standby pump while your main pump is being repaired.",
+    image: '/services/Standby Pump Services.jpg',
+    deliverables: [
+      "Temporary replacement pumps",
+      "Reduced water supply downtime",
+      "Support during pump repairs",
+      "Solutions for housing societies",
+    ],
+    cta: "Request Standby Pump",
+  },
+  {
+    id: "energy-audit",
+    title: "Energy Audit for Housing Societies",
+    category: "Energy Savings",
+    icon: Zap,
+    tag: "Reduce Energy Costs",
+    desc: "Review pump performance and electricity usage to identify opportunities to reduce energy costs.",
+    image: '/services/Energy Audit for Housing Societies.jpg',
+    deliverables: [
+      "Electricity usage analysis",
+      "Pump performance checks",
+      "Motor efficiency assessment",
+      "Energy-saving recommendations",
+    ],
+    cta: "Book Society Energy Audit",
+  },
+];
+
+
+
+
