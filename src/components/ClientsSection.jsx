@@ -1,193 +1,274 @@
 import React, { useState } from 'react';
-import { 
-  Building2, 
-  Hospital, 
-  Home, 
-  Factory, 
-  Share2, 
-  CheckCircle2, 
-  ArrowRight,
+import { prominentClients, sectors } from '../data/companyData';
+import {
+  Building2,
+  Hospital,
+  Home,
+  Factory,
+  Share2,
   Search,
-  Sparkles
+  ArrowRight,
+  Users,
 } from 'lucide-react';
-import { companyInfo } from '../data/companyData';
+
+const CLIENTS_PER_PAGE = 12;
+
+// Map icon names from companyData.js to Lucide components.
+const iconMap = {
+  Share2,
+  Building2,
+  Hospital,
+  Home,
+  Factory,
+};
 
 export default function ClientsSection({ onOpenInquiry }) {
   const [clientSearch, setClientSearch] = useState('');
+  const [currentPage, setCurrentPage] = useState(0);
 
-  const sectors = [
-    {
-      title: "Dealer Network",
-      tag: "800+ Active Dealers",
-      icon: <Share2 className="w-6 h-6 text-red-600" />,
-      desc: "Vishwas Sales Corporation has an active dealer network of more than 800+ dealers in Pune district and will soon extend its network all over Maharashtra.",
-      highlight: "Expanding statewide"
-    },
-    {
-      title: "Real Estate & Builders",
-      tag: "Top Developers",
-      icon: <Building2 className="w-6 h-6 text-blue-600" />,
-      desc: "Associated with most of the leading builders and infrastructure developers in Maharashtra for turnkey water pumping and piping systems.",
-      highlight: "Commercial & Residential High-Rises"
-    },
-    {
-      title: "Hospitals & Institutions",
-      tag: "Zero-Outage Care",
-      icon: <Hospital className="w-6 h-6 text-emerald-600" />,
-      desc: "We work closely & extensively with various leading hospitals, medical colleges, and educational campuses requiring continuous water supply.",
-      highlight: "Standby Pump Assurance"
-    },
-    {
-      title: "Co-operative Housing Societies",
-      tag: "Society Specialists",
-      icon: <Home className="w-6 h-6 text-amber-600" />,
-      desc: "We provide customized pump repair, on-call mechanics, energy audits, and plumbing replacement solutions to co-operative housing societies.",
-      highlight: "Save up to 30% Electricity"
-    },
-    {
-      title: "Industries & Manufacturing",
-      tag: "Heavy Industry",
-      icon: <Factory className="w-6 h-6 text-indigo-600" />,
-      desc: "Supplying and servicing some of the most esteemed industrial conglomerates across automotive, pharmaceutical, and engineering sectors.",
-      highlight: "Heavy Flow & Slurry Handling"
-    }
-  ];
-
-  const filteredClients = companyInfo.prominentClients.filter(client =>
-    client.toLowerCase().includes(clientSearch.toLowerCase())
+  // Search clients by name.
+  const filteredClients = prominentClients.filter((client) =>
+    client.name
+      .toLowerCase()
+      .includes(clientSearch.trim().toLowerCase())
   );
 
+  // Pagination.
+  const totalPages = Math.ceil(
+    filteredClients.length / CLIENTS_PER_PAGE
+  );
+
+  const visibleClients = filteredClients.slice(
+    currentPage * CLIENTS_PER_PAGE,
+    (currentPage + 1) * CLIENTS_PER_PAGE
+  );
+
+  const handleSearch = (value) => {
+    setClientSearch(value);
+    setCurrentPage(0);
+  };
+
   return (
-    <section id="clients" className="py-20 bg-white border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Trusted Across Maharashtra</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            OUR CLIENTS & 800+ DEALER NETWORK
+    <section id="clients" className="bg-white py-14 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        {/* Section heading */}
+        <div className="mx-auto mb-10 max-w-2xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-red-50 px-4 py-2 text-xs font-bold uppercase tracking-wider text-red-700">
+            <Users size={15} />
+            Our Network
+          </span>
+
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Our Clients &amp; Partners
           </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed">
-            From the most esteemed industrial groups and premier real estate developers to 
-            thousands of housing societies, our 40-year legacy speaks for itself.
+
+          <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
+            Building trusted relationships with dealers, builders,
+            institutions, housing societies, and industries.
           </p>
         </div>
 
-        {/* 5 Sectors Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {sectors.map((sec, i) => (
-            <div 
-              key={i}
-              className="p-6 rounded-3xl bg-slate-50 border border-slate-200/90 hover:shadow-lg hover:border-red-200 transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white shadow-sm border border-slate-100 flex items-center justify-center">
-                    {sec.icon}
-                  </div>
-                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">
-                    {sec.tag}
-                  </span>
+        {/* Business sector cards */}
+        <div className="mb-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {sectors.map((sector) => {
+            const Icon = iconMap[sector.icon] || Building2;
+
+            return (
+              <article
+                key={sector.title}
+                className="group relative isolate flex min-h-[240px] flex-col justify-end overflow-hidden rounded-2xl bg-slate-900 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-h-[260px]"
+              >
+                {/* Background image */}
+                <img
+                  src={sector.image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950/95 via-slate-900/45 to-slate-900/10" />
+
+                {/* Sector icon */}
+                <div className="mb-auto flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/15 text-white backdrop-blur-sm">
+                  <Icon size={22} />
                 </div>
 
-                <h3 className="text-lg font-black text-slate-900 mb-2">
-                  {sec.title}
-                </h3>
-                
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {sec.desc}
-                </p>
-              </div>
+                {/* Sector details */}
+                <div className="mt-8">
+                  <h3 className="text-lg font-bold text-white sm:text-xl">
+                    {sector.title}
+                  </h3>
 
-              <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center gap-1.5 text-xs font-semibold text-red-600">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>{sec.highlight}</span>
-              </div>
-            </div>
-          ))}
+                  <p className="mt-2 max-w-sm text-sm leading-6 text-white/85">
+                    {sector.description}
+                  </p>
 
-          {/* Special Join Dealer Network Card */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-850 to-slate-950 text-white border border-slate-800 flex flex-col justify-between">
+                  <div className="mt-4 h-1 w-10 rounded-full bg-red-500 transition-all duration-300 group-hover:w-16" />
+                </div>
+              </article>
+            );
+          })}
+
+          {/* Dealer inquiry card */}
+          <article className="relative isolate flex min-h-[240px] flex-col justify-between overflow-hidden rounded-2xl bg-slate-900 p-5 text-white shadow-sm sm:min-h-[260px]">
+            {/* Decorative background */}
+            <div className="absolute -right-10 -top-10 -z-10 h-40 w-40 rounded-full bg-red-600/20 blur-3xl" />
+            <div className="absolute -bottom-16 -left-10 -z-10 h-40 w-40 rounded-full bg-blue-500/15 blur-3xl" />
+
             <div>
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-red-400 block mb-2">
-                Business Expansion
+              <span className="text-xs font-semibold uppercase tracking-wider text-red-400">
+                Partner With Us
               </span>
-              <h3 className="text-xl font-black text-white mb-2">
-                Become an Authorized Dealer
+
+              <h3 className="mt-3 text-xl font-bold sm:text-2xl">
+                Become a Dealer
               </h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Join our 800+ dealer network. Gain access to authorized wholesale pricing for C.R.I. Pumps, Raksha Pipes, Ashirvad, Leader Valves, and Sintex with prompt logistics.
+
+              <p className="mt-2 text-sm leading-6 text-slate-300">
+                Interested in our products? Contact us to explore
+                dealership opportunities.
               </p>
             </div>
+
             <button
-              onClick={() => onOpenInquiry && onOpenInquiry('New Dealership Application')}
-              className="mt-6 w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-red-600/30 transition-all"
+              type="button"
+              onClick={() =>
+                onOpenInquiry?.('New Dealership Application')
+              }
+              className="mt-6 inline-flex w-fit items-center gap-2 rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-slate-900"
             >
-              <span>Apply for Dealership</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              Enquire Now
+              <ArrowRight size={16} />
             </button>
-          </div>
+          </article>
         </div>
 
-        {/* Client List Showcase (From Page 3) */}
-        <div className="rounded-3xl bg-slate-50 border border-slate-200/90 p-8 sm:p-10">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        {/* Client directory */}
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-6 lg:p-8">
+
+          {/* Directory heading and search */}
+          <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-red-600">
-                Page 3 Official Document Roster
-              </span>
-              <h3 className="text-2xl font-black text-slate-900 mt-0.5">
-                OUR CLIENT LIST
+              <h3 className="text-xl font-bold text-slate-900">
+                Our Client Directory
               </h3>
-              <p className="text-xs text-slate-500 mt-1">
-                A selection of esteemed builders, institutions, and industrial leaders who trust Vishwas Sales.
+
+              <p className="mt-1 text-sm text-slate-500">
+                Explore the organizations in our network.
               </p>
             </div>
 
-            {/* Quick search inside client list */}
-            <div className="relative w-full sm:w-64">
-              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-              <input 
-                type="text"
-                placeholder="Search builder or company..."
+            <div className="relative w-full sm:max-w-xs">
+              <Search
+                size={18}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+              />
+
+              <input
+                type="search"
                 value={clientSearch}
-                onChange={(e) => setClientSearch(e.target.value)}
-                className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-white border border-slate-200 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                onChange={(event) =>
+                  handleSearch(event.target.value)
+                }
+                placeholder="Search clients..."
+                aria-label="Search clients"
+                className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-10 pr-4 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-red-400 focus:ring-2 focus:ring-red-100"
               />
             </div>
           </div>
 
-          {/* Client Badges Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            {filteredClients.map((client, index) => (
-              <div 
-                key={index}
-                className="bg-white p-3 rounded-xl border border-slate-200/80 text-center shadow-xs hover:border-red-400 hover:shadow-md transition-all flex items-center justify-center min-h-[56px] group"
-              >
-                <span className="text-xs font-bold text-slate-700 group-hover:text-red-600 transition-colors">
-                  {client}
-                </span>
-              </div>
-            ))}
-          </div>
+          {/* Client logo grid */}
+          {visibleClients.length > 0 ? (
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+              {visibleClients.map((client) => (
+                <div
+                  key={client.name}
+                  title={client.name}
+                  className="flex h-24 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white p-3 transition hover:border-red-200 hover:shadow-sm sm:h-28"
+                >
+                  <img
+                    src={client.img}
+                    alt={client.name}
+                    loading="lazy"
+                    className="max-h-full max-w-full object-contain"
+                    onError={(event) => {
+                      event.currentTarget.style.display = 'none';
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="py-10 text-center">
+              <Search
+                className="mx-auto mb-3 text-slate-400"
+                size={28}
+              />
 
-          {/* Quick Notice */}
-          <div className="mt-8 pt-6 border-t border-slate-200 text-center text-xs text-slate-500 flex flex-wrap items-center justify-center gap-4">
-            <span className="font-semibold text-slate-700">Associated with:</span>
-            <span>✓ Serum Institute of India</span>
-            <span>✓ Godrej Properties</span>
-            <span>✓ Shapoorji Pallonji</span>
-            <span>✓ L&T Construction</span>
-            <span>✓ Thermax</span>
-            <span>✓ Bharat Forge</span>
-            <span>✓ Sahyadri Hospitals</span>
-            <span>✓ Magarpatta City</span>
-          </div>
+              <p className="font-semibold text-slate-800">
+                No clients found
+              </p>
+
+              <p className="mt-1 text-sm text-slate-500">
+                Try another company name.
+              </p>
+            </div>
+          )}
+
+          {/* Pagination */}
+          {filteredClients.length > 0 && (
+            <div className="mt-6 flex flex-col gap-4 border-t border-slate-200 pt-5 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm text-slate-500">
+                Showing{' '}
+                <span className="font-semibold text-slate-800">
+                  {currentPage * CLIENTS_PER_PAGE + 1}–
+                  {Math.min(
+                    (currentPage + 1) * CLIENTS_PER_PAGE,
+                    filteredClients.length
+                  )}
+                </span>{' '}
+                of {filteredClients.length} clients
+              </p>
+
+              {totalPages > 1 && (
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setCurrentPage((page) =>
+                        Math.max(0, page - 1)
+                      )
+                    }
+                    disabled={currentPage === 0}
+                    className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-red-300 hover:text-red-600 disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    Previous
+                  </button>
+
+                  <span className="whitespace-nowrap text-sm text-slate-600">
+                    {currentPage + 1} / {totalPages}
+                  </span>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setCurrentPage((page) =>
+                        Math.min(totalPages - 1, page + 1)
+                      )
+                    }
+                    disabled={currentPage >= totalPages - 1}
+                    className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
         </div>
-
       </div>
     </section>
   );

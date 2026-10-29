@@ -8,7 +8,6 @@ import LatestProductsSection from '../components/LatestProductsSection';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
 import LegacySection from '../components/LegacySection';
 import OurPromises from '../components/OurPromises';
-<<<<<<< HEAD
 import { brand } from '../data/companyData';
 import {
   Wrench,
@@ -22,19 +21,6 @@ import {
   PhoneCall,
   ShieldCheck,
   FileText
-=======
-import { 
-  Wrench, 
-  Settings, 
-  RefreshCw, 
-  Zap, 
-  ArrowRight, 
-  CheckCircle2, 
-  Building2, 
-  PhoneCall, 
-  ShieldCheck, 
-  FileText 
->>>>>>> main
 } from 'lucide-react';
 import { companyInfo } from '../data/companyData';
 
