@@ -1,152 +1,213 @@
+
 import React from 'react';
-import { ShieldCheck, Leaf, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
-import { companyInfo } from '../data/companyData';
+import {
+  ShieldCheck,
+  Leaf,
+  Sparkles,
+  CheckCircle2,
+  ArrowRight
+} from 'lucide-react';
 
 export default function OurPromises({ onOpenInquiry }) {
+
   const promiseCards = [
     {
-      title: "Super Quality",
-      icon: <ShieldCheck className="w-8 h-8 text-red-600" />,
-      tagline: "Uncompromised Standards",
-      desc: "We exclusively partner with top authorized brands including C.R.I. Pumps, Raksha Pipes, Ashirvad, Leader Valves, and Sintex. Every product adheres to stringent ISI and municipal norms.",
+      title: 'Super Quality',
+      tagline: 'Uncompromised Standards',
+      icon: ShieldCheck,
+      image: '/BG_Image/super-quality-bg.jpg',
+      description: 'Genuine products from trusted authorized brands.',
       points: [
-        "100% genuine factory warranty",
-        "Tested for endurance & high pressure",
-        "Rigorous pre-dispatch quality checks"
+        'Factory-backed warranty',
+        'Quality-tested products',
+        'Trusted authorized brands'
       ],
-      bgImage: "/BG_Image/super-quality-bg.jpg",
-      accent: {
-        borderHover: "hover:border-red-300",
-        shadowHover: "hover:shadow-red-500/10",
-        check: "text-red-600",
-        btn: "text-red-600 hover:text-red-700",
-        tagline: "text-red-600"
-      }
+      color: 'text-red-600',
+      bg: 'bg-red-50',
+      border: 'group-hover:border-red-200'
     },
     {
-      title: "Sustainable Products",
-      icon: <Leaf className="w-8 h-8 text-emerald-600" />,
-      tagline: "Eco-Friendly & Energy-Efficient",
-      desc: "Delivering sustainable water management solutions including solar thermal water heaters, low-friction lead-free piping, and energy-audited high-efficiency pumping motors.",
+      title: 'Sustainable Products',
+      tagline: 'A Greener Tomorrow',
+      icon: Leaf,
+      image: '/BG_Image/sustainable-products-bg.jpg',
+      description: 'Energy-efficient solutions for responsible water management.',
       points: [
-        "Solar water heaters (WAASOL & LAXSO)",
-        "Energy-rated induction motors",
-        "Lead-free & recyclable piping materials"
+        'Solar water heaters',
+        'Energy-efficient motors',
+        'Eco-friendly piping'
       ],
-      bgImage: "/BG_Image/sustainable-products-bg.jpg",
-      accent: {
-        borderHover: "hover:border-emerald-300",
-        shadowHover: "hover:shadow-emerald-500/10",
-        check: "text-emerald-600",
-        btn: "text-emerald-600 hover:text-emerald-700",
-        tagline: "text-emerald-600"
-      }
+      color: 'text-emerald-600',
+      bg: 'bg-emerald-50',
+      border: 'group-hover:border-emerald-200'
     },
     {
-      title: "Unsurpassed Services",
-      icon: <Sparkles className="w-8 h-8 text-blue-600" />,
-      tagline: "40 Years of Service Reliability",
-      desc: "Our relationship doesn't end at the sale. Benefit from our in-house motor repair workshop, rapid on-call mechanics, and standby replacement pumps for zero downtime.",
+      title: 'Unsurpassed Services',
+      tagline: 'Support Beyond Sales',
+      icon: Sparkles,
+      image: '/BG_Image/unsurpassed-services-bg.jpg',
+      description: 'Reliable technical support and after-sales assistance.',
       points: [
-        "Mechanics available on call",
-        "Standby pump replacement for societies",
-        "Comprehensive energy audits"
+        'On-call mechanics',
+        'Motor repair services',
+        'Standby pump support'
       ],
-      bgImage: "/BG_Image/unsurpassed-services-bg.jpg",
-      accent: {
-        borderHover: "hover:border-blue-300",
-        shadowHover: "hover:shadow-blue-500/10",
-        check: "text-blue-600",
-        btn: "text-blue-600 hover:text-blue-700",
-        tagline: "text-blue-600"
-      }
+      color: 'text-blue-600',
+      bg: 'bg-blue-50',
+      border: 'group-hover:border-blue-200'
     }
   ];
 
   return (
-    <section id="promises" className="relative py-20 bg-slate-50/40 border-b border-slate-200 overflow-hidden">
-      
-      {/* Subtle Ambient Radial Highlight */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-200/40 via-transparent to-transparent pointer-events-none" />
+    <section
+      id="promises"
+      className="relative py-12 sm:py-14 lg:py-16 bg-slate-50 border-b border-slate-200 overflow-hidden"
+    >
+
+      {/* Background Decoration */}
+      <div className="absolute -top-32 -right-32 w-80 h-80 bg-red-100/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-700 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-            <span>Commitment to Excellence</span>
-          </div>
+
+        {/* Heading */}
+        <div className="text-center max-w-2xl mx-auto mb-9 sm:mb-11">
+
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-700 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3">
+            <ShieldCheck className="w-3.5 h-3.5" />
+            Why Choose Us
+          </span>
+
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            OUR PROMISES
+            Our <span className="text-red-600">Promises</span>
           </h2>
-          <p className="mt-4 text-base text-slate-600 leading-relaxed">
-            For more than 40 years, Vishwas Sales Corporation has been built on three immovable pillars[cite: 6] 
-            that safeguard your investment and guarantee seamless water infrastructure.
+
+          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+            Over 40 years of trust, quality, and reliable water solutions.
           </p>
+
+          <div className="w-12 h-1 bg-red-600 rounded-full mx-auto mt-4" />
         </div>
 
-        {/* 3 Promises Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {promiseCards.map((promise, index) => (
-            <div 
-              key={index}
-              className={`relative rounded-3xl bg-white border border-slate-200/90 p-8 shadow-xs hover:shadow-2xl ${promise.accent.borderHover} ${promise.accent.shadowHover} transition-all duration-300 group flex flex-col justify-between overflow-hidden cursor-default min-h-[480px]`}
-            >
-              
-              {/* ── Background Watermark & Positioning ── */}
-              <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <img
-                  src={promise.bgImage}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover object-right opacity-65 group-hover:opacity-85 group-hover:scale-105 transition-all duration-700 ease-out"
-                />
-                {/* Clean left fade: Keeps text 100% white-backed and legible, while letting right-side graphics shine */}
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
-              </div>
+        {/* Compact Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-              {/* ── Card Content ──────────────────────── */}
-              <div className="relative z-10">
-                {/* Icon Badge */}
-                <div className="w-16 h-16 rounded-2xl bg-white shadow-md border border-slate-100 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
-                  {promise.icon}
+          {promiseCards.map((promise, index) => {
+            const Icon = promise.icon;
+
+            return (
+              <div
+                key={index}
+                className={`group relative bg-white rounded-2xl border border-slate-200 ${promise.border} shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden`}
+              >
+
+                {/* Background Image */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <img
+                    src={promise.image}
+                    alt=""
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center opacity-45 group-hover:opacity-60 group-hover:scale-105 transition-all duration-500"
+                  />
+
+                  {/* Light overlay for readable content */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-white/25" />
+
+                  {/* Bottom readability overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-transparent to-white/10" />
+                </div><div className="absolute inset-0">
+                  <img
+                    src={promise.image}
+                    alt=""
+                    loading="lazy"
+                    className="w-full h-full object-cover opacity-15 group-hover:opacity-25 group-hover:scale-105 transition-all duration-500"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/75" />
                 </div>
 
-                <span className={`text-xs font-bold uppercase tracking-wider ${promise.accent.tagline}`}>
-                  {promise.tagline}
-                </span>
+                {/* Content */}
+                <div className="relative z-10 p-5 sm:p-6">
 
-                <h3 className="text-2xl font-black text-slate-900 mt-1 mb-3">
-                  {promise.title}
-                </h3>
+                  {/* Icon and Number */}
+                  <div className="flex items-center justify-between mb-4">
 
-                <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                  {promise.desc}
-                </p>
+                    <div className={`w-12 h-12 rounded-xl ${promise.bg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className={`w-6 h-6 ${promise.color}`} />
+                    </div>
 
-                {/* Bullet Points */}
-                <ul className="space-y-2.5 pt-4 border-t border-slate-200/70 mb-6">
-                  {promise.points.map((point, i) => (
-                    <li key={i} className="flex items-center gap-2.5 text-xs font-semibold text-slate-700">
-                      <CheckCircle2 className={`w-4 h-4 ${promise.accent.check} shrink-0`} />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
+                    <span className="text-3xl font-black text-slate-200">
+                      0{index + 1}
+                    </span>
+
+                  </div>
+
+                  {/* Title */}
+                  <span className={`text-[10px] font-bold uppercase tracking-widest ${promise.color}`}>
+                    {promise.tagline}
+                  </span>
+
+                  <h3 className="text-xl font-extrabold text-slate-900 mt-1 mb-2">
+                    {promise.title}
+                  </h3>
+
+                  {/* Short Description */}
+                  <p className="text-sm text-slate-600 leading-relaxed mb-5 min-h-[42px]">
+                    {promise.description}
+                  </p>
+
+                  {/* Key Benefits */}
+                  <ul className="space-y-2.5 border-t border-slate-200/80 pt-4">
+
+                    {promise.points.map((point, i) => (
+                      <li
+                        key={i}
+                        className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-700"
+                      >
+                        <CheckCircle2 className={`w-4 h-4 ${promise.color} shrink-0`} />
+                        {point}
+                      </li>
+                    ))}
+
+                  </ul>
+
+                  {/* Compact CTA */}
+                  <button
+                    onClick={() =>
+                      onOpenInquiry?.(`Inquiry regarding ${promise.title}`)
+                    }
+                    className={`mt-5 pt-3 border-t border-slate-200/80 w-full flex items-center justify-between text-xs font-bold text-slate-700 hover:${promise.color} transition-colors`}
+                  >
+                    <span>Know More</span>
+                    <ArrowRight className={`w-4 h-4 ${promise.color} group-hover:translate-x-1 transition-transform`} />
+                  </button>
+
+                </div>
               </div>
+            );
+          })}
 
-              {/* Action Button */}
-              <button
-                onClick={() => onOpenInquiry && onOpenInquiry(`Inquiry regarding ${promise.title}`)}
-                className={`relative z-10 inline-flex items-center gap-2 text-xs font-bold ${promise.accent.btn} transition-all group-hover:gap-2.5 cursor-pointer mt-4`}
-              >
-                <span>Learn how we deliver this</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </button>
+        </div>
 
-            </div>
-          ))}
+        {/* Bottom Trust Message */}
+        <div className="mt-7 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-xs sm:text-sm font-semibold text-slate-600">
+          <span className="flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-red-600" />
+            40+ Years of Experience
+          </span>
+
+          <span className="hidden sm:block w-1 h-1 rounded-full bg-slate-300" />
+
+          <span className="flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+            Authorized Brands
+          </span>
+
+          <span className="hidden sm:block w-1 h-1 rounded-full bg-slate-300" />
+
+          <span className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-blue-600" />
+            Reliable Support
+          </span>
         </div>
 
       </div>

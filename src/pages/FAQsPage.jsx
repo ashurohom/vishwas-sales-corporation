@@ -8,7 +8,9 @@ import {
   Headset,
   ShieldCheck,
   Wrench,
+  Home,
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { faqsData } from '../data/faqsData';
 import { companyInfo } from '../data/companyData';
 
@@ -19,29 +21,56 @@ export default function FAQsPage({ onOpenInquiry }) {
 
   return (
     <main className="min-h-screen bg-slate-50">
+
       {/* Page Header */}
       <section className="relative isolate overflow-hidden border-b border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-red-950 py-16 text-white sm:py-20 lg:py-24">
+
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-20 -top-24 -z-10 h-72 w-72 rounded-full bg-red-600/10 blur-3xl"
         />
+
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -bottom-24 -left-20 -z-10 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl"
         />
 
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+
+          {/* Breadcrumb */}
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-6 flex items-center justify-center gap-2 text-xs font-medium text-slate-400 sm:text-sm"
+          >
+            <Link
+              to="/"
+              className="inline-flex items-center gap-1.5 transition hover:text-white"
+            >
+              <Home className="h-3.5 w-3.5" />
+              Home
+            </Link>
+
+            <ArrowRight className="h-3.5 w-3.5" />
+
+            <span className="font-bold text-red-400">
+              FAQs
+            </span>
+          </nav>
+
+          {/* Eyebrow */}
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-500/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-red-300">
             <HelpCircle className="h-4 w-4" />
             Frequently Asked Questions
           </div>
 
-          <h1 className="text-3xl font-black uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
-            How Can We Help You?
+          {/* Heading */}
+          <h1 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
+            How Can <span className="text-red-500">We Help You?</span>
           </h1>
 
           <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-red-500" />
 
+          {/* Description */}
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
             Find answers to common questions about water pump repairs,
             standby pumps, energy audits, dewatering rentals, and our
@@ -52,13 +81,14 @@ export default function FAQsPage({ onOpenInquiry }) {
 
       {/* FAQ Content */}
       <section className="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+
         <div className="mb-9 text-center">
           <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-red-600">
             Quick Answers
           </span>
 
-          <h2 className="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">
-            Frequently Asked Questions
+          <h2 className="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
+            Frequently Asked <span className="text-red-600">Questions</span>
           </h2>
 
           <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-500">
@@ -88,9 +118,7 @@ export default function FAQsPage({ onOpenInquiry }) {
                       type="button"
                       aria-expanded={isOpen}
                       aria-controls={answerId}
-                      onClick={() =>
-                        setOpenIndex(isOpen ? -1 : index)
-                      }
+                      onClick={() => setOpenIndex(isOpen ? -1 : index)}
                       className={`flex w-full items-center justify-between gap-4 p-5 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red-500 sm:p-6 ${
                         isOpen
                           ? 'bg-red-50/70'
@@ -165,9 +193,11 @@ export default function FAQsPage({ onOpenInquiry }) {
         ) : (
           <div className="rounded-2xl border border-slate-200 bg-white px-6 py-12 text-center">
             <HelpCircle className="mx-auto h-10 w-10 text-slate-400" />
+
             <p className="mt-4 font-semibold text-slate-800">
               FAQs are being updated.
             </p>
+
             <p className="mt-2 text-sm text-slate-500">
               Contact our team if you need help with a product or service.
             </p>
@@ -183,6 +213,7 @@ export default function FAQsPage({ onOpenInquiry }) {
             aria-hidden="true"
             className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full border-[24px] border-white/5"
           />
+
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -bottom-16 -left-12 h-48 w-48 rounded-full border-[30px] border-red-500/10"
@@ -214,9 +245,7 @@ export default function FAQsPage({ onOpenInquiry }) {
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
               <button
                 type="button"
-                onClick={() =>
-                  onOpenInquiry?.('FAQ Custom Inquiry')
-                }
+                onClick={() => onOpenInquiry?.('FAQ Custom Inquiry')}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-red-600 px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg shadow-red-950/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               >
                 <MessageSquare className="h-4 w-4" />

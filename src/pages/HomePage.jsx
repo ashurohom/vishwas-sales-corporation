@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import Hero from '../components/Hero';
 import BreakdownHotlineBar from '../components/BreakdownHotlineBar';
 import AuthorizedBrandsSection from '../components/AuthorizedBrandsSection';
@@ -8,247 +10,268 @@ import LatestProductsSection from '../components/LatestProductsSection';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
 import LegacySection from '../components/LegacySection';
 import OurPromises from '../components/OurPromises';
-import { brand } from '../data/companyData';
-import {
-  Wrench,
-  Settings,
-  RefreshCw,
-  Zap,
-  ArrowRight,
-  CheckCircle2,
-  Building2,
-  Sparkles,
-  PhoneCall,
-  ShieldCheck,
-  FileText
-} from 'lucide-react';
-import { companyInfo } from '../data/companyData';
 
-// Official Services List derived from company brochure
-export const servicesList = [
-  {
-    id: 'pump-repairing',
-    name: 'Pump & Motor Repairing',
-    icon: Wrench,
-    category: 'Repair & Maintenance',
-    tagline: 'Repairing all types of water pumps & motors including submersible, open-well submersible, centrifugal monoblock, bare induction motors, starters, and electronic control panels.',
-    badge: 'Expert Service'
-  },
-  {
-    id: 'society-energy-audit',
-    name: 'Society Energy Audit',
-    icon: Zap,
-    category: 'Energy Solutions',
-    tagline: 'Professional diagnostic audit to optimize pump head pressure and reduce monthly society electricity bills by up to 30%.',
-    badge: 'Energy Saving'
-  },
-  {
-    id: 'pump-installation',
-    name: 'Pump Installation & Renting',
-    icon: Settings,
-    category: 'Installation Services',
-    tagline: 'Installing all types of water pumps & motors with rental pumps available for de-watering applications.',
-    badge: 'Turnkey Support'
-  },
-  {
-    id: 'mechanics-on-call',
-    name: 'Mechanics & Standby Support',
-    icon: PhoneCall,
-    category: 'On-Call Maintenance',
-    tagline: 'Mechanics available on call for service, along with service and standby pumps made readily available.',
-    badge: '24/7 Support'
-  }
-];
+import { brand, servicesList } from '../data/companyData';
+
+import {
+  ArrowRight,
+  Sparkles,
+  CheckCircle2,
+} from 'lucide-react';
 
 export default function HomePage({ onOpenInquiry }) {
   return (
-    <div className="bg-slate-50">
-      {/* 1. Hero Showcase (Dark Background) */}
+    <div className="bg-white">
+
+      {/* 1. Hero */}
       <Hero onOpenInquiry={onOpenInquiry} />
 
-      {/* Floating Breakdown Technical Hotline Bar (Bridging Hero & Next Section) */}
+      {/* 2. Emergency Hotline */}
       <BreakdownHotlineBar onOpenInquiry={onOpenInquiry} />
 
-      {/* 2. Core Capabilities & 4 Key Metrics */}
+      {/* 3. Authorized Brands */}
       <AuthorizedBrandsSection onOpenInquiry={onOpenInquiry} />
 
-      {/* 3. Official Brand Distribution Marquee */}
+      {/* 4. Distributor Brands */}
       <DistributorBrandsSection onOpenInquiry={onOpenInquiry} />
 
-      {/* 4. 41 Years of Legacy & Corporate Introduction */}
+      {/* 5. Company Legacy */}
       <LegacySection onOpenInquiry={onOpenInquiry} />
 
-      {/* 5. Our Latest Products Showcase */}
+      {/* 6. Latest Products */}
       <LatestProductsSection onOpenInquiry={onOpenInquiry} />
 
-      {/* 6. Why Customers Trust Vishwas Sales Corporation */}
+      {/* 7. Why Choose Us */}
       <WhyChooseUsSection onOpenInquiry={onOpenInquiry} />
 
-      {/* Our Promises (Page 1 of brochure) */}
+      {/* 8. Our Promises */}
       <OurPromises onOpenInquiry={onOpenInquiry} />
 
-      {/* 3. Featured Services Overview */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200">
+      {/* 9. Featured Services */}
+      <section className="py-12 sm:py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+
+          {/* Heading */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wider mb-2">
-                <span>Expert Technical Solutions</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-                Our Comprehensive Services
+              <span className="text-xs font-bold uppercase tracking-widest text-red-600">
+                What We Do
+              </span>
+
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">
+                Our <span className="text-red-600">Services</span>
               </h2>
-              <p className="text-sm text-slate-600 mt-1">
-                40 years of precision motor repairing, on-call mechanics, and society energy audits.
+
+              <p className="text-sm text-slate-500 mt-2">
+                Complete water management solutions.
               </p>
             </div>
 
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 text-sm font-bold text-red-600 hover:text-red-700 transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-bold text-red-600 hover:gap-3 transition-all"
             >
-              <span>Explore All Services & Pricing</span>
+              View All Services
               <ArrowRight className="w-4 h-4" />
             </Link>
+
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Service Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
             {servicesList.map((service) => {
               const IconComponent = service.icon;
+
               return (
-                <div
+                <article
                   key={service.id}
-                  className="group relative p-7 rounded-3xl bg-gradient-to-r from-red-50/50 via-white to-white border border-red-100 shadow-sm hover:shadow-xl hover:border-red-300 transition-all duration-300 flex flex-col justify-between"
+                  className="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-red-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-6 h-6" />
+
+                  {/* Image */}
+                  <div className="relative h-44 overflow-hidden bg-slate-100">
+                    <img
+                      src={service.image}
+                      alt={service.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 to-transparent" />
+
+                    <div className="absolute bottom-3 left-4 w-10 h-10 rounded-xl bg-white shadow-md flex items-center justify-center text-red-600">
+                      <IconComponent className="w-5 h-5" />
                     </div>
-                    <span className="inline-block px-2.5 py-0.5 rounded-md bg-red-50 text-red-700 text-[10px] font-bold uppercase tracking-wider mb-2 border border-red-100">
-                      {service.badge}
-                    </span>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5">
+
+                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">
                       {service.name}
                     </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      {service.tagline}
+
+                    <p className="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-2">
+                      {service.description}
                     </p>
+
+                    <button
+                      onClick={() => onOpenInquiry?.(service.name)}
+                      className="mt-5 flex items-center gap-2 text-sm font-bold text-red-600 hover:gap-3 transition-all"
+                    >
+                      Enquire Now
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+
                   </div>
-                  <Link
-                    to="/services"
-                    className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700"
-                  >
-                    <span>Read details</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </div>
+                </article>
               );
             })}
+
           </div>
+
         </div>
       </section>
 
-      {/* 4. Products & Authorized Brands Teaser */}
-      <section className="py-20 bg-white border-b border-slate-200">
+      {/* 10. Top Authorized Brands */}
+      <section className="py-12 sm:py-16 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+
+          {/* Heading */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wider mb-2">
-                <span>Direct Authorized Distributor</span>
-              </div>
-              <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-                Top Authorized Brands
+              <span className="text-xs font-bold uppercase tracking-widest text-red-600">
+                Our Brand Partners
+              </span>
+
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">
+                Authorized <span className="text-red-600">Brands</span>
               </h2>
-              <p className="text-sm text-slate-600 mt-1">
-                India's finest pumps, pipes, valves, solar heaters, and municipal infrastructure supplies.
+
+              <p className="text-sm text-slate-500 mt-2">
+                Quality products from trusted manufacturers.
               </p>
             </div>
 
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 text-sm font-bold text-red-600 hover:text-red-700 transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-bold text-red-600 hover:gap-3 transition-all"
             >
-              <span>View Complete Product Catalog</span>
+              View All Brands
               <ArrowRight className="w-4 h-4" />
             </Link>
+
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-5">
+          {/* Brand Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+
             {brand.map((b) => (
               <Link
                 key={b.name}
                 to={`/products?q=${encodeURIComponent(b.name)}`}
-                className="group relative flex min-h-[260px] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-red-400 hover:shadow-xl"
+                className="group rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-red-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="flex h-40 w-full shrink-0 items-center justify-center overflow-hidden bg-white p-4">
+
+                {/* Brand Image */}
+                <div className="h-32 sm:h-36 flex items-center justify-center p-5 bg-slate-50 group-hover:bg-red-50/40 transition-colors">
+
                   {b.img ? (
                     <img
                       src={b.img}
                       alt={`${b.name} logo`}
                       loading="lazy"
-                      className="block max-h-full max-w-full object-contain object-center transition-transform duration-300 group-hover:scale-105"
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                        const fallback = e.currentTarget.nextElementSibling;
-                        if (fallback) fallback.style.display = "flex";
-                      }}
+                      className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
-                  ) : null}
-                  <div
-                    className="h-full w-full items-center justify-center rounded-lg bg-slate-50 px-3 text-center"
-                    style={{ display: b.img ? "none" : "flex" }}
-                  >
-                    <span className="text-sm font-bold text-slate-500">
+                  ) : (
+                    <span className="text-sm font-bold text-slate-500 text-center">
                       {b.name}
                     </span>
-                  </div>
+                  )}
+
                 </div>
 
-                <div className="flex flex-1 flex-col border-t border-slate-100 bg-slate-50 p-4 text-center transition-colors group-hover:bg-white">
-                  <h3 className="text-sm font-bold leading-snug text-slate-900 group-hover:text-red-600">
+                {/* Brand Name */}
+                <div className="px-3 py-3 border-t border-slate-100 text-center">
+
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-red-600 transition-colors line-clamp-2">
                     {b.name}
                   </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-slate-500">
-                    {b.tag}
-                  </p>
-                  <span className="mt-auto pt-4 inline-flex items-center justify-center gap-1 text-xs font-semibold text-red-600">
-                    Explore Products
-                    <span className="transition-transform group-hover:translate-x-1">→</span>
+
+                  <span className="inline-flex items-center gap-1 mt-2 text-[10px] font-bold uppercase tracking-wide text-red-600">
+                    Explore
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                   </span>
+
                 </div>
+
               </Link>
             ))}
+
           </div>
         </div>
       </section>
 
-      {/* 5. Clients & Network Teaser */}
-      <section className="py-20 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-bold uppercase tracking-wider mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>800+ Active Dealers & 100+ Leading Real Estate Developers</span>
-          </div>
+      {/* 11. Clients & Network */}
+      <section className="relative overflow-hidden py-14 sm:py-20 bg-slate-950 text-white">
 
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-            Trusted by Builders, Hospitals & Industries Across Maharashtra
+        {/* Background Decoration */}
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-red-600/15 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
+
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-red-400 text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-4 h-4" />
+            Trusted Network
+          </span>
+
+          <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-black leading-tight">
+            Building Trust.
+            <span className="text-red-500"> Delivering Excellence.</span>
           </h2>
 
-          <p className="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Associated with Magarpatta City, Godrej Properties, Shapoorji Pallonji,
-            Vascon, and thousands of co-operative housing societies.
+          <p className="mt-4 text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Trusted by builders, industries, hospitals, and housing societies
+            across Maharashtra.
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link
-              to="/clients"
-              className="px-6 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-red-600/30 transition-all"
-            >
-              View Full Client Roster & Network
-            </Link>
+          {/* Trust Highlights */}
+          <div className="flex flex-wrap justify-center gap-5 sm:gap-10 mt-8">
+
+            {[
+              '800+ Active Dealers',
+              '100+ Real Estate Developers',
+              '40+ Years of Experience'
+            ].map((item) => (
+              <div
+                key={item}
+                className="flex items-center gap-2 text-sm font-semibold text-slate-200"
+              >
+                <CheckCircle2 className="w-4 h-4 text-red-500" />
+                {item}
+              </div>
+            ))}
+
           </div>
+
+          <Link
+            to="/clients"
+            className="inline-flex items-center gap-2 mt-9 px-6 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white text-sm font-bold shadow-lg shadow-red-600/20 transition-all"
+          >
+            Explore Our Network
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+
         </div>
       </section>
+
     </div>
   );
 }

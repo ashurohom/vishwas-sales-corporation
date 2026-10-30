@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Truck,
   Sparkles,
+  Home, // Added for breadcrumb
 } from 'lucide-react';
 
 export default function ProductsPage({ onOpenInquiry }) {
@@ -32,27 +33,34 @@ export default function ProductsPage({ onOpenInquiry }) {
         <div className="mx-auto max-w-7xl px-4 py-7 sm:px-6 sm:py-9 lg:px-8 lg:py-11">
 
           {/* Breadcrumb */}
-          <div className="mb-5 flex items-center gap-2 text-xs font-medium text-slate-400">
+          {/* Breadcrumb */}
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-6 flex items-center justify-center gap-2 text-xs font-medium text-slate-400 sm:justify-start sm:text-sm"
+          >
             <Link
               to="/"
-              className="transition-colors hover:text-white"
+              className="inline-flex items-center gap-1.5 transition hover:text-white"
             >
+              <Home className="h-3.5 w-3.5" />
               Home
             </Link>
 
-            <span>/</span>
+            <ArrowRight className="h-3.5 w-3.5" />
 
-            <span className="text-slate-200">Products</span>
+            <span className={`font-bold ${isBrandSelected ? 'text-slate-300' : 'text-red-400'}`}>
+              Products
+            </span>
 
             {isBrandSelected && (
               <>
-                <span>/</span>
-                <span className="max-w-[150px] truncate text-red-300">
+                <ArrowRight className="h-3.5 w-3.5" />
+                <span className="max-w-[150px] truncate font-bold text-red-400">
                   {queryParam}
                 </span>
               </>
             )}
-          </div>
+          </nav>
 
           <div className="grid items-center gap-7 lg:grid-cols-[1.3fr_0.7fr]">
 

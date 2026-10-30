@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { prominentClients, sectors } from '../data/companyData';
 import {
@@ -52,15 +53,15 @@ export default function ClientsSection({ onOpenInquiry }) {
     <section id="clients" className="bg-white py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        {/* Section heading */}
+        {/* Section Heading */}
         <div className="mx-auto mb-10 max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-red-50 px-4 py-2 text-xs font-bold uppercase tracking-wider text-red-700">
             <Users size={15} />
             Our Network
           </span>
 
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Our Clients &amp; Partners
+          <h2 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+            Our Clients <span className="text-red-600">&amp; Partners</span>
           </h2>
 
           <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
@@ -69,7 +70,7 @@ export default function ClientsSection({ onOpenInquiry }) {
           </p>
         </div>
 
-        {/* Business sector cards */}
+        {/* Business Sector Cards */}
         <div className="mb-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {sectors.map((sector) => {
             const Icon = iconMap[sector.icon] || Building2;
@@ -79,7 +80,7 @@ export default function ClientsSection({ onOpenInquiry }) {
                 key={sector.title}
                 className="group relative isolate flex min-h-[240px] flex-col justify-end overflow-hidden rounded-2xl bg-slate-900 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-h-[260px]"
               >
-                {/* Background image */}
+                {/* Background Image */}
                 <img
                   src={sector.image}
                   alt=""
@@ -88,17 +89,17 @@ export default function ClientsSection({ onOpenInquiry }) {
                   className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
-                {/* Dark gradient overlay */}
+                {/* Dark Gradient Overlay */}
                 <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950/95 via-slate-900/45 to-slate-900/10" />
 
-                {/* Sector icon */}
+                {/* Sector Icon */}
                 <div className="mb-auto flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/15 text-white backdrop-blur-sm">
                   <Icon size={22} />
                 </div>
 
-                {/* Sector details */}
+                {/* Sector Details */}
                 <div className="mt-8">
-                  <h3 className="text-lg font-bold text-white sm:text-xl">
+                  <h3 className="text-lg font-bold leading-tight tracking-tight text-white sm:text-xl">
                     {sector.title}
                   </h3>
 
@@ -112,9 +113,10 @@ export default function ClientsSection({ onOpenInquiry }) {
             );
           })}
 
-          {/* Dealer inquiry card */}
+          {/* Dealer Inquiry Card */}
           <article className="relative isolate flex min-h-[240px] flex-col justify-between overflow-hidden rounded-2xl bg-slate-900 p-5 text-white shadow-sm sm:min-h-[260px]">
-            {/* Decorative background */}
+
+            {/* Decorative Background */}
             <div className="absolute -right-10 -top-10 -z-10 h-40 w-40 rounded-full bg-red-600/20 blur-3xl" />
             <div className="absolute -bottom-16 -left-10 -z-10 h-40 w-40 rounded-full bg-blue-500/15 blur-3xl" />
 
@@ -123,7 +125,7 @@ export default function ClientsSection({ onOpenInquiry }) {
                 Partner With Us
               </span>
 
-              <h3 className="mt-3 text-xl font-bold sm:text-2xl">
+              <h3 className="mt-3 text-xl font-bold leading-tight tracking-tight text-white sm:text-2xl">
                 Become a Dealer
               </h3>
 
@@ -146,13 +148,13 @@ export default function ClientsSection({ onOpenInquiry }) {
           </article>
         </div>
 
-        {/* Client directory */}
+        {/* Client Directory */}
         <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-6 lg:p-8">
 
-          {/* Directory heading and search */}
+          {/* Directory Heading and Search */}
           <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold leading-tight tracking-tight text-slate-900">
                 Our Client Directory
               </h3>
 
@@ -180,7 +182,7 @@ export default function ClientsSection({ onOpenInquiry }) {
             </div>
           </div>
 
-          {/* Client logo grid */}
+          {/* Client Logo Grid */}
           {visibleClients.length > 0 ? (
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
               {visibleClients.map((client) => (
@@ -208,7 +210,7 @@ export default function ClientsSection({ onOpenInquiry }) {
                 size={28}
               />
 
-              <p className="font-semibold text-slate-800">
+              <p className="font-bold leading-tight tracking-tight text-slate-900">
                 No clients found
               </p>
 

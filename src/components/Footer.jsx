@@ -24,7 +24,7 @@ export default function Footer() {
     { name: 'Products & Brands', path: '/products' },
     { name: 'Services & Repairs', path: '/services' },
     { name: 'Clients & 800+ Dealers', path: '/clients' },
-    { name: 'Catalogues & Specs', path: '/catalogues' },
+    { name: 'Price List', path: '/pricelist' },
     { name: "FAQ's", path: '/faqs' },
     { name: 'Contact Us', path: '/contact' },
   ];

@@ -11,6 +11,7 @@ import {
   Building2,
   Handshake,
   Sparkles,
+  Home,
 } from 'lucide-react';
 import { companyInfo } from '../data/companyData';
 import { Link } from 'react-router-dom';
@@ -31,13 +32,24 @@ export default function AboutPage({ onOpenInquiry }) {
         <div className="mx-auto max-w-7xl px-4 py-7 sm:px-6 sm:py-9 lg:px-8 lg:py-11">
 
           {/* Breadcrumb */}
-          <div className="mb-5 flex items-center gap-2 text-xs font-medium text-slate-400">
-            <Link to="/" className="transition-colors hover:text-white">
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-6 flex items-center justify-center gap-2 text-xs font-medium text-slate-400 sm:justify-start sm:text-sm"
+          >
+            <Link
+              to="/"
+              className="inline-flex items-center gap-1.5 transition hover:text-white"
+            >
+              <Home className="h-3.5 w-3.5" />
               Home
             </Link>
-            <span>/</span>
-            <span className="text-slate-200">About Us</span>
-          </div>
+
+            <ArrowRight className="h-3.5 w-3.5" />
+
+            <span className="font-bold text-red-400">
+              About Us
+            </span>
+          </nav>
 
           <div className="grid items-center gap-7 lg:grid-cols-[1.3fr_0.7fr]">
 
@@ -192,7 +204,7 @@ export default function AboutPage({ onOpenInquiry }) {
               </div>
 
               <h2 className="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
-                Memberships & Accreditations
+                Memberships <span className="text-red-600">&amp; Accreditations</span>
               </h2>
 
               <p className="mt-2 max-w-2xl text-xs leading-6 text-slate-500 sm:text-sm">
@@ -207,33 +219,47 @@ export default function AboutPage({ onOpenInquiry }) {
           </div>
 
           {/* Membership Cards */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+
+
+
+
+
+
+
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {companyInfo.memberships.map((membership, index) => (
               <article
                 key={membership.name || index}
-                className="group relative overflow-hidden rounded-xl border border-slate-200 bg-slate-50 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-red-200 hover:bg-white hover:shadow-lg sm:p-6"
+                className="group relative flex h-[220px] flex-col justify-end overflow-hidden rounded-xl border border-slate-200 bg-cover bg-center bg-no-repeat shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                style={{
+                  backgroundImage: `url("/${membership.url}")`,
+                }}
               >
-                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-red-100/60 transition-transform duration-500 group-hover:scale-125" />
+                {/* Bottom overlay for readable text */}
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/30 to-transparent" />
 
-                <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-white text-red-600 shadow-sm ring-1 ring-slate-200 transition-colors group-hover:bg-red-600 group-hover:text-white">
-                  <Award size={21} />
-                </div>
+                {/* Membership Details */}
+                <div className="relative z-10 p-4">
+                  <h3 className="text-sm font-extrabold leading-5 text-slate-900">
+                    {membership.name}
+                  </h3>
 
-                <h3 className="relative mt-5 text-sm font-extrabold leading-6 text-slate-900">
-                  {membership.name}
-                </h3>
-
-                <p className="relative mt-2 text-[10px] font-bold uppercase tracking-wider text-red-600">
-                  {membership.label}
-                </p>
-
-                <div className="relative mt-4 flex items-center gap-2 text-xs font-medium text-slate-500">
-                  <CheckCircle2 size={14} className="shrink-0 text-red-500" />
-                  <span>Industry Association</span>
+                  <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-red-600">
+                    {membership.label}
+                  </p>
                 </div>
               </article>
             ))}
           </div>
+
+
+
+
+
+
+
+
 
           {/* Bottom CTA */}
           <div className="mt-7 flex flex-col gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-7">

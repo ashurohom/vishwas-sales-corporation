@@ -14,10 +14,10 @@ export const companyInfo = {
   dealerCount: "800+",
 
   memberships: [
-    { name: "CREDAI Pune Metro", label: "CREDAI PUNE METRO" },
-    { name: "Builders Association of India", label: "BAI MEMBER" },
-    { name: "Maratha Entrepreneurs Association", label: "MEA MEMBER" },
-    { name: "Maharashtra Builders Vendors Association", label: "MBVA MEMBER" }
+    { name: "CREDAI Pune Metro", label: "CREDAI PUNE METRO" ,url:"memberships/CREDAI Pune Metro.jpg"},
+    { name: "Builders Association of India", label: "BAI MEMBER" ,url:"memberships/Builders Association of India.jpg"},
+    { name: "Maratha Entrepreneurs Association", label: "MEA MEMBER" ,url:"memberships/Maratha Entrepreneurs Association.jpg"},
+    { name: "Maharashtra Builders Vendors Association", label: "MBVA MEMBER",url:"memberships/Maharashtra Builders Vendors Association.jpg" }
   ],
 
   promises: [
@@ -1445,102 +1445,50 @@ import {
 
 export const servicesList = [
   {
-    id: "repair",
-    title: "Water Pump & Motor Repair",
-    category: "Maintenance",
+    id: 'repair',
+    name: 'Water Pump & Motor Repair',
     icon: Wrench,
-    tag: "Expert Repair Service",
-    desc: "Repair and maintenance of water pumps and motors, including rewinding, bearing replacement, and fault detection.",
+    description: 'Pump repair, motor rewinding and maintenance.',
     image: '/services/Water Pump & Motor Repair.jpg',
-    deliverables: [
-      "Submersible and centrifugal pumps",
-      "Motor rewinding and bearing replacement",
-      "Starters and control panels",
-      "Water level controllers",
-    ],
-    cta: "Schedule Pump Repair",
   },
   {
-    id: "installation",
-    title: "Water Pump Installation",
-    category: "Installation",
+    id: 'installation',
+    name: 'Water Pump Installation',
     icon: Settings,
-    tag: "Professional Installation",
-    desc: "Installation of water pumps and motors for residential societies, commercial buildings, and industries.",
+    description: 'Professional pump installation for buildings and industries.',
     image: '/services/Water Pump Installation.jpg',
-    deliverables: [
-      "Booster pump systems",
-      "Borewell pumps",
-      "Sewage and drainage pumps",
-      "Safe electrical connections",
-    ],
-    cta: "Request Installation Quote",
   },
   {
-    id: "rental",
-    title: "Dewatering Pump Rental",
-    category: "Rental",
+    id: 'rental',
+    name: 'Dewatering Pump Rental',
     icon: RefreshCw,
-    tag: "Flexible Pump Rental",
-    desc: "Rent dewatering pumps for construction sites, flooded basements, and water removal on flexible rental plans.",
+    description: 'Reliable pumps for construction sites and water removal.',
     image: '/services/Dewatering Pump Rental.jpg',
-    deliverables: [
-      "Heavy-duty dewatering pumps",
-      "Basement water removal",
-      "Construction site drainage",
-      "Flexible rental plans",
-    ],
-    cta: "Rent Dewatering Pump",
   },
   {
-    id: "on-call",
-    title: "On-Call Pump Mechanics",
-    category: "Emergency",
+    id: 'mechanics',
+    name: 'On-Call Pump Mechanics',
     icon: PhoneCall,
-    tag: "Quick On-Site Support",
-    desc: "Get experienced mechanics for pump breakdowns, motor faults, and emergency repairs across Pune.",
+    description: 'Quick on-site support for pump breakdowns.',
     image: '/services/On-Call Pump Mechanics.jpg',
-    deliverables: [
-      "On-site breakdown support",
-      "Motor inspection",
-      "Starter troubleshooting",
-      "Water level controller checks",
-    ],
-    cta: "Contact Service Desk",
   },
   {
-    id: "standby",
-    title: "Standby Pump Services",
-    category: "Backup Support",
+    id: 'standby',
+    name: 'Standby Pump Services',
     icon: ShieldCheck,
-    tag: "Reliable Backup Support",
-    desc: "Keep your water supply running with a temporary standby pump while your main pump is being repaired.",
+    description: 'Temporary pumps to maintain an uninterrupted water supply.',
     image: '/services/Standby Pump Services.jpg',
-    deliverables: [
-      "Temporary replacement pumps",
-      "Reduced water supply downtime",
-      "Support during pump repairs",
-      "Solutions for housing societies",
-    ],
-    cta: "Request Standby Pump",
   },
   {
-    id: "energy-audit",
-    title: "Energy Audit for Housing Societies",
-    category: "Energy Savings",
+    id: 'energy',
+    name: 'Society Energy Audit',
     icon: Zap,
-    tag: "Reduce Energy Costs",
-    desc: "Review pump performance and electricity usage to identify opportunities to reduce energy costs.",
+    description: 'Pump performance checks and energy-saving recommendations.',
     image: '/services/Energy Audit for Housing Societies.jpg',
-    deliverables: [
-      "Electricity usage analysis",
-      "Pump performance checks",
-      "Motor efficiency assessment",
-      "Energy-saving recommendations",
-    ],
-    cta: "Book Society Energy Audit",
   },
 ];
+
+
 
 
 

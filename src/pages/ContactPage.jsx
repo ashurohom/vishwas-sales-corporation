@@ -43,7 +43,7 @@ export default function ContactPage() {
 
           <div className="mx-auto max-w-4xl text-center">
             {/* Eyebrow */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-red-400/25 bg-red-500/10 px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.16em] text-red-300 sm:text-xs">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-red-400/25 bg-red-500/10 px-4 py-2 text-[10px] font-extrabold  tracking-[0.16em] text-red-300 sm:text-xs">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
@@ -53,11 +53,11 @@ export default function ContactPage() {
             </div>
 
             {/* Heading */}
-            <h1 className="text-3xl font-black uppercase leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-              Let's Get in
-              <span className="mt-1 block bg-gradient-to-r from-red-400 via-rose-400 to-orange-300 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-black  leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+              Let's Get in  <span className="mt-1 block bg-gradient-to-r from-red-400 via-rose-400 to-orange-300 bg-clip-text text-transparent">
                 Touch With You
               </span>
+             
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">

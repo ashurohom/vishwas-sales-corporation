@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ServicesSection from '../components/ServicesSection';
 import {
@@ -6,6 +7,7 @@ import {
   PhoneCall,
   ShieldCheck,
   CheckCircle2,
+  Home,
 } from 'lucide-react';
 import { companyInfo } from '../data/companyData';
 import { Link } from 'react-router-dom';
@@ -16,12 +18,34 @@ export default function ServicesPage({ onOpenInquiry }) {
 
       {/* Hero Section */}
       <section className="relative isolate overflow-hidden bg-slate-950 text-white">
+
         {/* Background decoration */}
         <div className="absolute -right-24 -top-24 -z-10 h-80 w-80 rounded-full bg-red-600/20 blur-3xl" />
         <div className="absolute -bottom-32 -left-20 -z-10 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
 
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+
           <div className="mx-auto max-w-3xl text-center">
+
+            {/* Breadcrumb */}
+            <nav
+              aria-label="Breadcrumb"
+              className="mb-6 flex items-center justify-center gap-2 text-xs font-medium text-slate-400 sm:text-sm"
+            >
+              <Link
+                to="/"
+                className="inline-flex items-center gap-1.5 transition hover:text-white"
+              >
+                <Home className="h-3.5 w-3.5" />
+                Home
+              </Link>
+
+              <ArrowRight className="h-3.5 w-3.5" />
+
+              <span className="font-bold text-red-400">
+                Services
+              </span>
+            </nav>
 
             {/* Eyebrow */}
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-red-400/20 bg-red-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-red-300">
@@ -48,9 +72,7 @@ export default function ServicesPage({ onOpenInquiry }) {
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <button
                 type="button"
-                onClick={() =>
-                  onOpenInquiry?.('Service Enquiry')
-                }
+                onClick={() => onOpenInquiry?.('Service Enquiry')}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-slate-950 sm:w-auto"
               >
                 Request a Service
@@ -78,32 +100,10 @@ export default function ServicesPage({ onOpenInquiry }) {
                 Quality-Focused Service
               </span>
             </div>
+
           </div>
         </div>
       </section>
-
-      {/* Breadcrumb */}
-      <div className="border-b border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
-          <nav
-            aria-label="Breadcrumb"
-            className="flex items-center gap-2 text-sm text-slate-500"
-          >
-            <Link
-              to="/"
-              className="transition hover:text-red-600"
-            >
-              Home
-            </Link>
-
-            <span>/</span>
-
-            <span className="font-medium text-slate-900">
-              Services
-            </span>
-          </nav>
-        </div>
-      </div>
 
       {/* Existing Services Component */}
       <ServicesSection onOpenInquiry={onOpenInquiry} />

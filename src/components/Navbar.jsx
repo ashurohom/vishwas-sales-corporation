@@ -34,7 +34,7 @@ export default function Navbar({ onOpenInquiry }) {
     { name: 'Products', path: '/products' },
     { name: 'Services', path: '/services' },
     { name: 'Clients & Dealers', path: '/clients' },
-    { name: 'Catalogues', path: '/catalogues' },
+    { name: 'Price List', path: '/pricelist' },
     { name: "FAQ's", path: '/faqs' },
     { name: 'Contact Us', path: '/contact' },
   ];

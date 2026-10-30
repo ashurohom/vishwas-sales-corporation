@@ -1,89 +1,140 @@
 import React from 'react';
-import { 
-  PhoneCall, 
-  Droplets, 
-  Wrench, 
-  ShieldCheck, 
-  ArrowRight 
+import {
+  Droplets,
+  Wrench,
+  ShieldCheck,
+  ArrowUpRight,
+  Award,
+  Users,
+  Package,
+  Tags,
 } from 'lucide-react';
-import { companyInfo } from '../data/companyData';
-import { Link } from 'react-router-dom';
 
-export default function AuthorizedBrandsSection({ onOpenInquiry }) {
+
+export default function AuthorizedBrandsSection() {
+  const capabilities = [
+    {
+      number: '01',
+      icon: Droplets,
+      title: 'Authorized Brand Distribution',
+      description:
+        'Direct authorized partner for C.R.I. Pumps, Raksha Pipes, Ashirvad and Leader Valves.',
+    },
+    {
+      number: '02',
+      icon: Wrench,
+      title: 'In-House Pump Repair Workshop',
+      description:
+        'Expert repair and maintenance for submersible pumps, monoblock pumps, motors, starters and control panels.',
+    },
+    {
+      number: '03',
+      icon: ShieldCheck,
+      title: 'Reliable Water Support',
+      description:
+        'Standby backup pumps and de-watering rentals for housing societies, hospitals and commercial properties.',
+    },
+  ];
+
+  const metrics = [
+    { value: '41+', label: 'Years Experience', icon: Award },
+    { value: '500+', label: 'Happy Customers', icon: Users },
+    { value: '1000+', label: 'Products', icon: Package },
+    { value: '50+', label: 'Associated Brands', icon: Tags },
+  ];
+
   return (
-    <section className="relative bg-white pt-8 sm:pt-10 lg:pt-12 pb-14 sm:pb-16 lg:pb-20 border-b border-slate-200">
+    <section className="relative overflow-hidden bg-white py-14 sm:py-16 lg:py-20 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* 3 Core Capabilities Cards (Authorized Brand Distribution) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-          
-          {/* Card 1: Authorized Brand Distribution */}
-          <div className="p-6 rounded-3xl bg-gradient-to-r from-red-50/50 via-white to-white border border-red-100 shadow-sm hover:shadow-xl hover:border-red-300 transition-all flex items-start gap-4 group">
-            <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-              <Droplets className="w-6 h-6 text-red-600" />
-            </div>
-            <div>
-              <h3 className="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">
-                Authorized Brand Distribution
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-                Direct authorized partner for C.R.I. Pumps, Raksha Pipes, Ashirvad & Leader Valves.
-              </p>
-            </div>
-          </div>
 
-          {/* Card 2: In-House Pump Repair Workshop */}
-          <div className="p-6 rounded-3xl bg-gradient-to-r from-red-50/50 via-white to-white border border-red-100 shadow-sm hover:shadow-xl hover:border-red-300 transition-all flex items-start gap-4 group">
-            <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-              <Wrench className="w-6 h-6 text-red-600" />
-            </div>
-            <div>
-              <h3 className="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">
-                In-House Pump Repair Workshop
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-                Submersible, monoblock, bare induction motor rewinding, starters & control panels.
-              </p>
-            </div>
-          </div>
+        {/* Section Intro */}
+        <div className="max-w-2xl mx-auto text-center mb-9 sm:mb-12">
+          <span className="inline-flex items-center gap-2 rounded-full border border-red-100 bg-red-50 px-4 py-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.16em] text-red-700">
+            <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
+            What Sets Us Apart
+          </span>
 
-          {/* Card 3: Zero Water Downtime Guarantee */}
-          <div className="p-6 rounded-3xl bg-gradient-to-r from-red-50/50 via-white to-white border border-red-100 shadow-sm hover:shadow-xl hover:border-red-300 transition-all flex items-start gap-4 group">
-            <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-              <ShieldCheck className="w-6 h-6 text-red-600" />
-            </div>
-            <div>
-              <h3 className="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">
-                Zero Water Downtime Guarantee
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-                Standby backup pumps and de-watering rentals for housing societies and hospitals.
-              </p>
-            </div>
-          </div>
+          <h2 className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-slate-900">
+            More Than Products.
+            <span className="block text-red-600 mt-1">
+              Complete Water Solutions.
+            </span>
+          </h2>
 
+          <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-500">
+            From authorized product distribution to expert pump servicing,
+            we deliver dependable solutions backed by decades of experience.
+          </p>
         </div>
 
-        {/* 4 Clean Metric Cards (Light, Crisp, Modern - White Theme) */}
-        <div className="mt-8 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-          <div className="p-4 sm:p-6 rounded-2xl bg-slate-50/80 border border-slate-200 text-center hover:bg-white hover:shadow-md transition-all">
-            <div className="text-2xl sm:text-3xl font-black text-red-600">41+</div>
-            <div className="text-xs sm:text-sm font-bold text-slate-800 mt-1">Years Experience</div>
-          </div>
+        {/* Capability Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+          {capabilities.map((item) => {
+            const Icon = item.icon;
 
-          <div className="p-4 sm:p-6 rounded-2xl bg-slate-50/80 border border-slate-200 text-center hover:bg-white hover:shadow-md transition-all">
-            <div className="text-2xl sm:text-3xl font-black text-red-600">500+</div>
-            <div className="text-xs sm:text-sm font-bold text-slate-800 mt-1">Happy Customers</div>
-          </div>
+            return (
+              <div
+                key={item.number}
+                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-red-200 hover:shadow-xl hover:shadow-red-900/5"
+              >
+                {/* Decorative number */}
+                <span className="absolute right-5 top-4 text-5xl font-black text-slate-100 transition-colors duration-300 group-hover:text-red-50">
+                  {item.number}
+                </span>
 
-          <div className="p-4 sm:p-6 rounded-2xl bg-slate-50/80 border border-slate-200 text-center hover:bg-white hover:shadow-md transition-all">
-            <div className="text-2xl sm:text-3xl font-black text-red-600">1000+</div>
-            <div className="text-xs sm:text-sm font-bold text-slate-800 mt-1">Products</div>
-          </div>
+                <div className="relative z-10">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-red-100 bg-red-50 text-red-600 transition-all duration-300 group-hover:bg-red-600 group-hover:text-white group-hover:scale-105">
+                    <Icon size={25} strokeWidth={1.8} />
+                  </div>
 
-          <div className="p-4 sm:p-6 rounded-2xl bg-slate-50/80 border border-slate-200 text-center hover:bg-white hover:shadow-md transition-all">
-            <div className="text-2xl sm:text-3xl font-black text-red-600">50+</div>
-            <div className="text-xs sm:text-sm font-bold text-slate-800 mt-1">Brands</div>
+                  <h3 className="mt-6 text-lg font-extrabold text-slate-900 transition-colors group-hover:text-red-600">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-7 text-slate-500">
+                    {item.description}
+                  </p>
+
+                  <div className="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-red-600">
+                    <span>Our Expertise</span>
+                    <ArrowUpRight
+                      size={15}
+                      className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                    />
+                  </div>
+                </div>
+
+                <div className="absolute bottom-0 left-0 h-1 w-0 bg-red-600 transition-all duration-300 group-hover:w-full" />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Metrics */}
+        <div className="mt-10 sm:mt-14 overflow-hidden rounded-3xl border border-slate-200 bg-slate-50">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-slate-200">
+            {metrics.map((metric, index) => {
+              const Icon = metric.icon;
+
+              return (
+                <div
+                  key={metric.label}
+                  className="group relative flex flex-col items-center justify-center px-3 py-7 sm:py-9 text-center transition-colors duration-300 hover:bg-white"
+                >
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-white border border-slate-200 text-red-600 transition-all duration-300 group-hover:border-red-100 group-hover:bg-red-50">
+                    <Icon size={19} strokeWidth={1.8} />
+                  </div>
+
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-slate-900">
+                    {metric.value}
+                  </div>
+
+                  <p className="mt-1.5 text-[11px] sm:text-sm font-semibold text-slate-500">
+                    {metric.label}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
 
