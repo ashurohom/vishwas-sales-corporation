@@ -45,3 +45,12 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+
+@layer base {
+  button:not(:disabled),
+  a[href],
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+}
