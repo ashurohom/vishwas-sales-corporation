@@ -15,6 +15,7 @@ import CataloguesPage from './pages/CataloguesPage';
 import PriceListPage from './pages/PriceListPage';
 import FAQsPage from './pages/FAQsPage';
 import ContactPage from './pages/ContactPage';
+import SubTypeDetailsPage from './pages/SubTypeDetailsPage';
 
 export default function App() {
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="/" element={<HomePage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/about" element={<AboutPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/products" element={<ProductsPage onOpenInquiry={handleOpenInquiry} />} />
+            <Route path="/products/subtypes" element={<SubTypeDetailsPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/services" element={<ServicesPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/clients" element={<ClientsPage onOpenInquiry={handleOpenInquiry} />} />
             <Route path="/catalogues" element={<CataloguesPage onOpenInquiry={handleOpenInquiry} />} />

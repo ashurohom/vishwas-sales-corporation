@@ -10,6 +10,7 @@ export default function PriceListPage({ onOpenInquiry }) {
     category: 'C.R.I. Pumps & Boosting Systems',
     quantity: 'Wholesale / Bulk Order'
   });
+
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {

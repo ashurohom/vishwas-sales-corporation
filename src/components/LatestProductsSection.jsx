@@ -28,12 +28,16 @@ export default function LatestProductsSection({ onOpenInquiry }) {
     <section className="relative py-8 sm:py-10 lg:py-12 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Sleek, Low-Profile Section Heading - No tags or taglines */}
-        <div className="text-center mb-6 sm:mb-8">
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+        <div className="flex items-center justify-center gap-3 sm:gap-6 mb-8 sm:mb-10">
+          <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
+
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight text-center">
             Our Latest <span className="text-red-600">Products</span>
           </h2>
-          <div className="w-10 h-0.5 bg-red-600 rounded-full mx-auto mt-2" />
+
+          <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
         </div>
+      
 
         {/* Slim, Compact 3-Column Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">

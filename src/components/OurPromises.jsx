@@ -30,17 +30,23 @@ export default function OurPromises({ onOpenInquiry }) {
   return (
     <section id="promises" className="py-20 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wider mb-3">
             <span>Commitment to Excellence</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            OUR PROMISES
-          </h2>
+          <div className="flex items-center justify-center gap-3 sm:gap-6 mb-8 sm:mb-10">
+            <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
+
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight text-center">
+              Our Promises
+            </h2>
+
+            <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
+          </div>
           <p className="mt-4 text-base text-slate-600 leading-relaxed">
-            For more than 40 years, Vishwas Sales Corporation has been built on three immovable pillars 
+            For more than 40 years, Vishwas Sales Corporation has been built on three immovable pillars
             that safeguard your investment and guarantee seamless water infrastructure.
           </p>
         </div>
@@ -48,7 +54,7 @@ export default function OurPromises({ onOpenInquiry }) {
         {/* 3 Promises Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {promiseCards.map((promise, index) => (
-            <div 
+            <div
               key={index}
               className="relative rounded-3xl bg-slate-50 border border-slate-200/80 p-8 hover:shadow-xl hover:border-red-200 hover:bg-white transition-all group flex flex-col justify-between"
             >
@@ -66,7 +72,7 @@ export default function OurPromises({ onOpenInquiry }) {
                   {promise.title}
                 </h3>
 
-                <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                <p className="text-sm text-slate-600 leading-relaxed mb-6 text-justify">
                   {promise.desc}
                 </p>
 

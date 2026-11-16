@@ -11,59 +11,43 @@ export default function ProductsPage({ onOpenInquiry }) {
   return (
     <div className="bg-slate-50 min-h-screen">
       {/* Page Header */}
-      <div className="bg-slate-950 text-white py-16 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-bold uppercase tracking-wider mb-4">
-            <Package className="w-3.5 h-3.5" />
+      <div
+        className="relative bg-slate-950 text-white py-16 border-b border-slate-800 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/products_hero_bg.png')",
+        }}
+      >
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-slate-950/75"></div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-semibold mb-3 sm:mb-4 shadow-sm">
+            <Package className="w-4 h-4" />
             <span>Official Authorized Distribution</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-white uppercase">
+
+          {/* Heading */}
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[2.6rem] xl:text-[3.25rem] font-black tracking-tight leading-[1.16] text-white">
             Authorized Products & Brands
           </h1>
+
+          {/* Description */}
           <p className="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Direct authorized wholesale distributor for C.R.I. Pumps, Raksha Pipes, Ashirvad by aliaxis, 
-            Leader Valves, Huliot, Sintex Tanks, and municipal PMC/PCMC approved chamber covers.
+            Direct authorized wholesale distributor for C.R.I. Pumps,
+            Raksha Pipes, Ashirvad by aliaxis, Leader Valves, Huliot,
+            Sintex Tanks, and municipal PMC/PCMC approved chamber covers.
           </p>
+
         </div>
       </div>
 
       {/* Main Products Catalog Section */}
+
       <ProductsSection onOpenInquiry={onOpenInquiry} />
 
-      {/* Quick Links to Catalogues & PriceList */}
-      <section className="py-14 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-7 rounded-3xl bg-slate-50 border border-slate-200 flex items-center justify-between">
-              <div>
-                <span className="text-xs font-bold text-red-600 uppercase">Technical Datasheets</span>
-                <h4 className="text-lg font-bold text-slate-900 mt-1">Product Catalogues & Sizing Charts</h4>
-                <p className="text-xs text-slate-500 mt-1">Download technical brochures for C.R.I., Raksha & Leader.</p>
-              </div>
-              <Link 
-                to="/catalogues"
-                className="shrink-0 p-3 rounded-xl bg-slate-900 text-white hover:bg-red-600 transition-colors"
-              >
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            <div className="p-7 rounded-3xl bg-slate-50 border border-slate-200 flex items-center justify-between">
-              <div>
-                <span className="text-xs font-bold text-red-600 uppercase">Commercial & BOQ</span>
-                <h4 className="text-lg font-bold text-slate-900 mt-1">Wholesale Price List & Tenders</h4>
-                <p className="text-xs text-slate-500 mt-1">Request institutional tiered pricing for contractors.</p>
-              </div>
-              <Link 
-                to="/pricelist"
-                className="shrink-0 p-3 rounded-xl bg-slate-900 text-white hover:bg-red-600 transition-colors"
-              >
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

@@ -4,47 +4,183 @@ import { CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 
 export default function DistributorBrandsSection({ onOpenInquiry }) {
   const distributorBrands = [
-    {
-      id: 'kohler',
-      name: 'Kohler',
-      logo: '/distributor/KOHLER.webp',
-      category: 'CP & Sanitaryware',
-      tagline: 'The Bold Look of Kohler',
-      badge: 'Luxury Bathware'
-    },
-    {
-      id: 'ashirvad',
-      name: 'Ashirvad by aliaxis',
-      logo: '/distributor/ASHIRVAD.webp',
-      category: 'Pipes & Drainage Systems',
-      tagline: 'by aliaxis',
-      badge: 'CPVC & SWR'
-    },
-    {
-      id: 'raksha',
-      name: 'Raksha Pipes',
-      logo: '/distributor/RAKSHA.webp',
-      category: 'Plumbing & Agriculture Pipes',
-      tagline: 'Pipes & Water Solutions',
-      badge: 'ISI Certified'
-    },
-    {
-      id: 'sintex',
-      name: 'Sintex by Welspun',
-      logo: '/distributor/SINTEX.webp',
-      category: 'Water Storage Tanks',
-      tagline: 'by Welspun',
-      badge: 'Antibacterial Tanks'
-    },
-    {
-      id: 'cri',
-      name: 'C.R.I. Pumps',
-      logo: '/distributor/CRI_PUMPS.webp',
-      category: 'Water Pumps & Boosting Systems',
-      tagline: 'Pumping trust. Worldwide.',
-      badge: 'Agri & Industrial'
-    }
-  ];
+  {
+    id: 'raksha',
+    name: 'Raksha Pipes',
+    logo: '/Brand/Raksha_Pipes.png',
+    category: 'Plumbing, Sanitary & Agriculture',
+    tagline: 'Pipes & Water Solutions',
+    badge: 'ISI Certified'
+  },
+  {
+    id: 'ashirvad',
+    name: 'Ashirvad by aliaxis',
+    logo: '/Brand/Ashirvad_by_Aliaxis.png',
+    category: 'Plumbing & Drainage Systems',
+    tagline: 'Complete Piping Solutions',
+    badge: 'CPVC & SWR'
+  },
+  {
+    id: 'cri',
+    name: 'C.R.I. Pumps',
+    logo: '/Brand/CRI_PUMPS.webp',
+    category: 'Agriculture, Residential & Industrial',
+    tagline: 'Pumping Trust. Worldwide.',
+    badge: 'Water Pump Solutions'
+  },
+  {
+    id: 'hydro-pneumatic',
+    name: 'Hydro-Pneumatic Water Supply System',
+    logo: '/Brand/hydro_pneumatic_water_supply.png',
+    category: 'Water Supply Systems',
+    tagline: 'Complete Water Supply Solution',
+    badge: 'Turnkey Projects'
+  },
+  {
+    id: 'huliot',
+    name: 'Huliot India',
+    logo: '/Brand/Huliot_India.png',
+    category: 'Plumbing & Drainage Systems',
+    tagline: 'Advanced Piping Solutions',
+    badge: 'Waste Water Systems'
+  },
+  {
+    id: 'leader-valves',
+    name: 'Leader Valves Limited',
+    logo: '/Brand/Leader_Valves.png',
+    category: 'Industrial & Plumbing Valves',
+    tagline: 'Valves for Every Application',
+    badge: 'Valve Solutions'
+  },
+  {
+    id: 'autocon',
+    name: 'Autocon',
+    logo: '/Brand/Autocon.png',
+    category: 'Electrical & Automation',
+    tagline: 'Smart Control Solutions',
+    badge: 'Electronic Control Panels'
+  },
+  {
+    id: 'sintex',
+    name: 'Sintex',
+    logo: '/Brand/Sintex.png',
+    category: 'Water Storage Solutions',
+    tagline: 'Trusted Water Storage',
+    badge: 'Water Tanks'
+  },
+  {
+    id: 'johnson',
+    name: 'Johnson Bathware',
+    logo: '/Brand/Johnson_Bathware.png',
+    category: 'CP Fittings & Sanitaryware',
+    tagline: 'Style Meets Functionality',
+    badge: 'Premium Bathware'
+  },
+  {
+    id: 'kohler',
+    name: 'Kohler',
+    logo: '/distributor/KOHLER.webp',
+    category: 'CP Fittings & Sanitaryware',
+    tagline: 'The Bold Look of Kohler',
+    badge: 'Luxury Bathware'
+  },
+  {
+    id: 'waasol',
+    name: 'WAASOL',
+    logo: '/Brand/Waasol.png',
+    category: 'Solar Water Heating',
+    tagline: 'Harness the Power of Solar',
+    badge: 'Solar Solutions'
+  },
+  {
+    id: 'laxso',
+    name: 'LAXSO',
+    logo: '/Brand/Laxso.png',
+    category: 'Solar Water Heating',
+    tagline: 'Efficient Solar Solutions',
+    badge: 'Solar Water Heaters'
+  },
+  {
+    id: 'r-drain',
+    name: 'R Drain',
+    logo: '/Brand/R_Drain.png',
+    category: 'Drainage Systems',
+    tagline: 'Reliable Subsoil Drainage',
+    badge: 'HDPE Drainage Pipes'
+  },
+  {
+    id: 'kisan',
+    name: 'Kisan',
+    logo: '/Brand/Kisan.png',
+    category: 'Pipes & Hose Solutions',
+    tagline: 'Complete Piping Solutions',
+    badge: 'HDPE & PVC Pipes'
+  },
+  {
+    id: 'maru-ropes',
+    name: 'Maru Ropes',
+    logo: '/Brand/Maru_Ropes.png',
+    category: 'Industrial Ropes',
+    tagline: 'Strength You Can Trust',
+    badge: 'PP & Nylon Ropes'
+  },
+  {
+    id: 'thermodrain',
+    name: 'Thermodrain',
+    logo: '/Brand/Thermodrain.png',
+    category: 'Drainage Products',
+    tagline: 'Smart Drainage Solutions',
+    badge: 'Drainage Systems'
+  },
+  {
+    id: 'vikrant',
+    name: 'Vikrant',
+    logo: '/Brand/Vikrant.png',
+    category: 'Infrastructure Products',
+    tagline: 'Built for Infrastructure',
+    badge: 'Chamber Covers'
+  },
+  {
+    id: 'jasper',
+    name: 'Jasper',
+    logo: '/Brand/Jasper.png',
+    category: 'Infrastructure Products',
+    tagline: 'Reliable Infrastructure Solutions',
+    badge: 'Chamber Covers'
+  },
+  {
+    id: 'rp-composites',
+    name: 'R.P. Composites',
+    logo: '/Brand/RP_Composites.png',
+    category: 'Composite Infrastructure Products',
+    tagline: 'Advanced Composite Solutions',
+    badge: 'Composite Covers'
+  },
+  {
+    id: 'topaz',
+    name: 'Topaz',
+    logo: '/Brand/Topaz.png',
+    category: 'Infrastructure Products',
+    tagline: 'Quality Infrastructure Solutions',
+    badge: 'Chamber Covers'
+  },
+  {
+    id: 'birla-opus',
+    name: 'Birla Opus Paints',
+    logo: '/Brand/Birla_Opus.png',
+    category: 'Paints & Coatings',
+    tagline: 'Colours That Inspire',
+    badge: 'Decorative Paints'
+  },
+  {
+    id: 'birla-white',
+    name: 'Birla White',
+    logo: '/Brand/Birla_White.png',
+    category: 'Building Materials',
+    tagline: 'Building with Excellence',
+    badge: 'White Cement'
+  }
+];
 
   // Quadruple the brand list to create a completely seamless, gap-free infinite loop
   const marqueeBrands = [
