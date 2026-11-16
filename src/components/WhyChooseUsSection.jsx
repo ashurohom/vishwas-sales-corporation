@@ -38,13 +38,30 @@ export default function WhyChooseUsSection({ onOpenInquiry }) {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-red-50 border border-red-200/80 text-red-700 text-xs font-black uppercase tracking-wider mb-3.5 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-red-600" />
+            
             <span>WHY CHOOSE US</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-            Why Customers Trust <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-rose-600 to-red-700">Vishwas Sales Corporation</span>
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-red-600 via-rose-500 to-amber-500 rounded-full mx-auto mt-4" />
+          <div className="flex items-center justify-center gap-3 sm:gap-6 mb-8 sm:mb-10">
+            <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
+
+            <h2 className="
+  flex flex-wrap lg:flex-nowrap
+  items-center justify-center
+  gap-x-2
+  text-3xl sm:text-4xl
+  font-black text-slate-900
+  tracking-tight leading-tight
+  text-center
+">
+              <span className="whitespace-nowrap">Why Customers Trust</span>
+
+              <span className="whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-rose-600 to-red-700">
+                Vishwas Sales Corporation
+              </span>
+            </h2>
+
+            <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
+          </div>
         </div>
 
         {/* 3 Modern Trust Cards */}

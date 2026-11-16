@@ -1,274 +1,620 @@
 import React, { useState } from 'react';
-import { prominentClients, sectors } from '../data/companyData';
 import {
   Building2,
   Hospital,
   Home,
   Factory,
   Share2,
-  Search,
+  CheckCircle2,
   ArrowRight,
-  Users,
+  Search,
+  Sparkles,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
-const CLIENTS_PER_PAGE = 12;
-
-// Map icon names from companyData.js to Lucide components.
-const iconMap = {
-  Share2,
-  Building2,
-  Hospital,
-  Home,
-  Factory,
-};
+import { prominentClients } from '../data/companyData';
 
 export default function ClientsSection({ onOpenInquiry }) {
   const [clientSearch, setClientSearch] = useState('');
-  const [currentPage, setCurrentPage] = useState(0);
+  const [clientPage, setClientPage] = useState(0);
 
-  // Search clients by name.
+  const CLIENTS_PER_PAGE = 12;
+
+  // =====================================================
+  // SECTORS / BUSINESS CATEGORIES
+  // =====================================================
+
+  const sectors = [
+    {
+      title: "Dealer Network",
+      tag: "800+ Active Dealers",
+      icon: <Share2 className="w-6 h-6 text-red-600" />,
+      desc: "Vishwas Sales Corporation has an active dealer network of more than 800+ dealers in Pune district and will soon extend its network all over Maharashtra.",
+      highlight: "Expanding statewide"
+    },
+    {
+      title: "Real Estate & Builders",
+      tag: "Top Developers",
+      icon: <Building2 className="w-6 h-6 text-blue-600" />,
+      desc: "Associated with most of the leading builders and infrastructure developers in Maharashtra for turnkey water pumping and piping systems.",
+      highlight: "Commercial & Residential High-Rises"
+    },
+    {
+      title: "Hospitals & Institutions",
+      tag: "Zero-Outage Care",
+      icon: <Hospital className="w-6 h-6 text-emerald-600" />,
+      desc: "We work closely & extensively with various leading hospitals, medical colleges, and educational campuses requiring continuous water supply.",
+      highlight: "Standby Pump Assurance"
+    },
+    {
+      title: "Co-operative Housing Societies",
+      tag: "Society Specialists",
+      icon: <Home className="w-6 h-6 text-amber-600" />,
+      desc: "We provide customized pump repair, on-call mechanics, energy audits, and plumbing replacement solutions to co-operative housing societies.",
+      highlight: "Save up to 30% Electricity"
+    },
+    {
+      title: "Industries & Manufacturing",
+      tag: "Heavy Industry",
+      icon: <Factory className="w-6 h-6 text-indigo-600" />,
+      desc: "Supplying and servicing some of the most esteemed industrial conglomerates across automotive, pharmaceutical, and engineering sectors.",
+      highlight: "Heavy Flow & Slurry Handling"
+    }
+  ];
+
+  // =====================================================
+  // FILTER CLIENTS
+  // =====================================================
+
   const filteredClients = prominentClients.filter((client) =>
-    client.name
-      .toLowerCase()
-      .includes(clientSearch.trim().toLowerCase())
+    client.name.toLowerCase().includes(clientSearch.toLowerCase())
   );
 
-  // Pagination.
+  // =====================================================
+  // PAGINATION
+  // =====================================================
+
   const totalPages = Math.ceil(
     filteredClients.length / CLIENTS_PER_PAGE
   );
 
+  const startIndex = clientPage * CLIENTS_PER_PAGE;
+
   const visibleClients = filteredClients.slice(
-    currentPage * CLIENTS_PER_PAGE,
-    (currentPage + 1) * CLIENTS_PER_PAGE
+    startIndex,
+    startIndex + CLIENTS_PER_PAGE
   );
 
-  const handleSearch = (value) => {
-    setClientSearch(value);
-    setCurrentPage(0);
+  const goToNextPage = () => {
+    if (clientPage < totalPages - 1) {
+      setClientPage((prev) => prev + 1);
+    }
+  };
+
+  const goToPreviousPage = () => {
+    if (clientPage > 0) {
+      setClientPage((prev) => prev - 1);
+    }
+  };
+
+  // =====================================================
+  // SEARCH HANDLER
+  // =====================================================
+
+  const handleClientSearch = (e) => {
+    setClientSearch(e.target.value);
+    setClientPage(0);
   };
 
   return (
-    <section id="clients" className="bg-white py-14 sm:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section
+      id="clients"
+      className="py-20 bg-white border-b border-slate-200"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Section heading */}
-        <div className="mx-auto mb-10 max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-red-50 px-4 py-2 text-xs font-bold uppercase tracking-wider text-red-700">
-            <Users size={15} />
-            Our Network
-          </span>
+        {/* =====================================================
+            SECTION HEADER
+        ====================================================== */}
 
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Our Clients &amp; Partners
-          </h2>
+        <div className="text-center max-w-3xl mx-auto mb-14">
 
-          <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
-            Building trusted relationships with dealers, builders,
-            institutions, housing societies, and industries.
-          </p>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 uppercase text-red-700 text-xs font-bold tracking-wider mb-3">
+            <span>
+              Trusted Across Maharashtra
+            </span>
+          </div>
+
+          <div className="flex flex-nowrap items-center justify-center gap-3 sm:gap-6 !mb-0">
+            <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
+
+            <h2 className="whitespace-nowrap text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight text-center !mb-0">
+              Our Clients &{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-rose-600 to-red-700">
+                800+ Dealers Network
+              </span>
+            </h2>
+
+            <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
+          </div>
+
+
+
         </div>
 
-        {/* Business sector cards */}
-        <div className="mb-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {sectors.map((sector) => {
-            const Icon = iconMap[sector.icon] || Building2;
+        {/* Dealership Onboarding Program */}
+
+
+
+        <section className="pt-2 pb-10 bg-white">
+          <div className="max-w-7xl mx-auto w-full px-4">
+
+            {/* MAIN DEALERSHIP CONTAINER */}
+            <div
+              className="
+        p-6 sm:p-10 lg:p-12
+        rounded-3xl
+        bg-slate-50
+        border border-slate-200
+        grid grid-cols-1 lg:grid-cols-2
+        items-stretch
+        gap-8 lg:gap-12
+      "
+            >
+
+              {/* LEFT SIDE - CONTENT */}
+              <div className="max-w-2xl h-full flex flex-col justify-center">
+
+                {/* SECTION LABEL */}
+                <span className="text-xs font-bold uppercase tracking-wider text-red-600">
+                  Dealer Expansion Program
+                </span>
+
+                {/* HEADING */}
+                <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+                  Grow Your Business with Vishwas Sales Corporation
+                </h3>
+
+                {/* DESCRIPTION */}
+                <p className="
+  w-full
+  max-w-2xl
+  mt-3
+  text-justify
+  text-sm sm:text-base
+  leading-7
+  text-slate-600
+">
+                  From the most esteemed industrial groups and premier real estate
+                  developers to thousands of housing societies, our 40-year legacy
+                  speaks for itself.
+                </p>
+                {/* DEALER BENEFITS */}
+                <div
+                  className="
+            mt-5
+            grid grid-cols-1 sm:grid-cols-2
+            gap-3
+            text-xs font-semibold text-slate-700
+          "
+                >
+
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-red-600 shrink-0" />
+                    <span>Direct Authorized Margins</span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-red-600 shrink-0" />
+                    <span>Same-Day / Next-Day Regional Dispatch</span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-red-600 shrink-0" />
+                    <span>100% Genuine Factory Warranty</span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-red-600 shrink-0" />
+                    <span>Marketing & In-Store Branding Support</span>
+                  </div>
+
+                </div>
+              </div>
+
+
+              {/* RIGHT SIDE - IMAGE + BUTTON */}
+              <div
+                className="
+          w-full
+          sm:max-w-[380px]
+          mx-auto
+          h-full
+          flex flex-col
+          items-center
+          gap-5
+        "
+              >
+
+                {/* DEALERSHIP IMAGE CARD */}
+                <div
+                  className="
+            w-full
+            flex-1
+            min-h-[220px]
+            overflow-hidden
+            rounded-2xl
+            bg-white
+            border border-slate-200
+            shadow-md
+            transition-all duration-300
+            hover:shadow-xl
+          "
+                >
+                  <img
+                    src="/apply_for_dealership.png"
+                    alt="Vishwas Sales Corporation Dealership Partnership"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+
+                {/* APPLICATION BUTTON */}
+                <button
+                  type="button"
+                  onClick={() =>
+                    onOpenInquiry &&
+                    onOpenInquiry('Apply to Join 800+ Dealer Network')
+                  }
+                  className="
+            w-full
+            px-6 py-4
+            rounded-xl
+            bg-red-600
+            hover:bg-red-700
+            text-white
+            font-bold
+            text-xs
+            uppercase
+            tracking-wider
+            shadow-lg
+            shadow-red-600/30
+            hover:-translate-y-1
+            transition-all duration-300
+          "
+                >
+                  Apply for Dealership Onboarding
+                </button>
+
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+
+
+
+        {/* =====================================================
+    SECTORS GRID
+====================================================== */}
+
+        {/* Section Heading */}
+        <div className="text-center mb-10">
+
+          {/* Badge */}
+          <div className="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-red-100 uppercase text-red-700 text-xs font-bold tracking-wider mb-3">
+            <span>Our Network & Partnerships</span>
+          </div>
+
+          {/* Heading */}
+          <div className="flex items-center justify-center gap-3 sm:gap-6">
+            <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0" />
+
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              Industries We{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-rose-600 to-red-700">
+                Serve
+              </span>
+            </h2>
+
+            <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0" />
+          </div>
+
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-9 gap-5 sm:gap-6 items-stretch mb-16 mt-16">
+
+          {sectors.map((sec, index) => {
+
+            const isLastTwo =
+              sectors.length % 3 === 2 &&
+              index >= sectors.length - 2;
+
+            const isLastOne =
+              sectors.length % 3 === 1 &&
+              index === sectors.length - 1;
 
             return (
-              <article
-                key={sector.title}
-                className="group relative isolate flex min-h-[240px] flex-col justify-end overflow-hidden rounded-2xl bg-slate-900 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-h-[260px]"
+              <div
+                key={index}
+                className={`
+          relative
+          w-full
+          lg:col-span-3
+          ${isLastTwo && index === sectors.length - 2 ? "lg:col-start-2" : ""}
+          ${isLastTwo && index === sectors.length - 1 ? "lg:col-start-6" : ""}
+          ${isLastOne ? "lg:col-start-4" : ""}
+          rounded-2xl
+          bg-slate-50
+          border border-slate-200
+          p-5 sm:p-6
+          hover:shadow-xl
+          hover:border-red-300
+          hover:bg-white
+          transition-all
+          duration-300
+          group
+          flex
+          flex-col
+          h-full
+        `}
               >
-                {/* Background image */}
-                <img
-                  src={sector.image}
-                  alt=""
-                  aria-hidden="true"
-                  loading="lazy"
-                  className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
 
-                {/* Dark gradient overlay */}
-                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950/95 via-slate-900/45 to-slate-900/10" />
+                {/* Icon + Tag */}
+                <div className="flex items-center justify-between mb-5">
 
-                {/* Sector icon */}
-                <div className="mb-auto flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/15 text-white backdrop-blur-sm">
-                  <Icon size={22} />
+                  <div className="w-12 h-12 rounded-xl bg-white shadow-sm border border-slate-200 flex items-center justify-center group-hover:scale-105 transition-transform">
+                    {sec.icon}
+                  </div>
+
+                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-red-50 text-red-700 border border-red-100">
+                    {sec.tag}
+                  </span>
+
                 </div>
 
-                {/* Sector details */}
-                <div className="mt-8">
-                  <h3 className="text-lg font-bold text-white sm:text-xl">
-                    {sector.title}
-                  </h3>
+                {/* Title */}
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 group-hover:text-red-600 transition-colors leading-snug mb-3">
+                  {sec.title}
+                </h3>
 
-                  <p className="mt-2 max-w-sm text-sm leading-6 text-white/85">
-                    {sector.description}
-                  </p>
+                {/* Description */}
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5 text-justify">
+                  {sec.desc}
+                </p>
 
-                  <div className="mt-4 h-1 w-10 rounded-full bg-red-500 transition-all duration-300 group-hover:w-16" />
+                {/* Highlight */}
+                <div className="mt-auto border-t border-slate-200/70 pt-3 flex items-center gap-1.5 text-xs font-semibold text-red-600">
+                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+
+                  <span>
+                    {sec.highlight}
+                  </span>
                 </div>
-              </article>
+
+              </div>
             );
           })}
 
-          {/* Dealer inquiry card */}
-          <article className="relative isolate flex min-h-[240px] flex-col justify-between overflow-hidden rounded-2xl bg-slate-900 p-5 text-white shadow-sm sm:min-h-[260px]">
-            {/* Decorative background */}
-            <div className="absolute -right-10 -top-10 -z-10 h-40 w-40 rounded-full bg-red-600/20 blur-3xl" />
-            <div className="absolute -bottom-16 -left-10 -z-10 h-40 w-40 rounded-full bg-blue-500/15 blur-3xl" />
-
-            <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-red-400">
-                Partner With Us
-              </span>
-
-              <h3 className="mt-3 text-xl font-bold sm:text-2xl">
-                Become a Dealer
-              </h3>
-
-              <p className="mt-2 text-sm leading-6 text-slate-300">
-                Interested in our products? Contact us to explore
-                dealership opportunities.
-              </p>
-            </div>
-
-            <button
-              type="button"
-              onClick={() =>
-                onOpenInquiry?.('New Dealership Application')
-              }
-              className="mt-6 inline-flex w-fit items-center gap-2 rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-slate-900"
-            >
-              Enquire Now
-              <ArrowRight size={16} />
-            </button>
-          </article>
         </div>
 
-        {/* Client directory */}
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-6 lg:p-8">
+        {/* =====================================================
+            CLIENT LIST
+        ====================================================== */}
 
-          {/* Directory heading and search */}
-          <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h3 className="text-xl font-bold text-slate-900">
-                Our Client Directory
-              </h3>
+        <div
+          className="
+            rounded-3xl
+            bg-slate-50
+            border border-slate-200/90
+            p-8 sm:p-10
+          "
+        >
 
-              <p className="mt-1 text-sm text-slate-500">
-                Explore the organizations in our network.
+          {/* Header + Search */}
+          <div
+            className="
+              flex
+              flex-col
+              sm:flex-row
+              sm:items-center
+              justify-between
+              gap-4
+              mb-8
+            "
+          >
+
+            {/* Heading */}
+            <div className="w-full text-center">
+
+              <div className="flex items-center justify-center gap-3 sm:gap-6 !mb-0">
+                <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shadow-sm" />
+
+                <h3 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight text-center !mb-0">
+                  Our{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-rose-600 to-red-700">
+                    Client List
+                  </span>
+                </h3>
+
+                <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shadow-sm" />
+              </div>
+
+              <p className="text-sm sm:text-base text-slate-500 !mt-2 !pt-0 leading-tight">
+                A selection of esteemed builders, institutions, and
+                industrial leaders who trust Vishwas Sales.
               </p>
+
             </div>
 
-            <div className="relative w-full sm:max-w-xs">
-              <Search
-                size={18}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
-              />
+            {/* Search */}
 
-              <input
-                type="search"
-                value={clientSearch}
-                onChange={(event) =>
-                  handleSearch(event.target.value)
-                }
-                placeholder="Search clients..."
-                aria-label="Search clients"
-                className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-10 pr-4 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-red-400 focus:ring-2 focus:ring-red-100"
-              />
-            </div>
+
           </div>
 
-          {/* Client logo grid */}
-          {visibleClients.length > 0 ? (
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-              {visibleClients.map((client) => (
-                <div
-                  key={client.name}
-                  title={client.name}
-                  className="flex h-24 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white p-3 transition hover:border-red-200 hover:shadow-sm sm:h-28"
-                >
-                  <img
-                    src={client.img}
-                    alt={client.name}
-                    loading="lazy"
-                    className="max-h-full max-w-full object-contain"
-                    onError={(event) => {
-                      event.currentTarget.style.display = 'none';
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="py-10 text-center">
-              <Search
-                className="mx-auto mb-3 text-slate-400"
-                size={28}
-              />
+          {/* =================================================
+              CLIENT LOGOS GRID
+          ================================================== */}
 
-              <p className="font-semibold text-slate-800">
-                No clients found
-              </p>
+          {filteredClients.length > 0 ? (
+            <>
+              <div
+                className="
+        grid
+        grid-cols-2
+        sm:grid-cols-3
+        md:grid-cols-4
+        lg:grid-cols-6
+        gap-3
+      "
+              >
+                {visibleClients.map((client, index) => (
+                  <div
+                    key={`${client.name}-${index}`}
+                    className="
+  max-w-[98%]
+  max-h-28
+  sm:max-h-32
+  object-contain
+  transition-transform
+  duration-300
+  group-hover:scale-105
+"
+                  >
+                    {/* Logo Container */}
+                    <div
+                      className="
+                        flex-1
+                        w-full
+                        flex
+                        items-center
+                        justify-center
+                        min-h-[100px]
+                      "
+                    >
+                      <img
+                        src={client.img}
+                        alt={client.name}
+                        title={client.name}
+                        loading="lazy"
+                        className="
+                          max-w-[95%]
+                          max-h-20
+                          sm:max-h-24
+                          object-contain
+                          transition-transform
+                          duration-300
+                          group-hover:scale-105
+                        "
+                      />
+                    </div>
 
-              <p className="mt-1 text-sm text-slate-500">
-                Try another company name.
-              </p>
-            </div>
-          )}
 
-          {/* Pagination */}
-          {filteredClients.length > 0 && (
-            <div className="mt-6 flex flex-col gap-4 border-t border-slate-200 pt-5 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-slate-500">
-                Showing{' '}
-                <span className="font-semibold text-slate-800">
-                  {currentPage * CLIENTS_PER_PAGE + 1}–
-                  {Math.min(
-                    (currentPage + 1) * CLIENTS_PER_PAGE,
-                    filteredClients.length
-                  )}
-                </span>{' '}
-                of {filteredClients.length} clients
-              </p>
+                  </div>
+                ))}
+              </div>
 
-              {totalPages > 1 && (
-                <div className="flex items-center gap-3">
+              {/* PAGINATION */}
+              {filteredClients.length > CLIENTS_PER_PAGE && (
+                <div className="mt-8 flex items-center justify-center gap-4">
+                  {/* Previous */}
                   <button
                     type="button"
-                    onClick={() =>
-                      setCurrentPage((page) =>
-                        Math.max(0, page - 1)
-                      )
-                    }
-                    disabled={currentPage === 0}
-                    className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-red-300 hover:text-red-600 disabled:cursor-not-allowed disabled:opacity-40"
+                    onClick={goToPreviousPage}
+                    disabled={clientPage === 0}
+                    className="
+            w-10 h-10
+            rounded-xl
+            border border-slate-200
+            bg-white
+            flex items-center justify-center
+            text-slate-700
+            hover:border-red-400
+            hover:text-red-600
+            hover:bg-red-50
+            disabled:opacity-40
+            disabled:cursor-not-allowed
+            transition-all
+          "
+                    aria-label="Previous clients"
                   >
-                    Previous
+                    <ChevronLeft className="w-5 h-5" />
                   </button>
 
-                  <span className="whitespace-nowrap text-sm text-slate-600">
-                    {currentPage + 1} / {totalPages}
+                  {/* Page Number */}
+                  <span
+                    className="
+            text-sm
+            font-semibold
+            text-slate-600
+            min-w-[80px]
+            text-center
+          "
+                  >
+                    Page {clientPage + 1} of {totalPages}
                   </span>
 
+                  {/* Next */}
                   <button
                     type="button"
-                    onClick={() =>
-                      setCurrentPage((page) =>
-                        Math.min(totalPages - 1, page + 1)
-                      )
-                    }
-                    disabled={currentPage >= totalPages - 1}
-                    className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                    onClick={goToNextPage}
+                    disabled={clientPage >= totalPages - 1}
+                    className="
+            w-10 h-10
+            rounded-xl
+            border border-slate-200
+            bg-white
+            flex items-center justify-center
+            text-slate-700
+            hover:border-red-400
+            hover:text-red-600
+            hover:bg-red-50
+            disabled:opacity-40
+            disabled:cursor-not-allowed
+            transition-all
+          "
+                    aria-label="Next clients"
                   >
-                    Next
+                    <ChevronRight className="w-5 h-5" />
                   </button>
                 </div>
               )}
+            </>
+          ) : (
+
+            /* =================================================
+               NO RESULTS
+            ================================================== */
+
+            <div
+              className="
+                py-12
+                text-center
+                text-sm
+                text-slate-500
+              "
+            >
+
+              No clients found for
+
+              <span className="font-semibold text-slate-700 ml-1">
+                "{clientSearch}"
+              </span>
+
             </div>
+
           )}
+
+          {/* =================================================
+              ASSOCIATED WITH
+          ================================================== */}
+
+
+
         </div>
+
       </div>
     </section>
   );
