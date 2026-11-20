@@ -109,28 +109,28 @@ export default function AboutSection({ onOpenInquiry }) {
                 </div>
               </div>
 
-              <div className="mt-8">
+              <div className="mt-8 flex justify-center sm:justify-start">
                 <button
                   onClick={() =>
                     onOpenInquiry && onOpenInquiry('Partner With Us')
                   }
                   className="
-            inline-flex
-            items-center
-            gap-2
-            px-6
-            py-3
-            rounded-xl
-            bg-slate-900
-            hover:bg-slate-800
-            text-white
-            font-bold
-            text-xs
-            uppercase
-            tracking-wider
-            shadow-md
-            transition-all
-          "
+      inline-flex
+      items-center
+      gap-2
+      px-6
+      py-3
+      rounded-xl
+      bg-slate-900
+      hover:bg-slate-800
+      text-white
+      font-bold
+      text-xs
+      uppercase
+      tracking-wider
+      shadow-md
+      transition-all
+    "
                 >
                   <span>Partner With Vishwas Sales</span>
                   <ArrowRight className="w-4 h-4 text-red-400" />
@@ -145,10 +145,10 @@ export default function AboutSection({ onOpenInquiry }) {
 
               <div className="relative w-full h-full rounded-3xl bg-white p-8 border border-slate-200/90 shadow-xl">
 
-                <div className="flex items-center justify-between pb-6 border-b border-slate-100">
+                <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:justify-between pb-6 border-b border-slate-100">
                   <Logo size="normal" />
 
-                  <span className="text-sm font-bold px-3 py-1 bg-red-50 text-red-700 rounded-full border border-red-200">
+                  <span className="text-sm font-bold px-3 py-1 bg-red-50 text-red-700 rounded-full border border-red-200 text-center">
                     Reliability Assured Since 1985
                   </span>
                 </div>
@@ -162,24 +162,21 @@ export default function AboutSection({ onOpenInquiry }) {
                       Workshop & Technical Force
                     </span>
 
-                    <span className="text-xs bg-slate-800 text-slate-300 px-2 py-1 rounded">
-                      On-Site & In-House
-                    </span>
 
                   </div>
 
-                  <h4 className="text-xl sm:text-2xl font-extrabold text-white">
+                  <h4 className="text-xl sm:text-2xl font-extrabold text-white text-center sm:text-left">
                     Skilled & Dedicated Technical Team
                   </h4>
 
-                  <p className="text-sm sm:text-base text-slate-300 leading-7 text-left sm:text-justify">
+                  <p className="text-sm sm:text-base text-slate-300 leading-7 text-justify">
                     Our dedicated repair division features certified pump mechanics,
                     electrical rewinders, and diagnostic equipment. Whether for routine
                     society maintenance or emergency de-watering, we deploy skilled
                     personnel immediately.
                   </p>
 
-                  <div className="pt-2 flex items-center gap-3 text-sm text-slate-400">
+                  <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 text-sm text-slate-400">
                     <span>✓ Submersible Repairs</span>
                     <span>✓ Standby Pumps</span>
                     <span>✓ Emergency Dispatch</span>
@@ -209,8 +206,8 @@ export default function AboutSection({ onOpenInquiry }) {
               <div className="flex items-center justify-center gap-3 sm:gap-6 mb-8 sm:mb-10">
                 <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
 
-                <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight text-center whitespace-nowrap">
-                  Institutional Memberships{' '}
+                <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight text-center sm:whitespace-nowrap">
+                  Institutional Memberships{" "}
                   <span className="text-red-600">& Accreditations</span>
                 </h2>
 
@@ -333,8 +330,8 @@ export default function AboutSection({ onOpenInquiry }) {
             <div className="flex items-center justify-center gap-3 sm:gap-6 mb-8 sm:mb-10">
               <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
 
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight text-center whitespace-nowrap">
-                Why Discerning{' '}
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight text-center sm:whitespace-nowrap">
+                Why Discerning{" "}
                 <span className="text-red-600">
                   Clients Choose Us
                 </span>

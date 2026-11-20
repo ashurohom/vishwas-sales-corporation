@@ -154,18 +154,20 @@ export default function ProductsSection({
               <article
                 key={item.brand}
                 className="
-                  group flex h-full min-h-[350px] w-full
-                  flex-col overflow-hidden
-                  rounded-xl
-                  border border-blue-100
-                  bg-gradient-to-br from-white via-white to-blue-50
-                  shadow-sm
-                  transition-all duration-300
-                  hover:-translate-y-1
-                  hover:border-red-300
-                  hover:shadow-lg
-                  hover:shadow-red-900/10
-                "
+        group flex h-full min-h-[350px]
+        w-[90%] mx-auto
+        sm:w-full sm:mx-0
+        flex-col overflow-hidden
+        rounded-xl
+        border border-blue-100
+        bg-gradient-to-br from-white via-white to-blue-50
+        shadow-sm
+        transition-all duration-300
+        hover:-translate-y-1
+        hover:border-red-300
+        hover:shadow-lg
+        hover:shadow-red-900/10
+      "
               >
 
                 {/* Brand Image */}

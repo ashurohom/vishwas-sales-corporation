@@ -144,14 +144,7 @@ export default function Navbar({ onOpenInquiry }) {
 
             {/* Right Action Icons & Buttons */}
             <div className="hidden lg:flex items-center gap-3 shrink-0">
-              {/* Search Toggle Icon */}
-              <button
-                onClick={() => setSearchOpen(!searchOpen)}
-                className="p-2 rounded-xl text-slate-600 hover:text-red-600 hover:bg-slate-100 transition-colors"
-                title="Search Products or Brands"
-              >
-                <Search className="w-5 h-5" />
-              </button>
+              
 
               {/* Quick Call / Service Desk Button with Underline Accent on Hover */}
               <a
@@ -169,13 +162,6 @@ export default function Navbar({ onOpenInquiry }) {
 
             {/* Mobile Controls */}
             <div className="flex items-center gap-2 xl:hidden">
-              <button
-                onClick={() => setSearchOpen(!searchOpen)}
-                className="p-2 text-slate-600 hover:text-red-600"
-                aria-label="Search"
-              >
-                <Search className="w-5 h-5" />
-              </button>
               <button
                 onClick={() => onOpenInquiry && onOpenInquiry('Mobile Quote')}
                 className="text-xs font-bold px-3 py-1.5 bg-red-600 text-white rounded-lg shadow-xs whitespace-nowrap"

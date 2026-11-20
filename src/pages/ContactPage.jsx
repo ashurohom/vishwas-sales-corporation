@@ -20,9 +20,20 @@ export default function ContactPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/25 text-red-400 text-xs font-semibold mb-3 sm:mb-4 shadow-sm">
-            <MapPin className="w-4 h-4" />
-            <span>Corporate Showroom & In-House Technical Workshop</span>
+          <div className="
+  inline-flex items-center justify-center gap-2
+  max-w-[270px] sm:max-w-none
+  px-3 py-1.5 sm:px-3.5
+  rounded-full
+  bg-red-500/10 border border-red-500/25
+  text-red-400 text-[10px] sm:text-xs
+  font-semibold text-center
+  mb-3 sm:mb-4 shadow-sm
+">
+            <MapPin className="w-4 h-4 shrink-0" />
+            <span className="leading-tight">
+              Corporate Showroom & In-House Technical Workshop
+            </span>
           </div>
 
           {/* Heading */}
