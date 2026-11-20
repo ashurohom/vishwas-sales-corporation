@@ -44,15 +44,7 @@ export default function ServicesSection({ onOpenInquiry }) {
       cta: "Contact Service Desk"
     },
 
-    {
-      id: "standby",
-      title: "Standby Pumps",
-      category: "Support",
-      icon: <ShieldCheck className="w-6 h-6 text-emerald-600" />,
-      tag: "Zero Downtime",
-      desc: "Standby pumps available during repairs to ensure continuous water supply for societies and commercial sites.",
-      cta: "Request Standby Pump"
-    },
+
 
     {
       id: "energy-audit",

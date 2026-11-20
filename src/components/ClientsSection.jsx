@@ -126,18 +126,23 @@ export default function ClientsSection({ onOpenInquiry }) {
             </span>
           </div>
 
-          <div className="flex flex-nowrap items-center justify-center gap-3 sm:gap-6 !mb-0">
-            <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
 
-            <h2 className="whitespace-nowrap text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight text-center !mb-0">
+
+          <div className="flex items-center justify-center gap-2 sm:gap-6 !mb-0">
+
+            <span className="h-0.5 w-8 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
+
+            <h2 className="text-xl sm:text-3xl md:text-4xl sm:whitespace-nowrap font-black text-slate-900 tracking-tight text-center !mb-0">
               Our Clients &{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-rose-600 to-red-700">
                 800+ Dealers Network
               </span>
             </h2>
 
-            <span className="h-0.5 w-10 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
+            <span className="h-0.5 w-8 sm:w-20 md:w-28 bg-red-600 rounded-full shrink-0 shadow-xs" />
+
           </div>
+
 
 
 
@@ -324,6 +329,7 @@ export default function ClientsSection({ onOpenInquiry }) {
 
         </div>
 
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-9 gap-5 sm:gap-6 items-stretch mb-16 mt-16">
 
           {sectors.map((sec, index) => {
@@ -348,7 +354,7 @@ export default function ClientsSection({ onOpenInquiry }) {
           ${isLastOne ? "lg:col-start-4" : ""}
           rounded-2xl
           bg-slate-50
-          border border-slate-200
+          border border-slate-200/90
           p-5 sm:p-6
           hover:shadow-xl
           hover:border-red-300
@@ -381,17 +387,19 @@ export default function ClientsSection({ onOpenInquiry }) {
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5 text-justify">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed text-justify mb-5">
                   {sec.desc}
                 </p>
 
                 {/* Highlight */}
-                <div className="mt-auto border-t border-slate-200/70 pt-3 flex items-center gap-1.5 text-xs font-semibold text-red-600">
+                <div className="mt-auto pt-3 border-t border-slate-200/60 flex items-center gap-1.5 text-xs font-semibold text-red-600">
+
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
 
                   <span>
                     {sec.highlight}
                   </span>
+
                 </div>
 
               </div>
@@ -399,6 +407,7 @@ export default function ClientsSection({ onOpenInquiry }) {
           })}
 
         </div>
+
 
         {/* =====================================================
             CLIENT LIST
@@ -610,9 +619,6 @@ export default function ClientsSection({ onOpenInquiry }) {
           {/* =================================================
               ASSOCIATED WITH
           ================================================== */}
-
-
-
         </div>
 
       </div>

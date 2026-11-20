@@ -10,7 +10,7 @@ export const companyInfo = {
   email: "vishwassalescorporation@gmail.com",
   address: "9, Vishwas Complex, Pune-Solapur Road, Near HP Petrol Pump, Gadital, Hadapsar, Pune 411028",
   googleMapsUrl: "https://maps.google.com/?q=Vishwas+Complex+Hadapsar+Pune+411028",
-  hours: "Mon - Sat: 9:00 AM - 8:30 PM",
+  hours: "Mon - Sat: 9:30 AM - 7:00 PM",
   dealerCount: "800+",
   
   memberships: [
@@ -362,7 +362,7 @@ export const products = [
   },
   {
     brand: 'C.R.I. Pumps',
-    imgUrl: '/Brand/CRI_PUMPS.webp',
+    imgUrl: '/Brand/CRI_PUMPS.png',
     category: 'Pumps',
     tagline: 'Agriculture, residential, industrial and sewage pumps',
     details: [

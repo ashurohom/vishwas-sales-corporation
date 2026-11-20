@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Compass, Sunrise } from 'lucide-react';
 
@@ -40,15 +41,15 @@ export default function MissionVision() {
         </div>
 
         {/* Mission & Vision Cards */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           {/* ================= MISSION BOX ================= */}
           <div className="group rounded-2xl bg-white border border-slate-200 shadow-md hover:shadow-xl hover:border-red-200 overflow-hidden transition-all duration-300">
 
-            <div className="grid grid-cols-2 items-stretch gap-3 p-4 sm:p-5 h-full">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 items-stretch gap-3 p-4 sm:p-5 h-full">
 
-              {/* Mission Image - Left */}
-              <div className="relative min-h-full overflow-hidden rounded-xl">
+              {/* Mission Image */}
+              <div className="relative h-48 sm:h-full min-h-[190px] overflow-hidden rounded-xl">
                 <img
                   src="/mission.png"
                   alt="Our Mission"
@@ -56,12 +57,10 @@ export default function MissionVision() {
                 />
               </div>
 
-              {/* Mission Description - Right */}
+              {/* Mission Description */}
               <div className="flex flex-col justify-center py-2">
-
                 <div className="flex items-center gap-2 mb-3">
                   <Compass size={24} className="text-red-600 shrink-0" />
-
                   <h3 className="text-base sm:text-xl font-black text-slate-900">
                     Our Mission
                   </h3>
@@ -69,14 +68,13 @@ export default function MissionVision() {
 
                 <div className="h-1 w-10 rounded-full bg-red-600 mb-3" />
 
-                <p className="text-sm sm:text-base text-slate-700 leading-relaxed text-left sm:text-justify">
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed text-justify">
                   To be Maharashtra's most reliable and comprehensive
                   wholesale partner for plumbing, pumping, solar,
                   sanitary, and building solutions — delivering genuine
                   products, honest pricing, and expert support to every
                   client, on every project.
                 </p>
-
               </div>
             </div>
           </div>
@@ -84,33 +82,10 @@ export default function MissionVision() {
           {/* ================= VISION BOX ================= */}
           <div className="group rounded-2xl bg-white border border-slate-200 shadow-md hover:shadow-xl hover:border-red-200 overflow-hidden transition-all duration-300">
 
-            <div className="grid grid-cols-2 items-stretch gap-3 p-4 sm:p-5 h-full">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 items-stretch gap-3 p-4 sm:p-5 h-full">
 
-              {/* Vision Description - Left */}
-              <div className="flex flex-col justify-center py-2">
-
-                <div className="flex items-center gap-2 mb-3">
-                  <Sunrise size={24} className="text-red-600 shrink-0" />
-
-                  <h3 className="text-base sm:text-xl font-black text-slate-900">
-                    Our <span className="text-red-600">Vision</span>
-                  </h3>
-                </div>
-
-                <div className="h-1 w-10 rounded-full bg-red-600 mb-3" />
-
-                <p className="text-sm sm:text-base text-slate-700 leading-relaxed text-left sm:text-justify">
-                  To be Maharashtra's most reliable and comprehensive
-                  wholesale partner for plumbing, pumping, solar,
-                  sanitary, and building solutions — delivering genuine
-                  products, honest pricing, and expert support to every
-                  client, on every project.
-                </p>
-
-              </div>
-
-              {/* Vision Image - Right */}
-              <div className="relative min-h-full overflow-hidden rounded-xl">
+              {/* Vision Image */}
+              <div className="relative h-48 sm:h-full min-h-[190px] overflow-hidden rounded-xl sm:order-2">
                 <img
                   src="/vision.png"
                   alt="Our Vision"
@@ -118,13 +93,31 @@ export default function MissionVision() {
                 />
               </div>
 
+              {/* Vision Description */}
+              <div className="flex flex-col justify-center py-2 sm:order-1">
+                <div className="flex items-center gap-2 mb-3">
+                  <Sunrise size={24} className="text-red-600 shrink-0" />
+                  <h3 className="text-base sm:text-xl font-black text-slate-900">
+                    Our <span className="text-red-600">Vision</span>
+                  </h3>
+                </div>
+
+                <div className="h-1 w-10 rounded-full bg-red-600 mb-3" />
+
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed text-justify">
+                  To be Maharashtra's most reliable and comprehensive
+                  wholesale partner for plumbing, pumping, solar,
+                  sanitary, and building solutions — delivering genuine
+                  products, honest pricing, and expert support to every
+                  client, on every project.
+                </p>
+              </div>
             </div>
           </div>
 
         </div>
 
       </div>
-
     </section>
   );
 }
