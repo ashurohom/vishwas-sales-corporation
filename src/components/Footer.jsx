@@ -30,8 +30,6 @@ export default function Footer() {
   const serviceLinks = [
     { name: 'Pump & Motor Repairing', path: '/services' },
     { name: 'Mechanics On-Call (24/7)', path: '/services' },
-    { name: 'Dewatering Pumps on Rent', path: '/services' },
-    { name: 'Standby Pumps for Societies', path: '/services' },
     { name: 'Housing Society Energy Audit', path: '/services' },
     { name: 'Hydro-Pneumatic Booster Setup', path: '/services' }
   ];

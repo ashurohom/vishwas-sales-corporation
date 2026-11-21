@@ -22,6 +22,7 @@ export default function PriceListPage({ onOpenInquiry }) {
     setSubmitted(true);
   };
 
+  
   const categories = [
     {
       title: "C.R.I. Water Pumps & Motors",
